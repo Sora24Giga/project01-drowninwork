@@ -19,7 +19,6 @@ axios.get<StudentDetail[]>('http://localhost:3004/students')
   <h4 class="bold" style="text-align: center;">Student List</h4>
     <main class="students">
       <StudentCard v-for="student in students" :key="student.id" :event="student"></StudentCard>
-      <!-- <PassengerCard></PassengerCard> -->
     </main>
 </div>    
 </template>
@@ -34,7 +33,7 @@ axios.get<StudentDetail[]>('http://localhost:3004/students')
     font-weight: 900;
 }
 
-.list-box { /*this is where we could decorate the menu page*/
+.list-box {
   width: 83%;
   height: 100%;
   padding: 20px;
