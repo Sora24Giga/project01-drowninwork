@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink :to="{name: 'studentlist'}" class="menu-font">Students</RouterLink>
       </nav>
       <nav>
-        <RouterLink to="/about" class="menu-font">Advisors</RouterLink>
+        <RouterLink :to="{name: 'advisors'}" class="menu-font">Advisors</RouterLink>
       </nav>
       <nav>
         <RouterLink :to="{name: 'studentDetail'}"  class="menu-font">Form</RouterLink>
@@ -23,6 +23,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
   <RouterView />
+  
 </template>
 
 <style scoped>
@@ -37,22 +38,12 @@ header {
   padding: 20px;
   margin-bottom: 20px;
   position: fixed; top: 0px; left: 0;
-  background-color: rgb(67, 82, 222);
-  
+  /* background-color: rgb(67, 82, 222); */
+  background-image: linear-gradient(to top right, rgb(99, 175, 255),rgb(67, 82, 222));
 }
-
-.list-box { /*this is where we could decorate the menu page*/
-  width: 83%;
-  height: 100%;
-  padding: 20px;
-  margin-bottom: 20px;
-  position: fixed; top: 20px; right: 20px;
-  background-color: rgb(236, 235, 235);
-}
-
 .button {
     width: 90%;
-    height: 5%;
+    height: 40px;
     top:50%;
     background-color:#ffffff;
     color: #1d56b1;
@@ -66,6 +57,7 @@ header {
   font-weight: 400;
   color:aliceblue;
 }
+
 
 .vertical {
 

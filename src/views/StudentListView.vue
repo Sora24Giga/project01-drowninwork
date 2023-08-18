@@ -34,11 +34,11 @@ axios.get<StudentDetail[]>('http://localhost:3004/students')
 }
 
 .list-box {
-  width: 83%;
-  height: 100%;
+  width: 81%;
+  height: 70%;
   padding: 20px;
   margin-bottom: 20px;
-  position: fixed; top: 20px; right: 20px;
+  position: fixed; top: 90px; right: 2%;
   background-color: rgb(242, 242, 242);
 }
 </style>
