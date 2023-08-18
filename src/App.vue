@@ -1,21 +1,26 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+    <div class="menu">
+      <p style="text-align: left; font-size: x-large; font-weight: 600; color: aliceblue;">ADMIN</p>
+      <br>
+      <button class="button" style="font-weight: 600;">  + New Form</button>
+      <br>
+      <br>
+      <br>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink :to="{name: 'studentlist'}" class="menu-font">Students</RouterLink>
+      </nav>
+      <nav>
+        <RouterLink to="/about" class="menu-font">Advisors</RouterLink>
+      </nav>
+      <nav>
+        <RouterLink :to="{name: 'studentDetail'}"  class="menu-font">Form</RouterLink>
       </nav>
     </div>
-  </header>
+
 
   <RouterView />
 </template>
@@ -24,6 +29,46 @@ import HelloWorld from './components/HelloWorld.vue'
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+
+.menu { /*this is where we could decorate the menu page*/
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: fixed; top: 0px; left: 0;
+  background-color: rgb(67, 82, 222);
+  
+}
+
+.list-box { /*this is where we could decorate the menu page*/
+  width: 83%;
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: fixed; top: 20px; right: 20px;
+  background-color: rgb(236, 235, 235);
+}
+
+.button {
+    width: 90%;
+    height: 5%;
+    top:50%;
+    background-color:#ffffff;
+    color: #1d56b1;
+    border:none;
+    border-radius:9px;
+    box-shadow: 1px 2px 5px rgb(27, 23, 155);  
+}
+
+.menu-font {
+  font-size: large;
+  font-weight: 400;
+  color:aliceblue;
+}
+
+.vertical {
+
 }
 
 .logo {
@@ -39,7 +84,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color:rgb(0, 255, 229);
 }
 
 nav a.router-link-exact-active:hover {
@@ -78,7 +123,7 @@ nav a:first-of-type {
     margin-left: -1rem;
     font-size: 1rem;
 
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     margin-top: 1rem;
   }
 }

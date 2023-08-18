@@ -1,4 +1,5 @@
 export interface StudentDetail{
+    id: number
     sid: number
     first_name: string
     last_name: string

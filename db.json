@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "students": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "studentImgLink": "asdfasdasdf",
+      "first_name": "David",
+      "last_name": "Christopher",
+      "sid": 64211592,
+      "course": "Software Engineering",
+      "advisor": "Chartchai"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "studentImgLink": "asdasdfasdf",
+      "first_name": "Jennifer",
+      "last_name": "Nola",
+      "sid": 63234212,
+      "course": "Software Engineering",
+      "advisor": "SomeBody"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
