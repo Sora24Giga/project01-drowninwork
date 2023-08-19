@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"json-server --watch db.json --port 3003\" \"vite\"",
+    "devTw": "concurrently \"npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch\" \"json-server --watch db.json --port 3003\" \"vite\"",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
