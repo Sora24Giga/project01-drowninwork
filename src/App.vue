@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <div class="menu">
-      <p style="text-align: left; font-size: x-large; font-weight: 600; color: aliceblue;">ADMIN</p>
+      <p style="text-align: left; font-size: x-large; font-weight: 600;" class="text-slate-900">ADMIN</p>
       <br>
       <button class="button" style="font-weight: 600;">  + New Form</button>
       <br>
