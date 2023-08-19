@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <br>
       <br>
       <nav>
-        <RouterLink :to="{name: 'studentlist'}" class="menu-font">Students</RouterLink>
+        <RouterLink :to="{name: 'studentList'}" class="menu-font">Students</RouterLink>
       </nav>
       <nav>
         <RouterLink :to="{name: 'advisors'}" class="menu-font">Advisors</RouterLink>

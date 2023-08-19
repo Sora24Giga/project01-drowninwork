@@ -1,11 +1,11 @@
 <template>
-    <RouterLink class="passenger-link" :to="{name: 'passenger-details', params:{id: student?.id}}"> <!--해당 뷰 컴포넌트를 라우터링크로 화면전환 패스를 할당해 액션을 일으킨다.-->
+    <!-- <RouterLink class="passenger-link" :to="{name: 'passenger-details', params:{id: student?.id}}"> 해당 뷰 컴포넌트를 라우터링크로 화면전환 패스를 할당해 액션을 일으킨다. -->
   <div class="passenger">
     <div class="passenger-card">
       <span style="font-weight: 700;">Name: {{ props.student?.first_name }} {{ props.student?.last_name }}</span><!--?는 체인 오퍼레이션이라고 한다-->
     </div>
   </div>
-</RouterLink>
+<!-- </RouterLink> -->
 </template>
 
 <script setup lang="ts">

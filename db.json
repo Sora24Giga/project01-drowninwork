@@ -2,19 +2,19 @@
   "students": [
     {
       "id": 1,
-      "studentImgLink": "asdfasdasdf",
+      "sid": 64211592,
       "first_name": "David",
       "last_name": "Christopher",
-      "sid": 64211592,
+      "studentImgLink": "asdfasdasdf",
       "course": "Software Engineering",
       "advisor": "Chartchai"
     },
     {
       "id": 2,
-      "studentImgLink": "asdasdfasdf",
+      "sid": 63234212,
       "first_name": "Jennifer",
       "last_name": "Nola",
-      "sid": 63234212,
+      "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
       "advisor": "SomeBody"
     }

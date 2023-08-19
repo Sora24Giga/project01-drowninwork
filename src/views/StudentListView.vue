@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import StudentCard from '../components/StudentCard.vue'
 import type { StudentDetail } from '@/type'
-import axios from 'axios'
-// import StudentService from '@/services/StudentService'
-import { ref } from 'vue'
+import StudentService from '@/services/StudentService'
+import { ref, type Ref } from 'vue'
 
-const students = ref<StudentDetail[]>([])
-
-axios.get<StudentDetail[]>('http://localhost:3004/students')
-.then((response) => {
+const students: Ref<Array<StudentDetail>> = ref([])
+StudentService.getStudents().then((response) => {
   students.value = response.data
 })
 
@@ -18,7 +15,7 @@ axios.get<StudentDetail[]>('http://localhost:3004/students')
 <div class="list-box">
   <h4 class="bold" style="text-align: center;">Student List</h4>
     <main class="students">
-      <StudentCard v-for="student in students" :key="student.id" :event="student"></StudentCard>
+      <StudentCard v-for="student in students" :key="student.id" :student="student"></StudentCard>
     </main>
 </div>    
 </template>

@@ -8,7 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: '/students',
-      name: 'studentlist',
+      name: 'studentList',
       component: StudentListView
     },
     {
