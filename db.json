@@ -2,21 +2,126 @@
   "students": [
     {
       "id": 1,
-      "sid": 64211592,
-      "first_name": "David",
-      "last_name": "Christopher",
+      "sid": 642115001,
+      "first_name": "Ariana",
+      "last_name": "Grande",
       "studentImgLink": "asdfasdasdf",
       "course": "Software Engineering",
-      "advisor": "Chartchai"
+      "advisor": ""
     },
     {
       "id": 2,
-      "sid": 63234212,
-      "first_name": "Jennifer",
-      "last_name": "Nola",
+      "sid": 642115002,
+      "first_name": "Olivia",
+      "last_name": "Rodrigo",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "SomeBody"
+      "advisor": ""
+    },
+    {
+      "id": 3,
+      "sid": 642115003,
+      "first_name": "Kimberly",
+      "last_name": "Kardashian",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 4,
+      "sid": 642115004,
+      "first_name": "Taylor",
+      "last_name": "Swift",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 5,
+      "sid": 642115005,
+      "first_name": "Billie",
+      "last_name": "Eilish",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 6,
+      "sid": 642115006,
+      "first_name": "Dua",
+      "last_name": "Lipa",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 7,
+      "sid": 642115007,
+      "first_name": "Madison",
+      "last_name": "Beer",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 8,
+      "sid": 642115008,
+      "first_name": "Doja",
+      "last_name": "Cat",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 9,
+      "sid": 642115009,
+      "first_name": "Selena",
+      "last_name": "Gomez",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    },
+    {
+      "id": 10,
+      "sid": 642115010,
+      "first_name": "Kylie",
+      "last_name": "Jenner",
+      "studentImgLink": "asdasdfasdf",
+      "course": "Software Engineering",
+      "advisor": ""
+    }
+  ],
+
+  "advisor": [
+    {
+      "id": 1,
+      "first_nam": "Kanye",
+      "last_name": "West",
+      "img": "abc"
+    },
+    {
+      "id": 2,
+      "first_nam": "Travis",
+      "last_name": "Scott",
+      "img": "abc"
+    },
+    {
+      "id": 3,
+      "first_nam": "21",
+      "last_name": "Savage",
+      "img": "abc"
+    },
+    {
+      "id": 4,
+      "first_nam": "Lil",
+      "last_name": "Wayne",
+      "img": "abc"
+    },
+    {
+      "id": 5,
+      "first_nam": "Uzi",
+      "last_name": "Vert",
+      "img": "abc"
     }
   ]
 }
