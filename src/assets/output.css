@@ -562,10 +562,6 @@ video {
   margin-top: 2rem;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -586,8 +582,8 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
+.justify-between {
+  justify-content: space-between;
 }
 
 .border {
@@ -604,22 +600,18 @@ video {
   background-color: rgb(136 97 183 / var(--tw-bg-opacity));
 }
 
-.bg-transparent {
-  background-color: transparent;
-}
-
 .bg-se-dark {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
-.p-\[20px\] {
-  padding: 20px;
+.bg-transparent {
+  background-color: transparent;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.px-\[30px\] {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .py-4 {
@@ -630,16 +622,6 @@ video {
 .py-\[20px\] {
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.px-\[20px\] {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.px-\[30px\] {
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .text-left {
@@ -674,21 +656,6 @@ video {
   color: rgb(241 235 248 / var(--tw-text-opacity));
 }
 
-.text-\[\#98CE00\] {
-  --tw-text-opacity: 1;
-  color: rgb(152 206 0 / var(--tw-text-opacity));
-}
-
-.text-\[\#bbff00\] {
-  --tw-text-opacity: 1;
-  color: rgb(187 255 0 / var(--tw-text-opacity));
-}
-
-.text-\[\#BB7DCA\] {
-  --tw-text-opacity: 1;
-  color: rgb(187 125 202 / var(--tw-text-opacity));
-}
-
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -699,11 +666,6 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover\:bg-se-color:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(103 67 146 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-se-color-light:hover {
@@ -722,4 +684,9 @@ video {
 
 .hover\:decoration-current:hover {
   text-decoration-color: currentColor;
+}
+
+.active\:text-se-dark:active {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
 }

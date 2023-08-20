@@ -7,14 +7,17 @@ import { RouterLink, RouterView } from 'vue-router'
       <p class="px-[30px] text-light font-semibold text-4xl text-se-white">ADMIN</p>
       <br>
       <nav class="w-full mt-8 text-left text-lg font-[500] text-se-light-gray bg-transparent">
-        <RouterLink :to="{name: 'studentList'}" class="px-[30px] block py-4 hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
-          Students
+        <RouterLink :to="{name: 'studentList'}" class="justify-between px-[30px] flex py-4 active:text-se-dark hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
+          <span>Students</span>
+          <span>></span>
         </RouterLink>
-        <RouterLink :to="{name: 'advisors'}" class="px-[30px] block py-4 hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
-          Advisors
+        <RouterLink :to="{name: 'advisors'}" class="justify-between px-[30px] flex py-4 active:text-se-dark hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
+          <span>Advisors</span>
+          <span>></span>
         </RouterLink>
-        <RouterLink :to="{name: 'studentDetail'}" class="px-[30px] block py-4 hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
-          Form
+        <RouterLink :to="{name: 'studentDetail'}" class="justify-between px-[30px] flex py-4 active:text-se-dark hover:underline hover:text-se-white hover:bg-se-color-light hover:decoration-current transition ease-in-out" active-class="text-se-white bg-se-color-light">
+          <span>Form</span>
+          <span>></span>
         </RouterLink>
       </nav>
     </div>
