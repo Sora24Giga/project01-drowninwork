@@ -2,7 +2,6 @@
 import StudentCard from '../components/StudentCard.vue'
 import type { StudentDetail } from '@/type'
 import axios from 'axios'
-// import StudentService from '@/services/StudentService'
 import { ref } from 'vue'
 
 const students = ref<StudentDetail[]>([])
