@@ -13,17 +13,15 @@ StudentService.getStudents().then((response) => {
 </script>
 
 <template>
-<div class="list-box">
-  <br>
-  <br>
-  <br>
-  <br>
-  <h4 class="card" style="text-align: left; color:aliceblue">Name</h4>
-  <br>
-  <StudentCard style="left: 20px;">name</StudentCard>
-    <main class="students">
-      <StudentCard v-for="student in students" :key="student.id" :student="student"></StudentCard>
-    </main>
+
+<div class="ml-[20%]">
+  <div class="flex flex-col	items-center">
+  <h4 class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-se-color-light border-grey-light text-center w-[900px] mt-[30px]">Student List</h4>
+  </div>
+  
+    <table class="students text-left w-full border-collapse ">
+      <StudentCard v-for="student in students" :key="student.id" :student="student" class=" odd:bg-se-gray even:bg-se-dark"></StudentCard>
+    </table>
 </div>    
 </template>
 
