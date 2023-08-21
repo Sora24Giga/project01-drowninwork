@@ -2,34 +2,32 @@
 import Vue from "vue"
 
 import { type StudentDetail } from '@/type'
-import { VueElement, type PropType } from 'vue'
+import { ref, VueElement, type PropType } from 'vue'
 import axios from 'axios'
+import StudentService from "@/services/StudentService"
 
-defineProps({
-    student: {
-        type: Object as PropType<StudentDetail>,
-        require: true
-    }
+const student = ref<StudentDetail | null>(null)
+const props = defineProps({
+    id: String
 })
 
 
+StudentService.getStudentsById(1).then((response) => {
+  student.value = response.data
+})
 
 </script>
 
 <template>
-    <div v-if="student">
+  <div class="info-pg-bg">
+    <div v-if="student" class="student-card">
         <p>Name: {{ student.first_name }} {{ student.last_name }}</p>
         <p>Student ID: {{ student.sid }}</p>
         <p>Course: {{ student.course }}</p>
     </div>
-    <RouterLink class="student-link" :to="{name: 'advisorDetail', params:{id: student?.id}}">
-  <div class="student">
-    <div class="student-card">
-      <span style="font-weight: 700;">Advisor: {{ student?.advisor }}</span><!--?는 체인 오퍼레이션이라고 한다-->
     </div>
-  </div>
-     </RouterLink>
 </template>
+
 
 <style scoped>
 .student{
@@ -52,6 +50,15 @@ defineProps({
 .student-link{
   color: #2c3e50;
   text-decoration: none;
+}
+
+.info-pg-bg {
+  width: 81%;
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: fixed; top: 0%; right: 0%;
+  background-color: rgb(41, 39, 38);
 }
 
 </style>

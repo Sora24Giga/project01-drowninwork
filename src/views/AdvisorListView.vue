@@ -15,7 +15,7 @@ axios.get<StudentDetail[]>('http://localhost:3004/advisors')
 
 <template>
 <div class="list-box">
-  <h4 class="bold" style="text-align: center;">Advisor List</h4>
+  <h4 class="bold" style="text-align: left; color:aliceblue">Advisor List</h4>
     <main class="students">
       <StudentCard v-for="student in students" :key="student.id" :event="student"></StudentCard>
     </main>
@@ -34,10 +34,10 @@ axios.get<StudentDetail[]>('http://localhost:3004/advisors')
 
 .list-box {
   width: 81%;
-  height: 70%;
+  height: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  position: fixed; top: 90px; right: 2%;
-  background-color: rgb(242, 242, 242);
+  position: fixed; top: 0%; right: 0%;
+  background-color: rgb(41, 39, 38);
 }
 </style>

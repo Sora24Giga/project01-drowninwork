@@ -23,7 +23,7 @@ const props = defineProps({
     id: String
 })
 
-StudentService.getStudentsById(Number(props.id)).then((response) => {
+StudentService.getStudentsById(Number()).then((response) => {
   student.value = response.data
 })
 

@@ -5,6 +5,7 @@ import StudentService from '@/services/StudentService'
 import { ref, type Ref } from 'vue'
 
 const students: Ref<Array<StudentDetail>> = ref([])
+
 StudentService.getStudents().then((response) => {
   students.value = response.data
 })
@@ -13,7 +14,13 @@ StudentService.getStudents().then((response) => {
 
 <template>
 <div class="list-box">
-  <h4 class="bold" style="text-align: center;">Student List</h4>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h4 class="card" style="text-align: left; color:aliceblue">Name</h4>
+  <br>
+  <StudentCard style="left: 20px;">name</StudentCard>
     <main class="students">
       <StudentCard v-for="student in students" :key="student.id" :student="student"></StudentCard>
     </main>
@@ -26,16 +33,30 @@ StudentService.getStudents().then((response) => {
   flex-direction: column;
   align-items: center;
 }
+.card{
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+  position: fixed;
+  left: 29.5%;
+  right: 0%;
+  padding: 0px;
+  width: 990px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  background-color: rgba(255, 255, 255, 0.085);
+}
+
 .bold{
     font-weight: 900;
 }
 
 .list-box {
   width: 81%;
-  height: 70%;
+  height: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  position: fixed; top: 90px; right: 2%;
-  background-color: rgb(242, 242, 242);
+  position: fixed; top: 0%; right: 0%;
+  background-color: rgb(41, 39, 38);
 }
 </style>
