@@ -1,7 +1,7 @@
 <template>
     <RouterLink class="student-link" :to="{name: 'studentDetail', params:{id: student?.id}}">
   <div class="student">
-    <div class="student-card">
+    <div class="student-card text-se-light-gray">
       <span style="font-weight: 700;">Name: {{ props.student?.first_name }} {{ props.student?.last_name }}</span><!--?는 체인 오퍼레이션이라고 한다-->
     </div>
   </div>
@@ -34,8 +34,6 @@ const props = defineProps({
   padding: 20px;
   width: 900px;
   cursor: pointer;
-  border: 1px solid #39495c;
-  margin-bottom: 18px;
 }
 
 .student-card:hover{
