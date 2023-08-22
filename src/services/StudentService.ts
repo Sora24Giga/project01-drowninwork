@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AxiosInstance, AxiosResponse} from 'axios'
+import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { StudentDetail } from '@/type'
 
 const apiClient: AxiosInstance = axios.create({
@@ -12,10 +12,10 @@ const apiClient: AxiosInstance = axios.create({
 })
 
 export default {
-    getStudents(): Promise<AxiosResponse<StudentDetail[]>> {
-        return apiClient.get<StudentDetail[]>('/students')
+    getStudents(perPage: number, page: number): Promise<AxiosResponse<StudentDetail[]>> {
+        return apiClient.get<StudentDetail[]>('/students?_limit=' + perPage + '&_page=' + page)
     },
-    getStudentsById(id: number): Promise<AxiosResponse<StudentDetail>>{
-        return apiClient.get<StudentDetail>('/students/'+id.toString())
+    getStudentsById(id: number): Promise<AxiosResponse<StudentDetail>> {
+        return apiClient.get<StudentDetail>('/students/' + id.toString)
     },
 }

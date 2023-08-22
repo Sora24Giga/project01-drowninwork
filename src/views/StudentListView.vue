@@ -2,59 +2,74 @@
 import StudentCard from '../components/StudentCard.vue'
 import type { StudentDetail } from '@/type'
 import StudentService from '@/services/StudentService'
-import { ref, type Ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
+import type { AxiosResponse } from 'axios'
+import { useRouter, onBeforeRouteUpdate } from 'vue-router'
 
 const students: Ref<Array<StudentDetail>> = ref([])
-
-StudentService.getStudents().then((response) => {
-  students.value = response.data
+const totalStudents = ref<number>(0)
+const props = defineProps({
+  limit: {
+    type: Number,
+    required: true
+  },
+  page: {
+    type: Number,
+    required: true
+  }
 })
 
+const router = useRouter()
+
+// eslint-disable-next-line vue/no-setup-props-destructure
+StudentService.getStudents(props.limit, props.page)
+  .then((response: AxiosResponse<StudentDetail[]>) => {
+    students.value = response.data
+    totalStudents.value = response.headers['x-total-count']
+  })
+  .catch(() => {
+    router.push({ name: 'network-error' })
+  })
+
+onBeforeRouteUpdate((to, from, next) => {
+  const toPage = Number(to.query.page)
+  // eslint-disable-next-line vue/no-setup-props-destructure
+  StudentService.getStudents(props.limit, toPage)
+    .then((response: AxiosResponse<StudentDetail[]>) => {
+      students.value = response.data
+      totalStudents.value = response.headers['x-total-count']
+      next()
+    })
+    .catch(() => {
+      next({ name: 'network-error' })
+    })
+})
+
+const hasNextPage = computed(() => {
+  const totalPages = Math.ceil(totalStudents.value / props.limit)
+  return props.page.valueOf() < totalPages
+})
 </script>
 
 <template>
+  <div class="mb-[2rem] ml-0 mt-[80px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-0 lg:w-[80%]">
+    <div class="flex flex-col items-center">
+      <h4
+        class="mt-[30px] w-[900px] px-6 py-4 text-center text-sm font-bold uppercase text-se-color-light"
+      >
+        Student List
+      </h4>
+    </div>
 
-<div class="ml-[20%]">
-  <div class="flex flex-col	items-center">
-  <h4 class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-se-color-light border-grey-light text-center w-[900px] mt-[30px]">Student List</h4>
+    <div class="flex flex-col items-center">
+      <StudentCard
+        v-for="student in students"
+        :key="student.id"
+        :student="student"
+        class="bg-se-gray even:bg-se-dark"
+      ></StudentCard>
+    </div>
   </div>
-  
-    <table class="students text-left w-full border-collapse ">
-      <StudentCard v-for="student in students" :key="student.id" :student="student" class=" odd:bg-se-gray even:bg-se-dark"></StudentCard>
-    </table>
-</div>    
 </template>
 
-<style scoped>
-.students {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.card{
-  display:flex;
-  flex-direction: column;
-  align-items: left;
-  position: fixed;
-  left: 29.5%;
-  right: 0%;
-  padding: 0px;
-  width: 990px;
-  cursor: pointer;
-  margin-bottom: 18px;
-  background-color: rgba(255, 255, 255, 0.085);
-}
-
-.bold{
-    font-weight: 900;
-}
-
-.list-box {
-  width: 81%;
-  height: 100%;
-  padding: 20px;
-  margin-bottom: 20px;
-  position: fixed; top: 0%; right: 0%;
-  background-color: rgb(41, 39, 38);
-}
-</style>
+<style></style>
