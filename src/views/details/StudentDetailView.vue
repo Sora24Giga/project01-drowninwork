@@ -19,13 +19,26 @@ StudentService.getStudentsById(1).then((response) => {
 </script>
 
 <template>
+  <div class="studet-box">
   <div class="info-pg-bg">
     <div v-if="student" class="student-card">
+      <br>
+      <br>
+      <br>
+      <br>
         <p>Name: {{ student.first_name }} {{ student.last_name }}</p>
         <p>Student ID: {{ student.sid }}</p>
         <p>Course: {{ student.course }}</p>
+        <br>
+        <a v-bind:href="student.studentImgLink">[Progfile Photo]</a>
+    </div>
+    <RouterLink :to="{name:'advisorDetail'}" class="advisor-card">Advisor: {{ student?.advisor }}</RouterLink>
+    <div class="comment-card">
+      <p>Advisor Comment</p>
+
     </div>
     </div>
+  </div>
 </template>
 
 
@@ -36,24 +49,60 @@ StudentService.getStudentsById(1).then((response) => {
   align-items: center;
 }
 .student-card{
+  text-align: center;
   padding: 20px;
-  width: 900px;
+  width: 500px;
+  height: 400px;
   cursor: pointer;
-  border: 1px solid #39495c;
   margin-bottom: 18px;
+  margin-top: 5%;
+  margin-left: 32%;
+  color: aliceblue;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #312f2f3a;
 }
 
-.student-card:hover{
+.advisor-card{
+  text-align: center;
+  padding: 20px;
+  width: 500px;
+  height: 50px;
+  cursor: pointer;
+  /* border: 1px solid #39495c; */
+  margin-bottom: 4%;
+
+  margin-left: 32%;
+  color: aliceblue;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #312f2f3a;
+}
+
+.comment-card{
+  text-align: center;
+  padding: 20px;
+  width: 500px;
+  height: 200px;
+  cursor: pointer;
+  /* border: 1px solid #39495c; */
+  margin-top: 3%;
+
+  margin-left: 32%;
+  color: aliceblue;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #312f2f3a;
+}
+
+/* .student-card:hover{
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-}
+} */
 .student-link{
   color: #2c3e50;
   text-decoration: none;
 }
 
 .info-pg-bg {
-  width: 81%;
+  width: 80%;
   height: 100%;
   padding: 20px;
   margin-bottom: 20px;

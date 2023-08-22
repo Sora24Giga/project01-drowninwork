@@ -9,7 +9,8 @@ export interface StudentDetail{
 }
 
 export interface AdvisorDetail{
+    id: number
     first_name: string
     last_name: string
-    advisorImgLink: string
+    img: string
 }
