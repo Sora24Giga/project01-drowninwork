@@ -18,8 +18,9 @@ const router = createRouter({
     },
     {
       path: '/advisors',
-      name: 'advisors',
-      component: AdvisorsListView
+      name: 'advisorList',
+      component: AdvisorsListView,
+      props: (route) => ({ limit: parseInt(route.query?.limit as string || '3'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/students/:id',
@@ -28,9 +29,10 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/advisors/advisorDetail',
+      path: '/advisors/:id',
       name: 'advisorDetail',
-      component: AdvisorDetailView
+      component: AdvisorDetailView,
+      props: true
     },
     {
       path: '/404/:resource',

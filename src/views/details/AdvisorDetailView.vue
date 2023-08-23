@@ -1,71 +1,67 @@
 <script setup lang="ts">
-// import Vue from "vue"
+import type { AdvisorDetail } from '@/type'
+import { ref } from 'vue'
+import StudentService from "@/services/StudentService"
 
-// import { type StudentDetail } from '@/type'
-// import { VueElement, type PropType } from 'vue'
-// import axios from 'axios'
-
-// defineProps({
-//     student: {
-//         type: Object as PropType<StudentDetail>,
-//         require: true
-//     }
-// })
-
-import {ref} from 'vue'
-import { type StudentDetail } from '@/type'
-import type { PropType } from 'vue';
-import StudentService from '@/services/StudentService';
-
-
-const student = ref<StudentDetail | null>(null)
+const advisor = ref<AdvisorDetail | null> (null)
 const props = defineProps({
-    id: String
+  id: String
 })
 
-StudentService.getStudentsById(Number()).then((response) => {
-  student.value = response.data
-})
+console.log(Number(props.id)) //props check
 
+StudentService.getAdvisorsById(Number(props.id)).then((response) => {
+  advisor.value = response.data
+})
 
 </script>
 
 <template>
-    <div v-if="student">
-        <p>Name: {{ student.first_name }} {{ student.last_name }}</p>
-        <p>Student ID: {{ student.sid }}</p>
-        <p>Course: {{ student.course }}</p>
+  <div class="info-pg-bg">
+    <div v-if="advisor" class="advisor-card">
+      <br>
+      <br>
+      <br>
+      <br>
+        <p>Name: {{ advisor.first_name }} {{ advisor.last_name }}</p>
+        <br>
     </div>
-    <RouterLink class="student-link" :to="{name: 'advisorDetail', params:{id: student?.id}}">
-  <div class="student">
-    <div class="student-card">
-      <span style="font-weight: 700;">Advisor: {{ student?.advisor }}</span><!--?는 체인 오퍼레이션이라고 한다-->
     </div>
-  </div>
-     </RouterLink>
 </template>
 
+
 <style scoped>
-.student{
+.advisor{
   display:flex;
   flex-direction: column;
   align-items: center;
 }
-.student-card{
+.advisor-card{
+  text-align: center;
   padding: 20px;
-  width: 900px;
+  width: 500px;
+  height: 400px;
   cursor: pointer;
-  border: 1px solid #39495c;
   margin-bottom: 18px;
+  margin-top: 5%;
+  margin-left: 32%;
+  color: aliceblue;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #312f2f3a;
 }
 
-.student-card:hover{
-  transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-}
-.student-link{
+.advisor-link{
   color: #2c3e50;
   text-decoration: none;
+}
+
+.info-pg-bg {
+  width: 80%;
+  height: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: fixed; top: 0%; right: 0%;
+  background-color: rgb(41, 39, 38);
 }
 
 </style>
