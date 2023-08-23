@@ -19,7 +19,8 @@ const router = createRouter({
     {
       path: '/advisors',
       name: 'advisors',
-      component: AdvisorsListView
+      component: AdvisorsListView,
+      props: (route) => ({ limit: parseInt(route.query?.limit as string || '7'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/students/:id',

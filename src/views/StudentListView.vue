@@ -70,13 +70,13 @@ const hasNextPage = computed(() => {
           class="bg-se-gray even:bg-se-dark"
         ></StudentCard>
       </div>
-      <div class="flex">
+      <div class="flex w-fit">
         <RouterLink
           :to="{ name: 'studentList', query: { limit: limit, page: page - 1 } }"
           rel="prev"
           v-if="page != 1"
           id="page-prev"
-          class="flex-1 text-left text-lg font-medium text-se-white no-underline hover:text-se-color-light"
+          class="flex-1 text-left text-lg font-medium text-se-light-gray no-underline hover:text-se-color-light"
         >
           Prev Page
         </RouterLink>
@@ -85,7 +85,7 @@ const hasNextPage = computed(() => {
           rel="next"
           v-if="hasNextPage"
           id="page-next"
-          class="flex-1 text-left text-lg font-medium text-se-white no-underline hover:text-se-color-light"
+          class="flex-1 text-left text-lg font-medium text-se-light-gray no-underline hover:text-se-color-light"
         >
           Next Page
         </RouterLink>
