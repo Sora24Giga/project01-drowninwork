@@ -61,13 +61,35 @@ const hasNextPage = computed(() => {
       </h4>
     </div>
 
-    <div class="flex flex-col items-center">
-      <StudentCard
-        v-for="student in students"
-        :key="student.id"
-        :student="student"
-        class="bg-se-gray even:bg-se-dark"
-      ></StudentCard>
+    <div class="flex min-h-[32rem] flex-col items-center justify-between">
+      <div class="flex h-full w-full flex-col items-center">
+        <StudentCard
+          v-for="student in students"
+          :key="student.id"
+          :student="student"
+          class="bg-se-gray even:bg-se-dark"
+        ></StudentCard>
+      </div>
+      <div class="flex">
+        <RouterLink
+          :to="{ name: 'studentList', query: { limit: limit, page: page - 1 } }"
+          rel="prev"
+          v-if="page != 1"
+          id="page-prev"
+          class="flex-1 text-left text-lg font-medium text-se-white no-underline hover:text-se-color-light"
+        >
+          Prev Page
+        </RouterLink>
+        <RouterLink
+          :to="{ name: 'studentList', query: { limit: limit, page: page + 1 } }"
+          rel="next"
+          v-if="hasNextPage"
+          id="page-next"
+          class="flex-1 text-left text-lg font-medium text-se-white no-underline hover:text-se-color-light"
+        >
+          Next Page
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>

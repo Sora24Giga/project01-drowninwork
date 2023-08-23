@@ -14,7 +14,7 @@ defineProps({
     <h3>The {{ resource }} you're looking for is not here.</h3>
     <RouterLink
       :to="{ name: 'studentList' }"
-      class="text-se-color-light hover:text-se-white hover:underline hover:underline-offset-8"
+      class="text-se-color-light hover:text-se-color hover:underline hover:underline-offset-8"
       >Back to home page</RouterLink
     >
   </div>
