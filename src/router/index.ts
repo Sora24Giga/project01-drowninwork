@@ -29,9 +29,10 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/advisors/advisorDetail',
+      path: '/advisors/:id',
       name: 'advisorDetail',
-      component: AdvisorDetailView
+      component: AdvisorDetailView,
+      props: true
     },
     {
       path: '/404/:resource',
