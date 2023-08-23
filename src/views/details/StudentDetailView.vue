@@ -57,7 +57,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   margin-left: 32%;
   color: aliceblue;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #312f2f3a;
+  background-color: #f2f2f208;
 }
 
 .advisor-card{
@@ -72,7 +72,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   margin-left: 32%;
   color: aliceblue;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #312f2f3a;
+  background-color: #f2f2f208;
 }
 
 .comment-card{
@@ -88,7 +88,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   margin-left: 32%;
   color: aliceblue;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #312f2f3a;
+  background-color: #f2f2f208;
 }
 
 .label-card{
