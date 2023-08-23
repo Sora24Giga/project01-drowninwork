@@ -19,7 +19,7 @@ StudentService.getStudentsById(1).then((response) => {
 </script>
 
 <template>
-  <div class="studet-box">
+  <div class="student-box">
   <div class="info-pg-bg">
     <div v-if="student" class="student-card">
       <br>
@@ -30,7 +30,7 @@ StudentService.getStudentsById(1).then((response) => {
         <p>Student ID: {{ student.sid }}</p>
         <p>Course: {{ student.course }}</p>
         <br>
-        <a v-bind:href="student.studentImgLink">[Progfile Photo]</a>
+        <a v-bind:href="student.studentImgLink">[Profile Photo]</a>
     </div>
     <RouterLink :to="{name:'advisorDetail'}" class="advisor-card">Advisor: {{ student?.advisor }}</RouterLink>
     <div class="comment-card">
