@@ -21,7 +21,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="hidden lg:flex">></span>
       </RouterLink>
       <RouterLink
-        :to="{ name: 'advisorList' }"
+        :to="{ name: 'advisors' }"
         class="flex w-full justify-center p-4 underline-offset-8 transition ease-in-out hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
       >

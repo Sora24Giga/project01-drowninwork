@@ -1,42 +1,40 @@
 <script setup lang="ts">
 import type { AdvisorDetail } from '@/type'
 import { ref } from 'vue'
-import StudentService from "@/services/StudentService"
+import AdvisorService from '@/services/AdvisorService'
 
-const advisor = ref<AdvisorDetail | null> (null)
+const advisor = ref<AdvisorDetail | null>(null)
 const props = defineProps({
   id: String
 })
 
 console.log(Number(props.id)) //props check
 
-StudentService.getAdvisorsById(Number(props.id)).then((response) => {
+AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   advisor.value = response.data
 })
-
 </script>
 
 <template>
   <div class="info-pg-bg">
     <div v-if="advisor" class="advisor-card">
-      <br>
-      <br>
-      <br>
-      <br>
-        <p>Name: {{ advisor.first_name }} {{ advisor.last_name }}</p>
-        <br>
+      <br />
+      <br />
+      <br />
+      <br />
+      <p>Name: {{ advisor.first_name }} {{ advisor.last_name }}</p>
+      <br />
     </div>
-    </div>
+  </div>
 </template>
 
-
 <style scoped>
-.advisor{
-  display:flex;
+.advisor {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-.advisor-card{
+.advisor-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -50,7 +48,7 @@ StudentService.getAdvisorsById(Number(props.id)).then((response) => {
   background-color: #312f2f3a;
 }
 
-.advisor-link{
+.advisor-link {
   color: #2c3e50;
   text-decoration: none;
 }
@@ -60,8 +58,9 @@ StudentService.getAdvisorsById(Number(props.id)).then((response) => {
   height: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  position: fixed; top: 0%; right: 0%;
+  position: fixed;
+  top: 0%;
+  right: 0%;
   background-color: rgb(41, 39, 38);
 }
-
 </style>
