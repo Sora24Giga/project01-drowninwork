@@ -7,7 +7,7 @@
       "last_name": "Grande",
       "studentImgLink": "www.google.com",
       "course": "Software Engineering",
-      "advisor": "TIMMY",
+      "advisor": "Kanye West",
       "advisorID": 1
     },
     {
@@ -17,7 +17,7 @@
       "last_name": "Rodrigo",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Uzi Vert",
       "advisorID": 5
     },
     {
@@ -27,7 +27,7 @@
       "last_name": "Kardashian",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Travis West",
       "advisorID": 2
     },
     {
@@ -37,7 +37,7 @@
       "last_name": "Swift",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Travis West",
       "advisorID": 2
     },
     {
@@ -47,7 +47,7 @@
       "last_name": "Eilish",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Lil Wayne",
       "advisorID": 4
     },
     {
@@ -57,7 +57,7 @@
       "last_name": "Lipa",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Uzi Vert",
       "advisorID": 5
     },
     {
@@ -67,7 +67,7 @@
       "last_name": "Beer",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Kanye West",
       "advisorID": 1
     },
     {
@@ -77,7 +77,7 @@
       "last_name": "Cat",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Travis West",
       "advisorID": 2
     },
     {
@@ -87,7 +87,7 @@
       "last_name": "Gomez",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "21 Savage",
       "advisorID": 3
     },
     {
@@ -97,11 +97,10 @@
       "last_name": "Jenner",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": "",
+      "advisor": "Travis West",
       "advisorID": 2
     }
   ],
-
   "advisors": [
     {
       "id": 1,

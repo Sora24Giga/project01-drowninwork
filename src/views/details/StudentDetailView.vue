@@ -30,7 +30,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
         <br>
         <a v-bind:href="student.studentImgLink">[Profile Photo]</a>
     </div>
-    <RouterLink :to="{name:'advisorDetail'}" class="advisor-card">Advisor: {{ student?.advisor }}</RouterLink>
+    <RouterLink :to="{name:'advisorDetail', params: { id: student?.advisorID } }" class="advisor-card">Advisor: {{ student?.advisor }}</RouterLink>
     <div class="comment-card">
       <p>Advisor Comment</p>
 
