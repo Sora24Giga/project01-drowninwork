@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import Vue from "vue"
-
-import { type StudentDetail } from '@/type'
-import { ref, VueElement, type PropType } from 'vue'
-import axios from 'axios'
+import type { StudentDetail } from '@/type'
+import { ref} from 'vue'
 import StudentService from "@/services/StudentService"
 
-const student = ref<StudentDetail | null>(null)
+const student = ref<StudentDetail | null> (null)
 const props = defineProps({
-    id: String
+  id: String
 })
 
+console.log(Number(props.id)) //props check
 
-StudentService.getStudentsById(1).then((response) => {
+StudentService.getStudentsById(Number(props.id)).then((response) => {
   student.value = response.data
 })
 

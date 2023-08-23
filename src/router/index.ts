@@ -24,7 +24,8 @@ const router = createRouter({
     {
       path: '/students/:id',
       name: 'studentDetail',
-      component: StudentDetailView
+      component: StudentDetailView,
+      props: true
     },
     {
       path: '/advisors/advisorDetail',
