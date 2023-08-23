@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+      <p class="status-bar">ACCOUNT: ADMINISTRATOR</p>
   <div
     class="fixed left-0 right-0 top-0 z-10 mb-[20px] h-fit w-full justify-between bg-se-color text-center lg:block lg:h-full lg:w-[20%] lg:px-0 lg:py-[20px]"
   >
@@ -44,4 +45,22 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.status-bar{
+  text-align: right;
+
+  padding: 20px;
+  width: 100%;
+  height: 60px;
+  
+  cursor: pointer;
+
+  margin-top: 0%;
+  margin-bottom: 4%;
+  margin-left: 0%;
+
+  color: aliceblue;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  background-color: #312f2f53;
+}
+</style>

@@ -17,6 +17,7 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
 
 <template>
   <div class="info-pg-bg">
+
     <p class="label-card">ADVISOR INFO.</p>
     <div v-if="advisor" class="advisor-card">
       <br />
@@ -80,4 +81,5 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   background-color: #312f2f3a;
 }
+
 </style>
