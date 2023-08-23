@@ -63,7 +63,7 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   position: fixed;
   top: 0%;
   right: 0%;
-  background-color: rgb(41, 39, 38);
+  background-color: rgba(41, 39, 38, 0);
 }
 
 .label-card{
@@ -74,12 +74,12 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   cursor: pointer;
 
   /* border: 1px solid #39495c; */
-  margin-top: 7%;
+  margin-top: 16%;
 
   margin-left: 32%;
   color: aliceblue;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #312f2f3a;
+  background-color: #312f2f00;
 }
 
 </style>

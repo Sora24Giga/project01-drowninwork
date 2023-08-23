@@ -99,7 +99,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   cursor: pointer;
 
   /* border: 1px solid #39495c; */
-  margin-top: 3%;
+  margin-top: 8%;
 
   margin-left: 32%;
   color: aliceblue;
@@ -122,7 +122,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   padding: 20px;
   margin-bottom: 20px;
   position: fixed; top: 0%; right: 0%;
-  background-color: rgb(41, 39, 38);
+  background-color: rgba(41, 39, 39, 0);
 }
 
 .button{
