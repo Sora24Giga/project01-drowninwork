@@ -17,8 +17,8 @@ import { RouterLink, RouterView } from 'vue-router'
         class="flex w-full justify-center p-4 underline-offset-8 transition ease-in-out hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
       >
-        <span>Students</span>
-        <span class="hidden lg:flex">></span>
+        <span>Student List</span>
+        <span class="hidden lg:flex"></span>
       </RouterLink>
       <RouterLink
         :to="{ name: 'advisors' }"
@@ -26,7 +26,7 @@ import { RouterLink, RouterView } from 'vue-router'
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
       >
         <span>Advisors</span>
-        <span class="hidden lg:flex">></span>
+        <span class="hidden lg:flex"></span>
       </RouterLink>
       <!-- <RouterLink
         :to="{ name: 'studentDetail' }"
