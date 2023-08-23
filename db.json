@@ -7,7 +7,8 @@
       "last_name": "Grande",
       "studentImgLink": "www.google.com",
       "course": "Software Engineering",
-      "advisor": "TIMMY"
+      "advisor": "TIMMY",
+      "advisorID": 1
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "last_name": "Rodrigo",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 5
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "last_name": "Kardashian",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 2
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "last_name": "Swift",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 2
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "last_name": "Eilish",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 4
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "last_name": "Lipa",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 5
     },
     {
       "id": 7,
@@ -61,7 +67,8 @@
       "last_name": "Beer",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 1
     },
     {
       "id": 8,
@@ -70,7 +77,8 @@
       "last_name": "Cat",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 2
     },
     {
       "id": 9,
@@ -79,7 +87,8 @@
       "last_name": "Gomez",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 3
     },
     {
       "id": 10,
@@ -88,37 +97,38 @@
       "last_name": "Jenner",
       "studentImgLink": "asdasdfasdf",
       "course": "Software Engineering",
-      "advisor": ""
+      "advisor": "",
+      "advisorID": 2
     }
   ],
   "advisors": [
     {
       "id": 1,
-      "first_nam": "Kanye",
+      "first_name": "Kanye",
       "last_name": "West",
       "img": "abc"
     },
     {
       "id": 2,
-      "first_nam": "Travis",
+      "first_name": "Travis",
       "last_name": "Scott",
       "img": "abc"
     },
     {
       "id": 3,
-      "first_nam": "21",
+      "first_name": "21",
       "last_name": "Savage",
       "img": "abc"
     },
     {
       "id": 4,
-      "first_nam": "Lil",
+      "first_name": "Lil",
       "last_name": "Wayne",
       "img": "abc"
     },
     {
       "id": 5,
-      "first_nam": "Uzi",
+      "first_name": "Uzi",
       "last_name": "Vert",
       "img": "abc"
     }

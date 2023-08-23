@@ -6,6 +6,7 @@ export interface StudentDetail{
     studentImgLink: string
     course: string
     advisor: string
+    advisorID: number
 }
 
 export interface AdvisorDetail{
