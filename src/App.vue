@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-      <p class="status-bar">ACCOUNT: ADMINISTRATOR</p>
+      <p class="status-bar" style="font-weight: 500;">ACCOUNT: ADMINISTRATOR</p>
   <div
     class="fixed left-0 right-0 top-0 z-10 mb-[20px] h-fit w-full justify-between bg-se-color text-center lg:block lg:h-full lg:w-[20%] lg:px-0 lg:py-[20px]"
   >
