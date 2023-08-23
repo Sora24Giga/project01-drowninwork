@@ -52,7 +52,7 @@ import { RouterLink, RouterView } from 'vue-router'
   padding: 20px;
   width: 100%;
   height: 60px;
-  
+
   cursor: pointer;
 
   margin-top: 0%;
@@ -60,7 +60,7 @@ import { RouterLink, RouterView } from 'vue-router'
   margin-left: 0%;
 
   color: aliceblue;
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-  background-color: #312f2f53;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.471);
+  background-color: #1e1e1e53;
 }
 </style>
