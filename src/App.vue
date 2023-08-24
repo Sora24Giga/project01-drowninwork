@@ -33,14 +33,14 @@ import { RouterLink, RouterView } from 'vue-router'
         <span>Advisors</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
-      <RouterLink
+      <!-- <RouterLink
         :to="{ name: 'add-to-view' }"
-        class="flex w-full justify-center p-4 underline-offset-8 transition ease-in-out hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
       >
         <span>New Form</span>
         <span class="hidden lg:flex"></span>
-      </RouterLink>
+      </RouterLink> -->
     </nav>
   </div>
 
@@ -49,22 +49,4 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
-<style scoped>
-.status-bar {
-  text-align: right;
-
-  padding: 20px;
-  width: 100%;
-  height: 60px;
-
-  cursor: pointer;
-
-  margin-top: 0%;
-  margin-bottom: 4%;
-  margin-left: 0%;
-
-  color: aliceblue;
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.471);
-  background-color: #1e1e1e53;
-}
-</style>
+<style scoped></style>

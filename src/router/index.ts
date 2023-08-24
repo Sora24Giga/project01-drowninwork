@@ -78,24 +78,24 @@ const router = createRouter({
           })
       },
     },
-    {
-      path: '/addToView',
-      name: 'add-to-view',
-      component: AddingFromViewVue,
-      props: true
-    },
-    {
-      path: '/addToView/student',
-      name: 'addStudentView',
-      component: AddStudent,
-      props: true
-    },
-    {
-      path: '/addToView/advisor',
-      name: 'addAdvisorView',
-      component: AddAdvisor,
-      props: true
-    },
+    // {
+    //   path: '/addToView',
+    //   name: 'add-to-view',
+    //   component: AddingFromViewVue,
+    //   props: true
+    // },
+    // {
+    //   path: '/addToView/student',
+    //   name: 'addStudentView',
+    //   component: AddStudent,
+    //   props: true
+    // },
+    // {
+    //   path: '/addToView/advisor',
+    //   name: 'addAdvisorView',
+    //   component: AddAdvisor,
+    //   props: true
+    // },
     {
       path: '/404/:resource',
       name: '404-resource',

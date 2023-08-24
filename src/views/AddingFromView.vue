@@ -1,13 +1,14 @@
 <script setup></script>
 <template>
-  <div class="title-box">Create Form</div>
+  <p>Unused</p>
+  <!-- <div class="title-box">Create Form</div>
   <div class="info-box">
     If you are Adding student click student.<br> If Advisor click Advisor.
   </div>
   <div class="invisible-box">
     <RouterLink :to="{name: 'addStudentView'}" class="select-box">Student</RouterLink>
     <RouterLink :to="{name: 'addAdvisorView'}" class="select-box2">Advisor</RouterLink>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
@@ -44,9 +45,9 @@
   background-color: #49494953;
 }
 
-.title-box{
+.title-box {
   text-align: center;
-  color:aliceblue;
+  color: aliceblue;
   font-size: x-large;
 
   width: 400px;
@@ -59,10 +60,9 @@
   background-color: rgba(27, 27, 27, 0.49);
 }
 
-.info-box{
+.info-box {
   text-align: center;
-  color:aliceblue;
-
+  color: aliceblue;
 
   width: 400px;
   height: 50px;
@@ -74,7 +74,7 @@
   background-color: rgb(55, 55, 55);
 }
 
-.invisible-box{
+.invisible-box {
   width: 400px;
   height: 0px;
 
@@ -83,7 +83,5 @@
   margin-bottom: 50%;
   margin-right: 50%;
   background-color: rgb(55, 55, 55);
-
 }
-
 </style>
