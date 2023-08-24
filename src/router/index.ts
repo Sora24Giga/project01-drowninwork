@@ -8,6 +8,8 @@ import StudentDetailView from '../views/details/StudentDetailView.vue'
 import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 
 import AddingFromViewVue from '@/views/AddingFromView.vue'
+import AddStudent from '@/views/details/AddStudent.vue'
+import AddAdvisor from '@/views/details/AddAdvisor.vue'
 
 import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '../views/NetworkErrorView.vue'
@@ -81,6 +83,18 @@ const router = createRouter({
       name: 'add-to-view',
       component: AddingFromViewVue,
       props: true
+    },
+    {
+      path: '/addToView/student',
+      name: 'addStudentView',
+      component: AddStudent,
+      props:true
+    },
+    {
+      path: '/addToView/advisor',
+      name: 'addAdvisorView',
+      component: AddAdvisor,
+      props:true
     },
     {
       path: '/404/:resource',
