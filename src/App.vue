@@ -33,14 +33,14 @@ import { RouterLink, RouterView } from 'vue-router'
         <span>Advisors</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
-      <!-- <RouterLink
-        :to="{ name: 'studentDetail' }"
-        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+      <RouterLink
+        :to="{ name: 'add-to-view' }"
+        class="flex w-full justify-center p-4 underline-offset-8 transition ease-in-out hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
       >
-        <span>Form</span>
-        <span class="hidden lg:flex">></span>
-      </RouterLink> -->
+        <span>New Form</span>
+        <span class="hidden lg:flex"></span>
+      </RouterLink>
     </nav>
   </div>
 

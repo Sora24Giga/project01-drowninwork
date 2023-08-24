@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import StudentListView from '../views/StudentListView.vue'
-import StudentDetailView from '../views/details/StudentDetailView.vue'
-import AdvisorsListView from '../views/AdvisorListView.vue'
-import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 import NProgress from 'nprogress'
+
+import StudentListView from '../views/StudentListView.vue'
+import AdvisorsListView from '../views/AdvisorListView.vue'
+
+import StudentDetailView from '../views/details/StudentDetailView.vue'
+import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
+
+import AddingFromViewVue from '@/views/AddingFromView.vue'
+
 import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '../views/NetworkErrorView.vue'
+
 import { useStudentStore } from '@/stores/student'
 import StudentService from '@/services/StudentService'
 import { useAdvisorStore } from '@/stores/advisor'
@@ -69,6 +75,12 @@ const router = createRouter({
             }
           })
       },
+    },
+    {
+      path: '/addToView',
+      name: 'add-to-view',
+      component: AddingFromViewVue,
+      props: true
     },
     {
       path: '/404/:resource',
