@@ -9,7 +9,7 @@
       "course": "Software Engineering",
       "advisor": "Kanye West",
       "advisorID": 1,
-      "img": "/src/assets/imgStudent/ArianaGrande.jpeg",
+      "img": "https://assets.teenvogue.com/photos/613b5fd248eda7f19679403c/1:1/w_1175,h_1175,c_limit/1235152164",
       "comment": []
     },
     {
@@ -33,7 +33,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "/src/assets/imgStudent/KylieJenner.jpeg",
+      "img": "https://i.namu.wiki/i/m9KW5wEnDagPRRQqkpV9vMy_G-pUuWne3d6avTfnvTuhIWyVcHGsGmM-aVZf-bOEtVwhlNd2w2rAUE7y4SHjuA.webp",
       "comment": []
     },
     {
@@ -45,7 +45,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "/src/assets/imgStudent/TaylorSwift.png",
+      "img": "https://m.media-amazon.com/images/M/MV5BZGM0YjhkZmEtNGYxYy00OTk0LThlNDgtNGQzM2YwNjU0NDQzXkEyXkFqcGdeQXVyMTU3ODQxNDYz._V1_.jpg",
       "comment": []
     },
     {
@@ -57,7 +57,7 @@
       "course": "Software Engineering",
       "advisor": "Lil Wayne",
       "advisorID": 4,
-      "img": "/src/assets/imgStudent/BillieEilish.webp",
+      "img": "https://media.allure.com/photos/605247e1bddfa641546fa160/1:1/w_2264,h_2264,c_limit/billie%20eilish.jpg",
       "comment": []
     },
     {
@@ -69,7 +69,7 @@
       "course": "Software Engineering",
       "advisor": "Uzi Vert",
       "advisorID": 5,
-      "img": "/src/assets/imgStudent/DueLipa.jpg",
+      "img": "https://people.com/thmb/1fNpaIk9nG-4vnyN-4UX_1vTaXs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x305:961x307)/dua-lipa-met-gala-050123-c35b6fda36534018b6c63219e86c33af.jpg",
       "comment": []
     },
     {
@@ -81,7 +81,7 @@
       "course": "Software Engineering",
       "advisor": "Kanye West",
       "advisorID": 1,
-      "img": "/src/assets/imgStudent/MadisonBeer.jpeg",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Madison_Beer_2019_by_Glenn_Francis_%28cropped%29.jpg/1200px-Madison_Beer_2019_by_Glenn_Francis_%28cropped%29.jpg",
       "comment": []
     },
     {
@@ -93,7 +93,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "/src/assets/imgStudent/DojaCat.webp",
+      "img": "https://media.vogue.co.uk/photos/64d6346adeddf6970c9b36e8/2:3/w_2560%2Cc_limit/GettyImages-1458726156.jpg",
       "comment": []
     },
     {
@@ -105,7 +105,7 @@
       "course": "Software Engineering",
       "advisor": "21 Savage",
       "advisorID": 3,
-      "img": "/src/assets/imgStudent/SelenaGomez.webp",
+      "img": "https://parade.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk5OTYwMjQzOTg2MjQ1MjQ4/selena-gomez-health.jpg",
       "comment": []
     },
     {
@@ -117,7 +117,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "/src/assets/imgStudent/KylieJenner.jpeg",
+      "img": "https://assets.teenvogue.com/photos/64c2709317534afc665b9283/1:1/pass/undefined",
       "comment": []
     }
   ],
@@ -126,35 +126,35 @@
       "id": 1,
       "first_name": "Kanye",
       "last_name": "West",
-      "img": "/src/assets/imgAdvisor/maxresdefault.jpg",
+      "img": "https://i.pinimg.com/1200x/cb/7f/d1/cb7fd1aaf24a5fa06289691568dd0873.jpg",
       "comment": []
     },
     {
       "id": 2,
       "first_name": "Travis",
       "last_name": "Scott",
-      "img": "/src/assets/imgAdvisor/Travis.png",
+      "img": "https://i.kym-cdn.com/entries/icons/original/000/038/807/tco_-_2021-11-10T121850.234.jpg",
       "comment": []
     },
     {
       "id": 3,
       "first_name": "21",
       "last_name": "Savage",
-      "img": "/src/assets/imgAdvisor/21.jpg",
+      "img": "https://i.kym-cdn.com/entries/icons/original/000/023/326/21.jpg",
       "comment": []
     },
     {
       "id": 4,
       "first_name": "Lil",
       "last_name": "Wayne",
-      "img": "/src/assets/imgAdvisor/LilWyane.jpg",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgbQaphxXk7UlU0Cnyndr7t15Hwws0q03vBK7NbEpe2QtNpbRLG9OVdYeFlOuV39ujz38&usqp=CAU",
       "comment": []
     },
     {
       "id": 5,
       "first_name": "Uzi",
       "last_name": "Vert",
-      "img": "/src/assets/imgAdvisor/Uzi.jpeg",
+      "img": "https://i.pinimg.com/736x/d3/03/c8/d303c8abfbb69b387a9fe448c40c6b7a.jpg",
       "comment": []
     }
   ]
