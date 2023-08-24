@@ -12,6 +12,7 @@ function testReview() {
     store.addComment(student.value?.id, inputComment.value)
     comments.value = store.getComment(student.value.id)
     console.log(store.studentList)
+    console.log(store.getComment(student.value.id))
   }
 }
 </script>
