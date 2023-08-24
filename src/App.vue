@@ -3,7 +3,11 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-      <p class="status-bar" style="font-weight: 500;">ACCOUNT: ADMINISTRATOR</p>
+  <p
+    class="mb-[4%] ml-0 mt-0 hidden h-[60px] w-full cursor-pointer bg-[#1e1e1e53] p-[20px] text-right font-[500] text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.471)] lg:block"
+  >
+    ACCOUNT: ADMINISTRATOR
+  </p>
   <div
     class="fixed left-0 right-0 top-0 z-10 mb-[20px] h-fit w-full justify-between bg-se-color text-center lg:block lg:h-full lg:w-[20%] lg:px-0 lg:py-[20px]"
   >
@@ -46,7 +50,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-.status-bar{
+.status-bar {
   text-align: right;
 
   padding: 20px;
