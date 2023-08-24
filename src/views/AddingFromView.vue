@@ -1,4 +1,4 @@
-<script setup lang="ts"></script>
+<script setup></script>
 <template>
   <p>Unused</p>
   <!-- <div class="title-box">Create Form</div>
