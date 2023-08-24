@@ -6,6 +6,10 @@ import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 import NProgress from 'nprogress'
 import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '../views/NetworkErrorView.vue'
+import { useStudentStore } from '@/stores/student'
+import StudentService from '@/services/StudentService'
+import { useAdvisorStore } from '@/stores/advisor'
+import AdvisorService from '@/services/AdvisorService'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,13 +30,45 @@ const router = createRouter({
       path: '/students/:id',
       name: 'studentDetail',
       component: StudentDetailView,
-      props: true
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const studentStore = useStudentStore()
+        StudentService.getStudentsById(id)
+          .then((response) => {
+            studentStore.setStudent(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              router.push({ name: '404-resource', params: { resource: 'student' } })
+            } else {
+              router.push({ name: 'network-error' })
+            }
+          })
+      },
     },
     {
       path: '/advisors/:id',
       name: 'advisorDetail',
       component: AdvisorDetailView,
-      props: true
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const advisorStore = useAdvisorStore()
+        AdvisorService.getAdvisorsById(id)
+          .then((response) => {
+            advisorStore.setAdvisor(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              router.push({ name: '404-resource', params: { resource: 'advisor' } })
+            } else {
+              router.push({ name: 'network-error' })
+            }
+          })
+      },
     },
     {
       path: '/404/:resource',

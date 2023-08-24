@@ -1,23 +1,13 @@
 <script setup lang="ts">
-import type { AdvisorDetail } from '@/type'
-import { ref } from 'vue'
-import AdvisorService from '@/services/AdvisorService'
+import { useAdvisorStore } from '@/stores/advisor'
+import { storeToRefs } from 'pinia'
 
-const advisor = ref<AdvisorDetail | null>(null)
-const props = defineProps({
-  id: String
-})
-
-console.log(Number(props.id)) //props check
-
-AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
-  advisor.value = response.data
-})
+const store = useAdvisorStore()
+const advisor = storeToRefs(store).advisor
 </script>
 
 <template>
   <div class="info-pg-bg">
-
     <p class="label-card">ADVISOR INFO.</p>
     <div v-if="advisor" class="advisor-card">
       <br />
@@ -66,7 +56,7 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   background-color: rgba(41, 39, 38, 0);
 }
 
-.label-card{
+.label-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -81,5 +71,4 @@ AdvisorService.getAdvisorsById(Number(props.id)).then((response) => {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   background-color: #312f2f00;
 }
-
 </style>
