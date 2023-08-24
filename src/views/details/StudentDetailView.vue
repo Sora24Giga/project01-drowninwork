@@ -1,52 +1,45 @@
 <script setup lang="ts">
-import type { StudentDetail } from '@/type'
-import { ref} from 'vue'
-import StudentService from "@/services/StudentService"
+import { useStudentStore } from '@/stores/student'
+import { storeToRefs } from 'pinia'
 
-const student = ref<StudentDetail | null> (null)
-const props = defineProps({
-  id: String
-})
-
-console.log(Number(props.id)) //props check
-
-StudentService.getStudentsById(Number(props.id)).then((response) => {
-  student.value = response.data
-})
-
+const store = useStudentStore()
+const student = storeToRefs(store).student
 </script>
 
 <template>
   <div class="student-box">
-  <div class="info-pg-bg">
-    <p class="label-card">STUDENT INFO.</p>
-    <div v-if="student" class="student-card">
-      <br>
-      <br>
-      <br>
-      <br>
+    <div class="info-pg-bg">
+      <p class="label-card">STUDENT INFO.</p>
+      <div v-if="student" class="student-card">
+        <br />
+        <br />
+        <br />
+        <br />
         <p>Name: {{ student.first_name }} {{ student.last_name }}</p>
         <p>Student ID: {{ student.sid }}</p>
         <p>Course: {{ student.course }}</p>
-        <br>
+        <br />
         <a v-bind:href="student.studentImgLink">[Profile Photo]</a>
-    </div>
-    <RouterLink :to="{name:'advisorDetail', params: { id: student?.advisorID } }" class="advisor-card">Advisor: {{ student?.advisor }}</RouterLink>
-    <p class="label-card">Advisor Comment</p>
-    <textarea class="comment-card"></textarea>
-    <button class="button2">EDIT</button>
+      </div>
+      <RouterLink
+        :to="{ name: 'advisorDetail', params: { id: student?.advisorID } }"
+        class="advisor-card"
+        >Advisor: {{ student?.advisor }}</RouterLink
+      >
+      <p class="label-card">Advisor Comment</p>
+      <textarea class="comment-card"></textarea>
+      <button class="button2">EDIT</button>
     </div>
   </div>
 </template>
 
-
 <style scoped>
-.student{
-  display:flex;
+.student {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-.student-card{
+.student-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -60,7 +53,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   background-color: #f2f2f208;
 }
 
-.advisor-card{
+.advisor-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -75,7 +68,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   background-color: #f2f2f208;
 }
 
-.comment-card{
+.comment-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -91,7 +84,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   background-color: #f2f2f208;
 }
 
-.label-card{
+.label-card {
   text-align: center;
   padding: 20px;
   width: 500px;
@@ -111,7 +104,7 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 } */
-.student-link{
+.student-link {
   color: #2c3e50;
   text-decoration: none;
 }
@@ -121,11 +114,13 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   height: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  position: fixed; top: 0%; right: 0%;
+  position: fixed;
+  top: 0%;
+  right: 0%;
   background-color: rgba(41, 39, 39, 0);
 }
 
-.button{
+.button {
   position: absolute;
   background-color: aliceblue;
   width: 100px;
@@ -133,13 +128,12 @@ StudentService.getStudentsById(Number(props.id)).then((response) => {
   right: 40%;
   align-items: center;
 }
-.button2{
+.button2 {
   position: relative;
   background-color: rgb(225, 226, 227);
   width: 100px;
-  top:30px;
+  top: 30px;
   right: 100px;
   align-items: center;
 }
-
 </style>
