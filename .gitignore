@@ -12,6 +12,7 @@ node_modules
 dist
 dist-ssr
 coverage
+.firebase
 *.local
 
 /cypress/videos/
