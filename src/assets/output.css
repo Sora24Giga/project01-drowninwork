@@ -538,14 +538,6 @@ video {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
-.relative {
-  position: relative;
-}
-
 .left-0 {
   left: 0px;
 }
@@ -640,18 +632,6 @@ video {
 
 .mt-\[80px\] {
   margin-top: 80px;
-}
-
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .flex {
