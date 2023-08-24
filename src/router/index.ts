@@ -23,7 +23,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/students',
+      path: '/',
       name: 'studentList',
       component: StudentListView,
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '7'), page: parseInt(route.query?.page as string || '1') })
@@ -88,13 +88,13 @@ const router = createRouter({
       path: '/addToView/student',
       name: 'addStudentView',
       component: AddStudent,
-      props:true
+      props: true
     },
     {
       path: '/addToView/advisor',
       name: 'addAdvisorView',
       component: AddAdvisor,
-      props:true
+      props: true
     },
     {
       path: '/404/:resource',

@@ -15,6 +15,9 @@ export default {
     getStudents(perPage: number, page: number): Promise<AxiosResponse<StudentDetail[]>> {
         return apiClient.get<StudentDetail[]>('/students?_limit=' + perPage + '&_page=' + page)
     },
+    getStudentList(): Promise<AxiosResponse<StudentDetail[]>> {
+        return apiClient.get<StudentDetail[]>('/students')
+    },
     getStudentsById(id: number): Promise<AxiosResponse<StudentDetail>> {
         return apiClient.get<StudentDetail>('/students/' + id.toString())
     }

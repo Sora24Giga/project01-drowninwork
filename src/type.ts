@@ -7,6 +7,7 @@ export interface StudentDetail {
     course: string
     advisor: string
     advisorID: number
+    comment: string[]
 }
 
 export interface AdvisorDetail {
