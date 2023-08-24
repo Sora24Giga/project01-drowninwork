@@ -9,7 +9,7 @@
       "course": "Software Engineering",
       "advisor": "Kanye West",
       "advisorID": 1,
-      "img": "./assets/imgStudent/ArianaGrande.jpeg"
+      "img": "/src/assets/imgStudent/ArianaGrande.jpeg"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "course": "Software Engineering",
       "advisor": "Uzi Vert",
       "advisorID": 5,
-      "img": "./assets/imgStudent/OliviaRodingo.webp"
+      "img": "/src/assets/imgStudent/OliviaRodingo.webp"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "./assets/imgStudent/KylieJenner.jpeg"
+      "img": "/src/assets/imgStudent/KylieJenner.jpeg"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "./assets/imgStudent/TaylorSwift.png"
+      "img": "/src/assets/imgStudent/TaylorSwift.png"
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "course": "Software Engineering",
       "advisor": "Lil Wayne",
       "advisorID": 4,
-      "img": "./assets/imgStudent/BillieEilish.webp"
+      "img": "/src/assets/imgStudent/BillieEilish.webp"
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "course": "Software Engineering",
       "advisor": "Uzi Vert",
       "advisorID": 5,
-      "img": "./assets/imgStudent/DueLipa.jpg"
+      "img": "/src/assets/imgStudent/DueLipa.jpg"
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "course": "Software Engineering",
       "advisor": "Kanye West",
       "advisorID": 1,
-      "img": "./assets/imgStudent/MadisonBeer.jpeg"
+      "img": "/src/assets/imgStudent/MadisonBeer.jpeg"
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "./assets/imgStudent/DojaCat.webp"
+      "img": "/src/assets/imgStudent/DojaCat.webp"
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "course": "Software Engineering",
       "advisor": "21 Savage",
       "advisorID": 3,
-      "img": "./assets/imgStudent/SelenaGomez.webp"
+      "img": "/src/assets/imgStudent/SelenaGomez.webp"
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "course": "Software Engineering",
       "advisor": "Travis Scott",
       "advisorID": 2,
-      "img": "./assets/imgStudent/KylieJenner.jpeg"
+      "img": "/src/assets/imgStudent/KylieJenner.jpeg"
     }
   ],
   "advisors": [
@@ -116,31 +116,31 @@
       "id": 1,
       "first_name": "Kanye",
       "last_name": "West",
-      "img": "./assets/imgAdvisor/maxresdefault.jpg"
+      "img": "/src/assets/imgAdvisor/maxresdefault.jpg"
     },
     {
       "id": 2,
       "first_name": "Travis",
       "last_name": "Scott",
-      "img": "./assets/imgAdvisor/Travis.png"
+      "img": "/src/assets/imgAdvisor/Travis.png"
     },
     {
       "id": 3,
       "first_name": "21",
       "last_name": "Savage",
-      "img": "./assets/imgAdvisor/21.jpg"
+      "img": "/src/assets/imgAdvisor/21.jpg"
     },
     {
       "id": 4,
       "first_name": "Lil",
       "last_name": "Wayne",
-      "img": "./assets/imgAdvisor/LilWyane.jpg"
+      "img": "/src/assets/imgAdvisor/LilWyane.jpg"
     },
     {
       "id": 5,
       "first_name": "Uzi",
       "last_name": "Vert",
-      "img": "./assets/imgAdvisor/Uzi.jpeg"
+      "img": "/src/assets/imgAdvisor/Uzi.jpeg"
     }
   ]
 }
