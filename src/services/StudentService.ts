@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
-import type { StudentDetail } from '@/type'
+import type {StudentDetail, StudentReg} from '@/type'
 
 const apiClient: AxiosInstance = axios.create({
     baseURL: 'http://localhost:3003',
@@ -20,5 +20,8 @@ export default {
     },
     getStudentsById(id: number): Promise<AxiosResponse<StudentDetail>> {
         return apiClient.get<StudentDetail>('/students/' + id.toString())
+    },
+    saveEvent(student: StudentReg): Promise<AxiosResponse<StudentDetail>> {
+        return apiClient.post<StudentDetail>('/students_reg', student)
     }
 }
