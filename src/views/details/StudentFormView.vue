@@ -57,6 +57,7 @@ const student = ref<StudentReg>({
         <div class="lines">
       <BaseInput v-model="student.last_name" type="text" label="Last Name"/>
       </div>
+        <!-- PLACEHOLDER will change to proper upload in the future -->
         <div class="lines">
       <BaseInput v-model="student.course" type="text" label="Department"/>
         </div>
