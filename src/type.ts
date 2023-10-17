@@ -12,11 +12,11 @@ export interface StudentDetail {
 
 export interface StudentReg {
     id: number
-    sid: string
-    first_name: string
-    last_name: string
-    img: string
-    course: string
+    studentId: number
+    firstname: string
+    surname: string
+    department: string
+    profileImg: string
 }
 
 export interface AdvisorDetail {

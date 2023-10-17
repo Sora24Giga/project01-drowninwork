@@ -33,11 +33,11 @@ function saveStudent() {
 
 const student = ref<StudentReg>({
   id: 0,
-  sid: "",
-  first_name: "",
-  last_name: "",
-  img: "",
-  course: ""
+  studentId: 0,
+  firstname: "",
+  surname: "",
+  department: "",
+  profileImg: ""
 })
 </script>
 
@@ -49,20 +49,21 @@ const student = ref<StudentReg>({
       <div class="box">
       <h3>Register Student Information</h3>
       <div class="lines">
-      <BaseInput v-model="student.sid" type="text" label="Student ID"/>
+      <BaseInput v-model="student.studentId" type="text" label="Student ID"/>
       </div>
         <div class="lines">
-      <BaseInput v-model="student.first_name" type="text" label="First Name"/>
+      <BaseInput v-model="student.firstname" type="text" label="First Name"/>
         </div>
         <div class="lines">
-      <BaseInput v-model="student.last_name" type="text" label="Last Name"/>
+      <BaseInput v-model="student.surname" type="text" label="Last Name"/>
       </div>
         <!-- PLACEHOLDER will change to proper upload in the future -->
         <div class="lines">
-      <BaseInput v-model="student.course" type="text" label="Department"/>
+      <BaseInput v-model="student.department" type="text" label="Department"/>
         </div>
+        <!-- Going to add the option function for the advisor. -->
       <div class="lines">
-      <BaseInput v-model="student.img" type="text" label="Image Link"/>
+      <BaseInput v-model="student.profileImg" type="text" label="Image Link"/>
       </div>
 
       <button type="submit" class="bg-transparent hover:bg-green-800 border border-green-700 font-bold text-green-700 hover:text-white py-1 px-4 rounded pt-1">Submit</button>
