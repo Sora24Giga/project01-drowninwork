@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"json-server --watch db.json --port 3003\" \"vite\"",
+    "dev": "vite",
     "devTw": "concurrently \"npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch\" \"json-server --watch db.json --port 3003\" \"vite\"",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
