@@ -65,7 +65,7 @@ const student = ref<StudentReg>({
       <BaseInput v-model="student.img" type="text" label="Image Link"/>
       </div>
 
-      <button type="submit" class="bg-transparent hover:bg-green-800 border border-green-700 font-bold text-green-700 hover:text-white py-1 px-4 rounded">Submit</button>
+      <button type="submit" class="bg-transparent hover:bg-green-800 border border-green-700 font-bold text-green-700 hover:text-white py-1 px-4 rounded pt-1">Submit</button>
       <pre>{{student}}</pre>
       </div>
     </form>
@@ -75,7 +75,7 @@ const student = ref<StudentReg>({
 
 <style>
 .box {
-  padding-left: 20%;
+  padding-left: 35%;
   padding-top: 15%;
   color: #f2f2f2;
 }
@@ -84,7 +84,7 @@ const student = ref<StudentReg>({
 }
 
 .button {
-
+  align-items: center;
 }
 
 </style>
