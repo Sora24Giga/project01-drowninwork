@@ -22,7 +22,7 @@ function saveEvent() {
           name: 'studentDetail',
           params: { id: response.data.id }
         })
-        store.updateMessage('You have successfully added a new event for ' + response.data.title)
+        store.updateMessage('You have successfully added a new student for ' + response.data.firstname)
         setTimeout(() => {
           store.restMessage()
         }, 3000)
@@ -33,11 +33,11 @@ function saveEvent() {
 
 const student = ref<StudentReg>({
   id: 0,
-  sid: "",
-  first_name: "",
-  last_name: "",
-  img: "",
-  course: ""
+  studentId: "",
+  firstname: "",
+  surname: "",
+  images: [],
+  department: ""
 })
 </script>
 
@@ -47,22 +47,22 @@ const student = ref<StudentReg>({
     <h1>Create an event</h1>
     <form @submit.prevent="saveEvent">
 
-      <BaseInput v-model="student.sid" type="text" label="Student ID"/>
+      <BaseInput v-model="student.studentId" type="text" label="Student ID"/>
 
       <h3>Register Student Information</h3>
 
 
-      <BaseInput v-model="student.first_name" type="text" label="First Name"/>
+      <BaseInput v-model="student.firstname" type="text" label="First Name"/>
 
 
-      <BaseInput v-model="student.last_name" type="text" label="Last Name"/>
+      <BaseInput v-model="student.surname" type="text" label="Last Name"/>
 
-      <BaseInput v-model="student.course" type="text" label="Department"/>
+      <BaseInput v-model="student.department" type="text" label="Department"/>
+      <!-- PLACEHOLDER will change to proper upload in the future -->
+      <BaseInput v-model="student.department" type="text" label="Image Link"/>
 
-      <BaseInput v-model="student.img" type="text" label="Image Link"/>
 
-
-      <button type="submit" class="bg-transparent hover:bg-green-800 border border-green-700 font-bold text-green-700 hover:text-white py-1 px-4 rounded">Submit</button>
+      <button type="submit" class="px-4 py-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
     </form>
 
     <pre>{{student}}</pre>

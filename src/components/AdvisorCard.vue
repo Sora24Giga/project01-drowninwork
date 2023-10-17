@@ -8,7 +8,7 @@
     >
       <div class="cursor-pointer p-[20px]">
         <span class="font-bold">
-          {{ props.advisor?.first_name }} {{ props.advisor?.last_name }}</span
+          {{ props.advisor?.firstname }} {{ props.advisor?.surname }}</span
         >
       </div>
     </RouterLink>

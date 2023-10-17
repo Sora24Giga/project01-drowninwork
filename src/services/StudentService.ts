@@ -3,7 +3,7 @@ import type { AxiosInstance, AxiosResponse } from 'axios'
 import type {StudentDetail, StudentReg} from '@/type'
 
 const apiClient: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:3003',
+    baseURL: import.meta.env.VITE_BACKEND_URL,
     withCredentials: false,
     headers: {
         Accept: 'application/json',

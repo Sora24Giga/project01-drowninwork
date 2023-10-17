@@ -1,27 +1,28 @@
 export interface StudentDetail {
     id: number
-    sid: number
-    first_name: string
-    last_name: string
-    img: string
-    course: string
-    advisor: string
-    advisorID: number
+    studentId: number
+    firstname: string
+    surname: string
+    department: string
+    advisor: AdvisorDetail
+    images: string[]
     comment: string[]
 }
 
 export interface StudentReg {
     id: number
-    sid: string
-    first_name: string
-    last_name: string
-    img: string
-    course: string
+    studentId: string
+    firstname: string
+    surname: string
+    department: string
+    images: string[]
 }
 
 export interface AdvisorDetail {
     id: number
-    first_name: string
-    last_name: string
-    img: string
+    academicPosition: string
+    firstname: string
+    surname: string
+    department: string
+    images: string[]
 }

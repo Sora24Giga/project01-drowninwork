@@ -8,7 +8,7 @@
     >
       <div class="cursor-pointer p-[20px]">
         <span class="font-bold">
-          {{ props.student?.first_name }} {{ props.student?.last_name }}</span
+          {{ props.student?.firstname }} {{ props.student?.surname }}</span
         ><!--?는 체인 오퍼레이션이라고 한다-->
       </div>
     </RouterLink>

@@ -30,17 +30,21 @@ function testReview() {
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           <div class="mx-auto my-4 w-fit overflow-hidden rounded-[50%]">
-            <img :src="student.img" class="h-44 object-contain" />
+            <div class="flex flex-row flex-wrap justify-center">
+              <img v-for="image in student.images" :key="image" :src="image" alt="advisors image"
+               class="w-40 p-1 m-1 border-2 border-gray-200 border-solid rounded hover:shadow-lg"
+              >
+            </div>
           </div>
-          <p class="mb-2 font-semibold">{{ student.first_name }} {{ student.last_name }}</p>
-          <p>Student ID: {{ student.sid }}</p>
-          <p>Course: {{ student.course }}</p>
+          <p class="mb-2 font-semibold">{{ student.firstname }} {{ student.surname }}</p>
+          <p>Student ID: {{ student.studentId }}</p>
+          <p>Department: {{ student.department }}</p>
           <br />
         </div>
         <RouterLink
-          :to="{ name: 'advisorDetail', params: { id: student?.advisorID } }"
+          :to="{ name: 'advisorDetail', params: { id: student?.advisor.id } }"
           class="h-[50px] w-full bg-[#f2f2f208] px-[20px] py-[10px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] transition hover:scale-[1.05] hover:text-se-color-light"
-          >Advisor: {{ student?.advisor }}</RouterLink
+          >Advisor: {{ student?.advisor.firstname }} {{ student?.advisor.surname }}</RouterLink
         >
         <p
           class="h-[50px] w-full bg-[#312f2f3a] px-[20px] py-[10px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
