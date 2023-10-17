@@ -13,9 +13,9 @@ const apiClient: AxiosInstance = axios.create({
 
 export default {
     getAdvisors(perPage: number, page: number): Promise<AxiosResponse<AdvisorDetail[]>> {
-        return apiClient.get<AdvisorDetail[]>('/teachers?_limit=' + perPage + '&_page=' + page)
+        return apiClient.get<AdvisorDetail[]>('/advisors?_limit=' + perPage + '&_page=' + page)
     },
     getAdvisorsById(id: number): Promise<AxiosResponse<AdvisorDetail>> {
-        return apiClient.get<AdvisorDetail>('/teachers/' + id.toString())
+        return apiClient.get<AdvisorDetail>('/advisors/' + id.toString())
     },
 }
