@@ -14,8 +14,8 @@ const router = useRouter()
 
 let boolean = true
 
-function saveEvent() {
-  StudentService.saveEvent(student.value)
+function saveStudent() {
+  StudentService.saveStudent(student.value)
       .then((response) => {
         console.log(response.data)
         router.push({
@@ -44,31 +44,48 @@ const student = ref<StudentReg>({
 
 <template>
   <div>
-    <h1>Create an event</h1>
-    <form @submit.prevent="saveEvent">
-
-      <BaseInput v-model="student.studentId" type="text" label="Student ID"/>
-
+    <h1>Create a registration</h1>
+    <form @submit.prevent="saveStudent" >
+      <div class="box">
       <h3>Register Student Information</h3>
-
-
+      <div class="lines">
+      <BaseInput v-model="student.studentId" type="text" label="Student ID"/>
+      </div>
+        <div class="lines">
       <BaseInput v-model="student.firstname" type="text" label="First Name"/>
-
-
+        </div>
+        <div class="lines">
       <BaseInput v-model="student.surname" type="text" label="Last Name"/>
-
+      </div>
+        <!-- PLACEHOLDER will change to proper upload in the future -->
+        <div class="lines">
       <BaseInput v-model="student.department" type="text" label="Department"/>
-      <!-- PLACEHOLDER will change to proper upload in the future -->
-      <BaseInput v-model="student.department" type="text" label="Image Link"/>
+        </div>
+        <!-- Going to add the option function for the advisor. -->
+      <div class="lines">
+      <!-- <BaseInput v-model="student.image" type="text" label="Image Link"/> -->
+      </div>
 
-
-      <button type="submit" class="px-4 py-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
+      <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
+      <pre>{{student}}</pre>
+      </div>
     </form>
 
-    <pre>{{student}}</pre>
   </div>
 </template>
 
 <style>
+.box {
+  padding-left: 35%;
+  padding-top: 15%;
+  color: #f2f2f2;
+}
+.lines {
+  padding-top: 5%;
+}
+
+.button {
+  align-items: center;
+}
 
 </style>
