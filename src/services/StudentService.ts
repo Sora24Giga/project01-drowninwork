@@ -22,6 +22,6 @@ export default {
         return apiClient.get<StudentDetail>('/students/' + id.toString())
     },
     saveStudent(student: StudentReg): Promise<AxiosResponse<StudentDetail>> {
-        return apiClient.post<StudentDetail>('/students_reg', student)
+        return apiClient.post<StudentDetail>('/students', student)
     }
 }
