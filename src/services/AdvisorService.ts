@@ -1,6 +1,6 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
-import type { AdvisorDetail } from '@/type'
+import type {AdvisorDetail, AdvisorOption} from '@/type'
 
 const apiClient: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -12,6 +12,9 @@ const apiClient: AxiosInstance = axios.create({
 })
 
 export default {
+    getAdvisorlist(): Promise<AxiosResponse<AdvisorOption[]>> {
+        return apiClient.get<AdvisorOption[]>(`/advisors`)
+    },
     getAdvisors(perPage: number, page: number): Promise<AxiosResponse<AdvisorDetail[]>> {
         return apiClient.get<AdvisorDetail[]>('/advisors?_limit=' + perPage + '&_page=' + page)
     },

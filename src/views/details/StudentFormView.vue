@@ -1,16 +1,27 @@
 <script setup lang="ts">
-import type {StudentDetail, AdvisorDetail, StudentReg} from '@/type'
+import type {StudentDetail, AdvisorDetail, StudentReg, AdvisorOption} from '@/type'
 import { ref } from 'vue'
 import StudentService from '@/services/StudentService';
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 import BaseInput from "@/components/BaseInput.vue";
+import BaseSelect from "@/components/BaseSelect.vue";
+import AdvisorService from "@/services/AdvisorService";
 //TEST Commit
 
 const store = useMessageStore()
 
 const router = useRouter()
 
+
+const advisors = ref<AdvisorOption[]>([])
+AdvisorService.getAdvisorlist()
+    .then((response) => {
+      advisors.value = response.data
+    })
+    .catch(() => {
+      router.push({ name: 'network-error' })
+    })
 
 let boolean = true
 
@@ -36,7 +47,7 @@ const student = ref<StudentReg>({
   studentId: "",
   firstname: "",
   surname: "",
-  images: [],
+  advisor: {id: 0, name: ''},
   department: ""
 })
 </script>
@@ -63,7 +74,7 @@ const student = ref<StudentReg>({
         </div>
         <!-- Going to add the option function for the advisor. -->
       <div class="lines">
-      <!-- <BaseInput v-model="student.image" type="text" label="Image Link"/> -->
+        <BaseSelect v-model="student.advisor.id" label="Advisor" :options="advisors" />
       </div>
 
       <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>

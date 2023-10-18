@@ -15,7 +15,12 @@ export interface StudentReg {
     firstname: string
     surname: string
     department: string
-    images: string[]
+    advisor: AdvisorOption | string
+}
+
+export  interface AdvisorOption {
+    id: number;
+    name: string;
 }
 
 export interface AdvisorDetail {
