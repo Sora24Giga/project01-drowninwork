@@ -31,3 +31,11 @@ export interface AdvisorDetail {
     department: string
     images: string[]
 }
+
+export interface AdvisorReg {
+    id: number
+    academicPosition: string;
+    firstname: string
+    surname: string
+    department: string
+}

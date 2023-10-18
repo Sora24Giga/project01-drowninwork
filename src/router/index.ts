@@ -19,6 +19,7 @@ import StudentService from '@/services/StudentService'
 import { useAdvisorStore } from '@/stores/advisor'
 import AdvisorService from '@/services/AdvisorService'
 import StudentFormView from "@/views/details/StudentFormView.vue";
+import AdvisorFormView from "@/views/details/AdvisorFormView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -84,24 +85,11 @@ const router = createRouter({
       name: 'add-student',
       component : StudentFormView
     },
-    // {
-    //   path: '/addToView',
-    //   name: 'add-to-view',
-    //   component: AddingFromViewVue,
-    //   props: true
-    // },
-    // {
-    //   path: '/addToView/student',
-    //   name: 'addStudentView',
-    //   component: AddStudent,
-    //   props: true
-    // },
-    // {
-    //   path: '/addToView/advisor',
-    //   name: 'addAdvisorView',
-    //   component: AddAdvisor,
-    //   props: true
-    // },
+    {
+      path: '/add-advisor',
+      name: 'add-advisor',
+      component : AdvisorFormView
+    },
     {
       path: '/404/:resource',
       name: '404-resource',
