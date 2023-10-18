@@ -78,7 +78,7 @@ const student = ref<StudentReg>({
       </div>
 
       <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
-      <pre>{{student}}</pre>
+<!--      <pre>{{student}}</pre>-->
       </div>
     </form>
 
