@@ -74,7 +74,7 @@ const student = ref<StudentReg>({
         </div>
         <!-- Going to add the option function for the advisor. -->
       <div class="lines">
-        <BaseSelect v-model="student.advisor.id" label="Advisor" :options="advisors" />
+      <BaseSelect v-model="student.advisor.id" label="Advisor" :options="advisors" />
       </div>
 
       <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
