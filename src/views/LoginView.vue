@@ -1,9 +1,8 @@
 <script lang="ts">
-import {defineComponent} from 'vue'
-
-export default defineComponent({
-  name: "LoginView"
-})
+import InputText from '@/components/InputText.vue'
+import {ref} from 'vue'
+const email = ref('')
+const password = ref('')
 </script>
 
 <template>
