@@ -77,7 +77,7 @@ function updateKeyword (value: string) {
 </script>
 
 <template>
-  <div class="mb-[2rem] ml-0 mt-[80px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[35px] lg:w-[80%] flex flex-col items-center">
+  <div class="text-xs md:text-base mb-[2rem] ml-0 mt-[100px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[35px] lg:w-[80%] flex flex-col items-center">
     <div class="flex flex-col items-center">
       <h4
         class="mt-[30px] w-[900px] px-6 py-4 text-center text-sm font-bold uppercase text-se-color-light"

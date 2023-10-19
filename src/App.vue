@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
       ADMIN
     </p>
     <nav
-      class="flex h-fit justify-evenly bg-transparent text-center text-base font-[500] text-se-light-gray lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg"
+      class="flex h-fit justify-evenly bg-transparent text-center text-sm md:text-base font-[500] text-se-light-gray lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg"
     >
       <RouterLink
         :to="{ name: 'studentList' }"
