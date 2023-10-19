@@ -18,6 +18,8 @@ module.exports = {
       'se-white': '#F1EBF8'
     },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/forms')
+  ],
 }
 
