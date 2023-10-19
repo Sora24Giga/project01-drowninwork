@@ -1,15 +1,6 @@
-import axios from 'axios'
-import type { AxiosInstance, AxiosResponse } from 'axios'
 import type {StudentDetail, StudentReg} from '@/type'
-
-const apiClient: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-    withCredentials: false,
-    headers: {
-        Accept: 'application/json',
-        'ContentType': 'application/json'
-    }
-})
+import apiClient from "@/services/AxiosClient";
+import type {AxiosResponse} from "axios";
 
 export default {
     getStudents(perPage: number, page: number): Promise<AxiosResponse<StudentDetail[]>> {
