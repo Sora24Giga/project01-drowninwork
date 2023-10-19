@@ -9,6 +9,7 @@ import 'nprogress/nprogress.css'
 import './assets/newNprogress.css'
 import { useStudentStore } from './stores/student'
 import StudentService from './services/StudentService'
+import '@/services/AxiosInterceptorSetup'
 
 const app = createApp(App)
 

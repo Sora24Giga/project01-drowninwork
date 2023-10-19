@@ -1,10 +1,16 @@
 <script setup lang="ts">
 //http.cors(withDefaults()); have to be added to SecurityConfig.java
+import {useRouter} from "vue-router";
 import InputText from '@/components/InputText.vue'
 import * as yup from 'yup'
 import {ref} from 'vue'
 import {useField, useForm} from "vee-validate";
 import {useAuthStore} from "@/stores/auth";
+import { useMessageStore } from "@/stores/message";
+
+const router = useRouter()
+
+const messageStore = useMessageStore()
 
 const authStore = useAuthStore()
 const validationSchema = yup.object({
@@ -28,9 +34,12 @@ const {value: password} = useField<string> ('password')
 const onSubmit = handleSubmit((values) => {
   authStore.login(values.email, values.password)
       .then(()=> {
-        console.log('login success')
-      }).catch((err) => {
-        console.log('error', err)
+        router.push({ name: 'studentList'})
+      }).catch(() => {
+        messageStore.updateMessage('could not login')
+        setTimeout(() => {
+          messageStore.restMessage()
+        }, 3000)
   })
 })
 </script>

@@ -17,6 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <nav
       class="flex h-fit justify-evenly bg-transparent text-center text-sm md:text-base font-[500] text-se-light-gray lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg"
     >
+
       <RouterLink
         :to="{ name: 'studentList' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
@@ -50,22 +51,28 @@ import { RouterLink, RouterView } from 'vue-router'
         <span>Advisor REG.</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
-      <RouterLink
-          :to="{ name: 'login' }"
-          class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-          active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
-        <span>Login Test Page</span>
-        <span class="hidden lg:flex"></span>
-      </RouterLink>
-      <!-- <RouterLink
-        :to="{ name: 'add-to-view' }"
-        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
-        <span>New Form</span>
-        <span class="hidden lg:flex"></span>
-      </RouterLink> -->
+
+
+
+
+      <nav class="flex">
+        <u1 class="flex navbar-nav ml-auto">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item px-2">
+            <router-link to="/login" class="nav-link">
+              <font-awesome-icon icon="sign-in-alt" /> Login
+            </router-link>
+          </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item px-2">
+            <router-link to="/register" class="nav-link">
+              <font-awesome-icon icon="user-plus" /> Sign Up
+            </router-link>
+          </li>
+
+        </u1>
+
+      </nav>
+
     </nav>
   </div>
 
