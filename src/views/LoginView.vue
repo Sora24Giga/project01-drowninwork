@@ -1,12 +1,17 @@
 <script setup lang="ts">
+//http.cors(withDefaults()); have to be added to SecurityConfig.java
 import InputText from '@/components/InputText.vue'
 import * as yup from 'yup'
 import {ref} from 'vue'
 import {useField, useForm} from "vee-validate";
+import {useAuthStore} from "@/stores/auth";
 
+const authStore = useAuthStore()
 const validationSchema = yup.object({
-  email: yup.string().required('The email is required').email(6,'Input must be an email.'),
-  password: yup.string().required('The password is required').min(6,'The password must be at least 6 characters.')
+  // email: yup.string().required('The email is required').email(6,'Input must be an email.'),
+  // password: yup.string().required('The password is required').min(6,'The password must be at least 6 characters.')
+  email: yup.string().required('The email is required'),
+  password: yup.string().required('The password is required')
 })
 const {errors, handleSubmit} = useForm({
   validationSchema,
@@ -18,8 +23,15 @@ const {errors, handleSubmit} = useForm({
 
 const {value: email} = useField<string> ('email')
 const {value: password} = useField<string> ('password')
+// const onSubmit = handleSubmit((values) => {
+//   console.log(values)
 const onSubmit = handleSubmit((values) => {
-  console.log(values)
+  authStore.login(values.email, values.password)
+      .then(()=> {
+        console.log('login success')
+      }).catch((err) => {
+        console.log('error', err)
+  })
 })
 </script>
 
@@ -36,7 +48,8 @@ const onSubmit = handleSubmit((values) => {
 <!--          <div class="mt-2">-->
 <!--            <input id="email" name="email" type="email" required="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />-->
 <!--          </div>-->
-        <InputText type="email" v-model="email" :error="errors['email']"></InputText>
+<!--        <InputText type="email" v-model="email" :error="errors['email']"></InputText>-->
+          <InputText type="text" v-model="email" :error="errors['email']"></InputText>
         </div>
         <div>
         <div class="flex items-center justify-between">
