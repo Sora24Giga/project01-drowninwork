@@ -7,10 +7,6 @@ import AdvisorsListView from '../views/AdvisorListView.vue'
 import StudentDetailView from '../views/details/StudentDetailView.vue'
 import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 
-import AddingFromViewVue from '@/views/AddingFromView.vue'
-import AddStudent from '@/views/details/AddStudent.vue'
-import AddAdvisor from '@/views/details/AddAdvisor.vue'
-
 import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '../views/NetworkErrorView.vue'
 
@@ -36,6 +32,11 @@ const router = createRouter({
       name: 'advisors',
       component: AdvisorsListView,
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '7'), page: parseInt(route.query?.page as string || '1') })
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
     },
     {
       path: '/students/:id',
@@ -90,11 +91,6 @@ const router = createRouter({
       path: '/add-advisor',
       name: 'add-advisor',
       component : AdvisorFormView
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: LoginView
     },
     {
       path: '/404/:resource',
