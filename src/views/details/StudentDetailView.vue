@@ -17,7 +17,7 @@ function testReview() {
 </script>
 
 <template>
-  <div class="student-box mt-[108px] flex justify-center lg:mt-0">
+  <div class="student-box mt-[108px] flex justify-center lg:mt-[60px]">
     <div class="mb-[20px] flex h-full w-[80%] justify-center bg-se-dark p-[20px] lg:ml-[20%]">
       <div class="flex w-[60%] min-w-[216px] max-w-[500px] flex-col justify-center">
         <p

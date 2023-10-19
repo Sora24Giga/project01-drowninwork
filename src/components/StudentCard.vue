@@ -1,15 +1,17 @@
 <template>
   <div
-    class="m-0 text-se-light-gray transition hover:scale-[1.01] hover:text-se-color-light"
+    class="w-full cursor-pointer p-[20px] m-0 text-se-white transition hover:scale-[1.01] hover:text-se-color-light"
   >
     <RouterLink
-      class="w-full text-left no-underline"
+      class="text-left no-underline"
       :to="{ name: 'studentDetail', params: { id: student?.id } }"
     >
-      <div class="cursor-pointer p-[20px]">
-        <span class="font-bold">
-          {{ props.student?.firstname }} {{ props.student?.surname }}</span
-        ><!--?는 체인 오퍼레이션이라고 한다-->
+      <div class="flex">
+        <span class="w-1/4">{{ props.student?.studentId}}</span>
+        <span class="w-1/4">{{ props.student?.firstname }}</span>
+        <span class="w-1/4">{{ props.student?.surname }}</span>
+        <span class="w-1/4">{{ props.student?.department }}</span>
+        <!--?는 체인 오퍼레이션이라고 한다-->
       </div>
     </RouterLink>
   </div>

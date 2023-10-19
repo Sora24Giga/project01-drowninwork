@@ -29,6 +29,7 @@ export interface AdvisorDetail {
     firstname: string
     surname: string
     department: string
+    advisee: StudentDetail[]
     images: string[]
 }
 
