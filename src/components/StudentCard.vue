@@ -1,6 +1,6 @@
 <template>
   <div
-    class="m-0 w-[90%] text-se-light-gray transition hover:scale-[1.01] hover:text-se-color-light"
+    class="m-0 text-se-light-gray transition hover:scale-[1.01] hover:text-se-color-light"
   >
     <RouterLink
       class="w-full text-left no-underline"

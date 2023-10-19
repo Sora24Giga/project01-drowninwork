@@ -23,5 +23,8 @@ export default {
     },
     saveStudent(student: StudentReg): Promise<AxiosResponse<StudentDetail>> {
         return apiClient.post<StudentDetail>('/students', student)
+    },
+    getStudentsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<StudentDetail[]>> {
+        return apiClient.get<StudentDetail[]>('/students?title=' + keyword + '&_limit=' + perPage + '&_page=' + page)
     }
 }

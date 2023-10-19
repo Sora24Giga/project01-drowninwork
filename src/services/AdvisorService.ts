@@ -23,5 +23,8 @@ export default {
     },
     saveAdvisor(advisor: AdvisorReg): Promise<AxiosResponse<AdvisorDetail>> {
         return apiClient.post<AdvisorDetail>('/advisors', advisor)
+    },
+    getAdvisorsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<AdvisorDetail[]>> {
+        return apiClient.get<AdvisorDetail[]>('/advisors?title=' + keyword + '&_limit=' + perPage + '&_page=' + page)
     }
 }

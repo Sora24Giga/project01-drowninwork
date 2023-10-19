@@ -5,6 +5,7 @@ import StudentService from '@/services/StudentService'
 import { computed, ref, type Ref } from 'vue'
 import type { AxiosResponse } from 'axios'
 import { useRouter, onBeforeRouteUpdate } from 'vue-router'
+import BaseInput from '@/components/BaseInput.vue'
 
 const students: Ref<Array<StudentDetail>> = ref([])
 const totalStudents = ref<number>(0)
@@ -20,6 +21,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const keyword = ref('')
 
 // eslint-disable-next-line vue/no-setup-props-destructure
 StudentService.getStudents(props.limit, props.page)
@@ -33,8 +35,13 @@ StudentService.getStudents(props.limit, props.page)
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
-  // eslint-disable-next-line vue/no-setup-props-destructure
-  StudentService.getStudents(props.limit, toPage)
+  let queryFunction;
+  if (keyword.value === null || keyword.value === '') {
+	  queryFunction = StudentService.getStudents(props.limit, toPage)
+	}else{
+    queryFunction = StudentService.getStudentsByKeyword(keyword.value, props.limit, toPage)
+  } 
+  queryFunction
     .then((response: AxiosResponse<StudentDetail[]>) => {
       students.value = response.data
       totalStudents.value = response.headers['x-total-count']
@@ -49,10 +56,27 @@ const hasNextPage = computed(() => {
   const totalPages = Math.ceil(totalStudents.value / props.limit)
   return props.page.valueOf() < totalPages
 })
+
+function updateKeyword (value: string) {
+  let queryFunction;
+  if (keyword.value === ''){
+    queryFunction = StudentService.getStudents(props.limit, props.page)
+  }else {
+    queryFunction = StudentService.getStudentsByKeyword(keyword.value, props.limit, 1)
+  }
+  queryFunction.then((response: AxiosResponse<StudentDetail[]>) => {
+    students.value = response.data
+    // console.log('students',students.value)
+    totalStudents.value = response.headers['x-total-count']
+    // console.log('totalStudents',totalStudents.value)
+  }).catch(() => {
+    router.push({ name: 'NetworkError' })
+  })
+}
 </script>
 
 <template>
-  <div class="mb-[2rem] ml-0 mt-[80px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-0 lg:w-[80%]">
+  <div class="mb-[2rem] ml-0 mt-[80px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[35px] lg:w-[80%] flex flex-col items-center">
     <div class="flex flex-col items-center">
       <h4
         class="mt-[30px] w-[900px] px-6 py-4 text-center text-sm font-bold uppercase text-se-color-light"
@@ -60,9 +84,16 @@ const hasNextPage = computed(() => {
         Student List
       </h4>
     </div>
-
-    <div class="flex min-h-[32rem] flex-col items-center justify-between">
-      <div class="flex h-full w-full flex-col items-center">
+    <div class="w-[60%] items-center mb-4">
+      <BaseInput
+        v-model="keyword"
+        placeholder="Search..."
+        class="w-full px-4 py-2 bg-[#35363A] rounded-lg text-se-white"
+        @input="updateKeyword"
+      />
+    </div>
+    <div class="flex min-h-[32rem] justify-between flex-col w-full items-center">
+      <div class="w-[90%]">
         <StudentCard
           v-for="student in students"
           :key="student.id"
@@ -70,22 +101,23 @@ const hasNextPage = computed(() => {
           class="bg-se-gray even:bg-se-dark"
         ></StudentCard>
       </div>
-      <div class="flex w-fit">
+      <div class="flex justify-between w-[90%]">
         <RouterLink
           :to="{ name: 'studentList', query: { limit: limit, page: page - 1 } }"
           rel="prev"
           v-if="page != 1"
           id="page-prev"
-          class="flex-1 text-left text-lg font-medium text-se-light-gray no-underline hover:text-se-color-light"
+          class="text-lg font-medium text-center no-underline w-fit text-se-light-gray hover:text-se-color-light"
         >
           Prev Page
         </RouterLink>
+        <div></div>
         <RouterLink
           :to="{ name: 'studentList', query: { limit: limit, page: page + 1 } }"
           rel="next"
           v-if="hasNextPage"
           id="page-next"
-          class="flex-1 text-left text-lg font-medium text-se-light-gray no-underline hover:text-se-color-light"
+          class="text-lg font-medium text-center no-underline w-fit text-se-light-gray hover:text-se-color-light"
         >
           Next Page
         </RouterLink>
