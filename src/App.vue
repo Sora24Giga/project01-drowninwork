@@ -67,7 +67,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <router-link to="/register" class="nav-link">
               <font-awesome-icon icon="user-plus" /> Sign.Up
             </router-link>
-          </li>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
         </u1>
 
