@@ -1,6 +1,6 @@
 export interface StudentDetail {
     id: number
-    studentId: number
+    studentId: string
     firstname: string
     surname: string
     department: string
@@ -9,34 +9,12 @@ export interface StudentDetail {
     comment: string[]
 }
 
-export interface StudentReg {
-    id: number
-    studentId: string
-    firstname: string
-    surname: string
-    department: string
-    advisor: AdvisorOption | string
-}
-
-export  interface AdvisorOption {
-    id: number;
-    name: string;
-}
-
 export interface AdvisorDetail {
     id: number
     academicPosition: string
     firstname: string
     surname: string
     department: string
-    advisee: StudentDetail[]
+    advisee: StudentDetail[] | string
     images: string[]
-}
-
-export interface AdvisorReg {
-    id: number
-    academicPosition: string;
-    firstname: string
-    surname: string
-    department: string
 }

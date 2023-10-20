@@ -52,18 +52,15 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
-
-
-
       <nav class="flex">
-        <u1 class="flex navbar-nav ml-auto">
+        <u1 class="flex ml-auto navbar-nav">
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item px-2">
+          <li class="px-2 nav-item">
             <router-link to="/login" class="nav-link">
               <font-awesome-icon icon="sign-in-alt" /> Login
             </router-link>
           </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item px-2">
+          <li class="px-2 nav-item">
             <router-link to="/register" class="nav-link">
               <font-awesome-icon icon="user-plus" /> Sign.Up
             </router-link>

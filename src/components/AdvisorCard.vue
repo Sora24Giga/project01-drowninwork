@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import type { AdvisorDetail } from '@/type'
-import type { PropType } from 'vue'
+import { type PropType } from 'vue'
 const props = defineProps({
   advisor: {
     type: Object as PropType<AdvisorDetail>,
@@ -26,5 +26,4 @@ const props = defineProps({
   }
 })
 
-// const passenger = ref<Passengers[]>([])
 </script>
