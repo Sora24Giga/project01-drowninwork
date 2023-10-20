@@ -1,18 +1,14 @@
 <script setup lang="ts">
-import type {AdvisorReg} from '@/type'
+import type {AdvisorDetail} from '@/type'
 import { ref } from 'vue'
 import AdvisorService from '@/services/AdvisorService';
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 import BaseInput from "@/components/BaseInput.vue";
-//TEST Commit
+import ImageUpload from '@/components/ImageUpload.vue';
 
 const store = useMessageStore()
-
 const router = useRouter()
-
-
-let boolean = true
 
 function saveAdvisor() {
   AdvisorService.saveAdvisor(advisor.value)
@@ -31,12 +27,14 @@ function saveAdvisor() {
   })
 }
 
-const advisor = ref<AdvisorReg>({
+const advisor = ref<AdvisorDetail>({
   id: 0,
   academicPosition: "",
   firstname: "",
   surname: "",
-  department: ""
+  department: "",
+  advisee: [],
+  images: []
 })
 </script>
 
@@ -60,7 +58,7 @@ const advisor = ref<AdvisorReg>({
           <BaseInput v-model="advisor.department" type="text" label="Department"/>
         </div>
 
-
+        <ImageUpload v-model="advisor.images" />
         <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
         <!--      <pre>{{advisor}}</pre>-->
       </div>

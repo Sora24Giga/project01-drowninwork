@@ -7,6 +7,7 @@ import { useMessageStore } from '@/stores/message'
 import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect from "@/components/BaseSelect.vue"
 import AdvisorService from "@/services/AdvisorService";
+import ImageUpload from '@/components/ImageUpload.vue';
 
 const store = useMessageStore()
 const router = useRouter()
@@ -86,11 +87,11 @@ function saveStudent() {
           :options="advisors"
           :key-extractor="(x) => x.id"
           :value-extractor="(x) => x.id"
-          :text-extractor="(x) => x.firstname"
+          :text-extractor="(x) => x.firstname+' '+x.surname"
           label="Advisor"
         />
         </div>
-      
+        <ImageUpload v-model="student.images" />
         <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
       </div>
     </form>
