@@ -1,10 +1,10 @@
-import type {AdvisorDetail, AdvisorOption, AdvisorReg} from '@/type'
+import type {AdvisorDetail} from '@/type'
 import apiClient from "@/services/AxiosClient";
 import type {AxiosResponse} from "axios";
 
 export default {
-    getAdvisorlist(): Promise<AxiosResponse<AdvisorOption[]>> {
-        return apiClient.get<AdvisorOption[]>(`/advisors`)
+    getAdvisorlist(): Promise<AxiosResponse<AdvisorDetail[]>> {
+        return apiClient.get<AdvisorDetail[]>(`/advisors`)
     },
     getAdvisors(perPage: number, page: number): Promise<AxiosResponse<AdvisorDetail[]>> {
         return apiClient.get<AdvisorDetail[]>('/advisors?_limit=' + perPage + '&_page=' + page)
@@ -12,7 +12,7 @@ export default {
     getAdvisorsById(id: number): Promise<AxiosResponse<AdvisorDetail>> {
         return apiClient.get<AdvisorDetail>('/advisors/' + id.toString())
     },
-    saveAdvisor(advisor: AdvisorReg): Promise<AxiosResponse<AdvisorDetail>> {
+    saveAdvisor(advisor: AdvisorDetail): Promise<AxiosResponse<AdvisorDetail>> {
         return apiClient.post<AdvisorDetail>('/advisors', advisor)
     },
     getAdvisorsByKeyword(keyword: string, perPage: number, page: number): Promise<AxiosResponse<AdvisorDetail[]>> {

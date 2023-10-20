@@ -32,9 +32,7 @@ const advisor = ref<AdvisorDetail>({
   academicPosition: "",
   firstname: "",
   surname: "",
-  department: "",
-  advisee: [],
-  images: []
+  department: ""
 })
 </script>
 
