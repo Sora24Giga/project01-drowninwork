@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {AdvisorReg} from '@/type'
+import type {AdvisorDetail} from '@/type'
 import { ref } from 'vue'
 import AdvisorService from '@/services/AdvisorService';
 import { useRouter } from 'vue-router'
@@ -31,12 +31,14 @@ function saveAdvisor() {
   })
 }
 
-const advisor = ref<AdvisorReg>({
+const advisor = ref<AdvisorDetail>({
   id: 0,
   academicPosition: "",
   firstname: "",
   surname: "",
-  department: ""
+  department: "",
+  advisee:[],
+  images: []
 })
 </script>
 
