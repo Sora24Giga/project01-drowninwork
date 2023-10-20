@@ -25,7 +25,7 @@ const student = ref<StudentDetail>({
     surname: '',
     department: '',
     images: [],
-    advisee: ""
+    advisee: []
   }
 })
 
@@ -41,6 +41,7 @@ AdvisorService.getAdvisorlist()
 function saveStudent() {
   StudentService.saveStudent(student.value)
   .then((response) => {
+    console.log("saved")
     console.log(response.data)
     router.push({
       name: 'studentDetail',

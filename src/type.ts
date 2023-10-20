@@ -15,6 +15,6 @@ export interface AdvisorDetail {
     firstname: string
     surname: string
     department: string
-    advisee: StudentDetail[] | string
+    advisee: StudentDetail[]
     images: string[]
 }
