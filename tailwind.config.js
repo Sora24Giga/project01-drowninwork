@@ -13,8 +13,9 @@ module.exports = {
       'se-color': '#674392',
       'se-color-light': '#8861B7',
       'se-dark': '#262626',
-      'se-gray': '#2F293A',
-      'se-light-gray': '#D0CBD6',
+      'se-color-dark': '#2F293A',
+      'se-gray': '#f2f2f208',
+      'se-gray-light': '#D0CBD6',
       'se-white': '#F1EBF8',
       'se-black1800': '#f2f2f208'
     },

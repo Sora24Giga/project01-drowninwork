@@ -150,7 +150,7 @@ function saveStudent() {
 <!--                      :value-extractor="(x) => x.id"-->
 <!--                      :text-extractor="(x) => x.firstname+' '+x.surname"-->
 <!--                      label=""-->
-<!--                      class="mt-1 w-full border-spacing-1 bg-se-dark p-0 focus:border-se-light-gray focus:outline-1 focus:ring-0 sm:text-sm text-se-white" />-->
+<!--                      class="mt-1 w-full border-spacing-1 bg-se-dark p-0 focus:border-se-gray-light focus:outline-1 focus:ring-0 sm:text-sm text-se-white" />-->
 <!--        </div>-->
 
         <br>

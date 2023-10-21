@@ -13,7 +13,7 @@
               class="w-14 hover:shadow-lg rounded-[50%]"
             >
           </div>
-          <div v-else class="relative inline-flex items-center justify-center overflow-hidden rounded-full w-14 h-14 bg-se-light-gray">
+          <div v-else class="relative inline-flex items-center justify-center overflow-hidden rounded-full w-14 h-14 bg-se-gray-light">
             <span class="text-xl font-semibold text-se-dark">
               {{ student?.firstname.charAt(0).toLocaleUpperCase() }}{{ student?.surname.charAt(0).toLocaleUpperCase() }}
             </span>

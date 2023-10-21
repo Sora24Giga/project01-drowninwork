@@ -28,13 +28,13 @@ const router = createRouter({
       path: '/',
       name: 'studentList',
       component: StudentListView,
-      props: (route) => ({ limit: parseInt(route.query?.limit as string || '7'), page: parseInt(route.query?.page as string || '1') })
+      props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/advisors',
       name: 'advisors',
       component: AdvisorsListView,
-      props: (route) => ({ limit: parseInt(route.query?.limit as string || '7'), page: parseInt(route.query?.page as string || '1') })
+      props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/login',

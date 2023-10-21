@@ -93,9 +93,9 @@ function updateKeyword (value: string) {
         @input="updateKeyword"
       />
     </div>
-    <div class="flex min-h-[32rem] justify-between flex-col w-full items-center">
-      <div class="w-[90%]">
-        <div class="flex border-b-2 text-left border-se-light-gray px-[20px] py-[10px] text-se-light-gray">
+    <div class="flex flex-col items-center justify-between w-full">
+      <div class="w-[90%] lg:h-[34rem]">
+        <div class="flex border-b-2 text-left border-se-gray-light px-[20px] py-[10px] text-se-gray-light">
           <div class="lg:flex hidden w-[8%]"></div>
           <span class="w-1/4 lg:w-1/5">NO. OF ADVISEES</span>
           <span class="w-1/4 lg:w-1/5">FIRSTNAME</span>
@@ -106,28 +106,32 @@ function updateKeyword (value: string) {
           v-for="advisor in advisors"
           :key="advisor.id"
           :advisor="advisor"
-          class="bg-se-gray even:bg-se-dark"
+          class="bg-se-color-dark even:bg-se-dark"
         ></AdvisorCard>
       </div>
-      <div class="flex justify-between w-[90%]">
-        <RouterLink
-          :to="{ name: 'advisors', query: { limit: limit, page: page - 1 } }"
-          rel="prev"
-          v-if="page != 1"
-          id="page-prev"
-          class="text-lg font-medium text-center no-underline w-fit text-se-light-gray hover:text-se-color-light"
-        >
-          Prev Page
-        </RouterLink>
-        <RouterLink
-          :to="{ name: 'advisors', query: { limit: limit, page: page + 1 } }"
-          rel="next"
-          v-if="hasNextPage"
-          id="page-next"
-          class="text-lg font-medium text-center no-underline w-fit text-se-light-gray hover:text-se-color-light"
-        >
-          Next Page
-        </RouterLink>
+      <div class="flex w-[90%]">
+        <div class="flex flex-row ml-auto">
+          <RouterLink
+            :to="{ name: 'advisors', query: { limit: limit, page: page - 1 } }"
+            rel="prev"
+            id="page-prev"
+            :style="[page != 1 ? '' : 'pointer-events: none']"
+            :class="[page != 1 ? 'text-se-gray-light bg-transparent' : '']"
+            class="w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light"
+          >
+            &lt; Prev Page
+          </RouterLink>
+          <RouterLink
+            :to="{ name: 'advisors', query: { limit: limit, page: page + 1 } }"
+            rel="next"
+            id="page-next"
+            :style="[hasNextPage ? '' : 'pointer-events: none']"
+            :class="[hasNextPage ? 'text-se-gray-light bg-transparent' : '']"
+            class="ml-4 w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light"
+          >
+            Next Page &gt;
+          </RouterLink>
+        </div>
       </div>
     </div>
   </div>

@@ -108,13 +108,13 @@ function testReview() {
       <!-- Info -->
       <div class="mx-auto flex w-[90%] min-w-[216px] flex-col justify-center lg:w-[60%]">
         <p
-          class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
+          class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           STUDENT INFO
         </p>
         <div
           v-if="student"
-          class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
+          class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           <span class="text-xl font-semibold"
             >{{ student.firstname.toLocaleUpperCase() }}
@@ -133,7 +133,7 @@ function testReview() {
               </div>
               <div
                 v-else
-                class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden bg-se-light-gray"
+                class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden bg-se-gray-light"
               >
                 <span class="text-5xl font-semibold text-se-dark">
                   {{ student.firstname.charAt(0).toLocaleUpperCase()
@@ -142,7 +142,7 @@ function testReview() {
               </div>
             </div>
           </div>
-          <div class="mx-auto w-[80%] border-t-2 border-se-light-gray pt-4 text-left">
+          <div class="mx-auto w-[80%] border-t-2 border-se-gray-light pt-4 text-left">
             <form @submit.prevent="updateInfo">
               <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
                 <span class="font-semibold sm:w-1/2">Student ID:</span>
@@ -249,7 +249,7 @@ function testReview() {
           <br />
           <button
             :onClick="changeUpdating"
-            class="ml-auto flex flex-row p-2 font-semibold text-se-light-gray transition hover:scale-[1.05] hover:text-se-color-light"
+            class="ml-auto flex flex-row p-2 font-semibold text-se-gray-light transition hover:scale-[1.05] hover:text-se-color-light"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -270,7 +270,7 @@ function testReview() {
       <!-- Comment -->
       <div class="mx-auto w-[90%] lg:ml-4 lg:mt-[60px] lg:w-[60%]">
         <p
-          class="h-[50px] w-full bg-[#312f2f3a] px-[20px] py-[10px] font-medium text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
+          class="h-[50px] w-full bg-[#312f2f3a] px-[20px] py-[10px] font-medium text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           ADVISOR's COMMENTS
         </p>
@@ -278,15 +278,15 @@ function testReview() {
           id="commentTextArea"
           v-model="inputComment"
           placeholder="Add a comment here."
-          class="mt-0 h-[200px] w-full border-2 border-solid border-se-light-gray bg-[#f2f2f208] p-[20px] text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] focus:animate-pulse focus:text-se-white"
+          class="mt-0 h-[200px] w-full border-2 border-solid border-se-gray-light bg-[#f2f2f208] p-[20px] text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] focus:animate-pulse focus:text-se-white"
         ></textarea>
         <button
           @click="testReview"
-          class="mt-1 w-[70%] self-center bg-se-color text-se-light-gray transition hover:scale-[1.01] hover:bg-se-color-light hover:text-se-white"
+          class="mt-1 w-[70%] self-center bg-se-color text-se-gray-light transition hover:scale-[1.01] hover:bg-se-color-light hover:text-se-white"
         >
           Add
         </button>
-        <div class="mt-1 w-full text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
+        <div class="mt-1 w-full text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           <div
             :key="comment"
             v-for="comment in comments"

@@ -85,7 +85,7 @@ function saveStudent() {
           for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         >
-          <span class="text-xs font-medium text-se-light-gray"> Student ID </span>
+          <span class="text-xs font-medium text-se-gray-light"> Student ID </span>
 
           <BaseInput
             v-model="student.studentId"
@@ -101,7 +101,7 @@ function saveStudent() {
           for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         >
-          <span class="text-xs font-medium text-se-light-gray"> First name </span>
+          <span class="text-xs font-medium text-se-gray-light"> First name </span>
 
           <BaseInput
             v-model="student.firstname"
@@ -117,7 +117,7 @@ function saveStudent() {
           for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         >
-          <span class="text-xs font-medium text-se-light-gray"> Last name </span>
+          <span class="text-xs font-medium text-se-gray-light"> Last name </span>
 
           <BaseInput
             v-model="student.surname"
@@ -133,7 +133,7 @@ function saveStudent() {
           for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         >
-          <span class="text-xs font-medium text-se-light-gray"> Department </span>
+          <span class="text-xs font-medium text-se-gray-light"> Department </span>
 
           <BaseInput
             v-model="student.department"
@@ -153,7 +153,7 @@ function saveStudent() {
             :value-extractor="(x) => x.id"
             :text-extractor="(x) => x.firstname + ' ' + x.surname"
             label=""
-            class="w-full p-0 mt-1 border-spacing-1 bg-se-dark text-se-white focus:border-se-light-gray focus:outline-1 focus:ring-0 sm:text-sm"
+            class="w-full p-0 mt-1 border-spacing-1 bg-se-dark text-se-white focus:border-se-gray-light focus:outline-1 focus:ring-0 sm:text-sm"
           />
         </div>
 

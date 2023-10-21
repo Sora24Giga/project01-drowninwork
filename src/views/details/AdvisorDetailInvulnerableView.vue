@@ -73,11 +73,11 @@ function updateInfo(){
     <div class="mb-[20px] w-full flex h-full justify-center bg-se-dark lg:ml-[20%]">
       <div class="flex w-[90%] lg:w-[60%] min-w-[216px] max-w-[500px] flex-col justify-center">
         <p
-            class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
+            class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           ADVISOR INFO
         </p>
         <div v-if="advisor"
-             class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
+             class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           <span class="text-xl font-semibold">{{ advisor.firstname.toLocaleUpperCase() }}
             {{ advisor.surname.toLocaleUpperCase() }}</span>
           <div class="flex flex-row flex-wrap justify-center mt-6 mb-8">
@@ -93,7 +93,7 @@ function updateInfo(){
               </span>
             </div>
           </div>
-          <div class="mx-auto w-[80%] border-t-2 border-se-light-gray pt-4 text-left">
+          <div class="mx-auto w-[80%] border-t-2 border-se-gray-light pt-4 text-left">
             <form @submit.prevent="updateInfo">
               <div class="flex w-full justify-evenly">
                 <span class="w-1/2 font-semibold">First Name:</span>
@@ -137,7 +137,7 @@ function updateInfo(){
           </div>
           <br />
 <!--          <button :onClick="changeUpdating"-->
-<!--                  class="ml-auto flex flex-row p-2 font-semibold text-se-light-gray transition hover:scale-[1.05] hover:text-se-color-light">-->
+<!--                  class="ml-auto flex flex-row p-2 font-semibold text-se-gray-light transition hover:scale-[1.05] hover:text-se-color-light">-->
 <!--            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"-->
 <!--                 class="h-4 my-auto mr-2 fill-current">-->
 <!--              <path-->
