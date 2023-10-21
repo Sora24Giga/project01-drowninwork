@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { useAdvisorStore } from '@/stores/advisor'
-import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import type { AdvisorDetail } from '@/type'
+import { useMessageStore } from '@/stores/message'
+import { useAdvisorStore } from '@/stores/advisor'
 import BaseInput from '@/components/BaseInput.vue'
 import ImageUpload from '@/components/ImageUpload.vue'
-import type { AdvisorDetail } from '@/type'
 import AdvisorService from "@/services/AdvisorService";
-import { useRouter } from 'vue-router'
-const router = useRouter()
-import { useMessageStore } from '@/stores/message'
 
+const updating = ref(false)
+const router = useRouter()
 const store = useAdvisorStore()
 const msgStore = useMessageStore()
 const advisor = storeToRefs(store).advisor
@@ -22,7 +23,7 @@ const advisorUpdated = ref<AdvisorDetail>({
   advisee: [],
   images: []
 })
-const updating = ref(false)
+
 function changeUpdating() {
   if (updating.value) {
     updating.value = false
@@ -35,7 +36,7 @@ function updateInfo(){
   if(advisor.value !== null){
     const newVal = advisorUpdated.value
     const oldVal = advisor.value
-    newVal.id = advisor.value.id
+    newVal.id = oldVal.id
     newVal.advisee = oldVal.advisee
     if(newVal.academicPosition===''){
       newVal.academicPosition = oldVal.academicPosition
