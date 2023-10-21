@@ -49,6 +49,7 @@ function updateInfo() {
     const oldVal = student.value
     newVal.id = oldVal.id
     newVal.advisor = oldVal.advisor
+    newVal.studentPw = oldVal.studentPw
     if (newVal.studentId === '') {
       newVal.studentId = oldVal.studentId
     }
@@ -214,7 +215,7 @@ function testReview() {
             <span v-else> Edit </span>
           </button>
         </div>
-        <RouterLink
+        <RouterLink v-if="student.advisor !== null"
           :to="{ name: 'advisorDetail', params: { id: student?.advisor.id } }"
           class="h-[50px] w-full bg-[#f2f2f208] px-[20px] py-[10px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] transition hover:scale-[1.01] hover:text-se-color-light"
         >
