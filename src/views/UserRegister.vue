@@ -142,16 +142,16 @@ function saveStudent() {
                      class="mt-1 w-full border-none bg-transparent p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
         </label>
 
-        <div>
-          <label class="text-se-white">Find Your Advisor</label>
-          <BaseSelect v-model="student.advisor.id"
-                      :options="advisors"
-                      :key-extractor="(x) => x.id"
-                      :value-extractor="(x) => x.id"
-                      :text-extractor="(x) => x.firstname+' '+x.surname"
-                      label=""
-                      class="mt-1 w-full border-spacing-1 bg-se-dark p-0 focus:border-se-light-gray focus:outline-1 focus:ring-0 sm:text-sm text-se-white" />
-        </div>
+<!--        <div>-->
+<!--          <label class="text-se-white">Find Your Advisor</label>-->
+<!--          <BaseSelect v-model="student.advisor.id"-->
+<!--                      :options="advisors"-->
+<!--                      :key-extractor="(x) => x.id"-->
+<!--                      :value-extractor="(x) => x.id"-->
+<!--                      :text-extractor="(x) => x.firstname+' '+x.surname"-->
+<!--                      label=""-->
+<!--                      class="mt-1 w-full border-spacing-1 bg-se-dark p-0 focus:border-se-light-gray focus:outline-1 focus:ring-0 sm:text-sm text-se-white" />-->
+<!--        </div>-->
 
         <br>
         <div>
