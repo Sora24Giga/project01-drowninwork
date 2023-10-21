@@ -143,7 +143,7 @@ function saveStudent() {
         </label>
 
         <div>
-          <label class="text-se-white">Find Advisor</label>
+          <label class="text-se-white">Find Your Advisor</label>
           <BaseSelect v-model="student.advisor.id"
                       :options="advisors"
                       :key-extractor="(x) => x.id"
@@ -156,7 +156,7 @@ function saveStudent() {
         <br>
         <div>
           <h2 class="mb-5 text-sm text-se-white">
-            Upload Image here
+            Upload Your Profile Image here
           </h2>
           <ImageUpload v-model="student.images" />
           <br>

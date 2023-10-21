@@ -79,7 +79,7 @@ const onSubmit = handleSubmit((values) => {
       <p class="mt-10 text-center text-se-white text-sm text-gray-500">
         Not a Member?
         {{' '}}
-        <a href="#" class="font-semibold text-se-white leading-6 text-indigo-600 hover:text-indigo-500">Try to register here</a>
+        <router-link to="/register" class="font-semibold text-se-white leading-6 text-indigo-600 hover:text-indigo-500">Try to register here</router-link>
       </p>
 
     </div>
