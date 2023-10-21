@@ -87,7 +87,7 @@ function saveStudent() {
         <label for="AcademicPo"
                class="block overflow-hidden mb-8 rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
           <span class="text-xs font-medium text-se-white">
-            Academic Position
+            Student ID
           </span>
 
           <BaseInput v-model="student.studentId" type="text" placeholder="Insert student ID here"
@@ -131,14 +131,14 @@ function saveStudent() {
         </label>
 
         <div>
-          <label class="text-se-white">Advisor</label>
+          <label class="text-se-white">Choose Advisor</label>
           <BaseSelect v-model="student.advisor.id"
                       :options="advisors"
                       :key-extractor="(x) => x.id"
                       :value-extractor="(x) => x.id"
                       :text-extractor="(x) => x.firstname+' '+x.surname"
                       label=""
-                      class="mt-1 w-full border-none bg-transparent p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
+                      class="mt-1 w-full border-spacing-1 bg-se-dark p-0 focus:border-se-light-gray focus:outline-1 focus:ring-0 sm:text-sm text-se-white" />
         </div>
 
         <br>
