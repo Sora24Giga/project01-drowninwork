@@ -34,5 +34,6 @@ const onChanged = (files: any) => {
         :server="uploadUrl"
         @change="onChanged"
         :media="media"
+        v-bind="$attrs"
     ></Uploader>
 </template>
