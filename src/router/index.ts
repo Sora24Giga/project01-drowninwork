@@ -84,6 +84,11 @@ const router = createRouter({
       },
     },
     {
+      path: '/registration',
+      name: 'registration',
+      component : RegistrationView
+    },
+    {
       path: '/add-student',
       name: 'add-student',
       component : StudentFormView
@@ -92,11 +97,6 @@ const router = createRouter({
       path: '/add-advisor',
       name: 'add-advisor',
       component : AdvisorFormView
-    },
-    {
-      path: '/registration',
-      name: 'registration',
-      component : RegistrationView
     },
     {
       path: '/404/:resource',

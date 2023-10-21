@@ -43,14 +43,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <span>Registration.</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
-<!--      <RouterLink-->
-<!--          :to="{ name: 'add-advisor' }"-->
-<!--          class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"-->
-<!--          active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"-->
-<!--      >-->
-<!--        <span>Advisor REG.</span>-->
-<!--        <span class="hidden lg:flex"></span>-->
-<!--      </RouterLink>-->
 
       <nav class="flex">
         <u1 class="flex ml-auto navbar-nav">
