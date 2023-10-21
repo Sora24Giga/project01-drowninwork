@@ -7,10 +7,22 @@
       :to="{ name: 'studentDetail', params: { id: student?.id } }"
     >
       <div class="flex">
-        <span class="w-1/4">{{ props.student?.studentId}}</span>
-        <span class="w-1/4">{{ props.student?.firstname }}</span>
-        <span class="w-1/4">{{ props.student?.surname }}</span>
-        <span class="w-1/4">{{ props.student?.department }}</span>
+        <div class="lg:flex hidden w-[8%]">
+          <div v-if="props.student?.images.length !== 0" class="pt-3 h-14">
+            <img v-for="image in props.student?.images" :key="image" :src="image" alt="advisors image"
+              class="w-14 hover:shadow-lg rounded-[50%]"
+            >
+          </div>
+          <div v-else class="relative inline-flex items-center justify-center overflow-hidden rounded-full w-14 h-14 bg-se-light-gray">
+            <span class="text-xl font-semibold text-se-dark">
+              {{ student?.firstname.charAt(0).toLocaleUpperCase() }}{{ student?.surname.charAt(0).toLocaleUpperCase() }}
+            </span>
+          </div>
+        </div>
+        <span class="w-1/4 pt-0 lg:pt-4 lg:w-1/5">{{ props.student?.studentId}}</span>
+        <span class="w-1/4 pt-0 lg:pt-4 lg:w-1/5">{{ props.student?.firstname }}</span>
+        <span class="w-1/4 pt-0 lg:pt-4 lg:w-1/5">{{ props.student?.surname }}</span>
+        <span class="w-1/4 pt-0 lg:pt-4 lg:w-1/5">{{ props.student?.department }}</span>
         <!--?는 체인 오퍼레이션이라고 한다-->
       </div>
     </RouterLink>

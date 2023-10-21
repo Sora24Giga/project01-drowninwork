@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <p
-    class="fixed left-0 right-0 top-0 mb-[1%] ml-0 mt-0 hidden h-[60px] w-full cursor-pointer bg-[#1e1e1e53] p-[20px] text-right font-[500] text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.471)] lg:block"
+    class="fixed left-0 right-0 top-0 z-10 mb-[1%] ml-0 mt-0 hidden h-[60px] w-full bg-[#1e1e1e53] p-[20px] text-right font-[500] text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.471)] lg:block"
   >
     ACCOUNT: ADMINISTRATOR
   </p>

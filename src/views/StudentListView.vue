@@ -95,10 +95,11 @@ function updateKeyword (value: string) {
     <div class="flex min-h-[32rem] justify-between flex-col w-full items-center">
       <div class="w-[90%]">
         <div class="flex border-b-2 text-left border-se-light-gray px-[20px] py-[10px] text-se-light-gray">
-          <span class="w-1/4">STUDENT ID</span>
-          <span class="w-1/4">FIRSTNAME</span>
-          <span class="w-1/4">LASTNAME</span>
-          <span class="w-1/4">DEPARTMENT</span>
+          <div class="lg:flex hidden w-[8%]"></div>
+          <span class="w-1/4 lg:w-1/5">STUDENT ID</span>
+          <span class="w-1/4 lg:w-1/5">FIRSTNAME</span>
+          <span class="w-1/4 lg:w-1/5">LASTNAME</span>
+          <span class="w-1/4 lg:w-1/5">DEPARTMENT</span>
         </div>
         <StudentCard
           v-for="student in students"

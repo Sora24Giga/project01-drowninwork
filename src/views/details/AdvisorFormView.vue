@@ -32,7 +32,9 @@ const advisor = ref<AdvisorDetail>({
   academicPosition: "",
   firstname: "",
   surname: "",
-  department: ""
+  department: "",
+  advisee: [],
+  images: []
 })
 </script>
 
@@ -58,7 +60,6 @@ const advisor = ref<AdvisorDetail>({
 
         <ImageUpload v-model="advisor.images" />
         <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
-        <!--      <pre>{{advisor}}</pre>-->
       </div>
     </form>
 

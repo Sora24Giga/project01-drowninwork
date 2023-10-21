@@ -29,5 +29,10 @@ const onChanged = (files: any) => {
 }
 </script>
 <template>
-    <Uploader :server="uploadUrl" @change="onChanged" :media="media"></Uploader>
+    <Uploader
+        max="1"
+        :server="uploadUrl"
+        @change="onChanged"
+        :media="media"
+    ></Uploader>
 </template>

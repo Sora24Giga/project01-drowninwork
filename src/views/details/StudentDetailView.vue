@@ -29,11 +29,18 @@ function testReview() {
           v-if="student"
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
-          <div class="mx-auto my-4 w-fit overflow-hidden rounded-[50%]">
+          <div class="mx-auto mt-4 mb-8 overflow-hidden rounded-full w-fit">
             <div class="flex flex-row flex-wrap justify-center">
-              <img v-for="image in student.images" :key="image" :src="image" alt="advisors image"
-               class="w-40 p-1 m-1 border-2 border-gray-200 border-solid rounded hover:shadow-lg"
-              >
+              <div v-if="student.images.length !== 0">
+                <img v-for="image in student.images" :key="image" :src="image" alt="advisors image"
+                  class="w-40 p-1 m-1 border-2 border-gray-200 border-solid hover:shadow-lg"
+                >
+              </div>
+              <div v-else class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden bg-se-light-gray">
+                <span class="text-5xl font-semibold text-se-dark">
+                  {{ student.firstname.charAt(0).toLocaleUpperCase() }}{{ student.surname.charAt(0).toLocaleUpperCase() }}
+                </span>
+              </div>
             </div>
           </div>
           <p class="mb-2 font-semibold">{{ student.firstname }} {{ student.surname }}</p>
@@ -43,7 +50,7 @@ function testReview() {
         </div>
         <RouterLink
           :to="{ name: 'advisorDetail', params: { id: student?.advisor.id } }"
-          class="h-[50px] w-full bg-[#f2f2f208] px-[20px] py-[10px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] transition hover:scale-[1.05] hover:text-se-color-light"
+          class="h-[50px] w-full bg-[#f2f2f208] px-[20px] py-[10px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] transition hover:scale-[1.01] hover:text-se-color-light"
           >Advisor: {{ student?.advisor.firstname }} {{ student?.advisor.surname }}</RouterLink
         >
         <p
@@ -59,7 +66,7 @@ function testReview() {
         ></textarea>
         <button
           @click="testReview"
-          class="mt-1 w-[70%] self-center bg-se-color text-se-light-gray transition hover:scale-[1.05] hover:bg-se-color-light hover:text-se-white"
+          class="mt-1 w-[70%] self-center bg-se-color text-se-light-gray transition hover:scale-[1.01] hover:bg-se-color-light hover:text-se-white"
         >
           Add
         </button>

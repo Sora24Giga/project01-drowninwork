@@ -20,9 +20,16 @@ const advisor = storeToRefs(store).advisor
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           <div class="flex flex-row flex-wrap justify-center">
-            <img v-for="image in advisor.images" :key="image" :src="image" alt="advisors image"
-             class="w-40 p-1 m-1 border-2 border-gray-200 border-solid rounded hover:shadow-lg"
-            >
+            <div v-if="advisor.images.length !== 0">
+              <img v-for="image in advisor.images" :key="image" :src="image" alt="advisors image"
+                class="w-40 p-1 m-1 border-2 border-gray-200 border-solid rounded-[50%] hover:shadow-lg"
+              >
+            </div>
+            <div v-else class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden rounded-full bg-se-color-light">
+              <span class="text-5xl font-semibold text-se-white">
+                {{ advisor.firstname.charAt(0).toLocaleUpperCase() }}{{ advisor.surname.charAt(0).toLocaleUpperCase() }}
+              </span>
+            </div>
           </div>
           <p class="my-2 font-semibold">{{ advisor.firstname }} {{ advisor.surname }}</p>
           <br />
