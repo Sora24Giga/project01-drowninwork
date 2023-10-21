@@ -19,6 +19,7 @@ import AdvisorFormView from "@/views/details/AdvisorFormView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
 import UserRegister from "@/views/UserRegister.vue";
+import AdvisorDetailInvulnerableView from "@/views/details/AdvisorDetailInvulnerableView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -82,6 +83,28 @@ const router = createRouter({
               router.push({ name: 'network-error' })
             }
           })
+      },
+    },
+    {
+      path: '/advisors/:id',
+      name: 'finalAdvisor',
+      component: AdvisorDetailInvulnerableView,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const advisorStore = useAdvisorStore()
+        AdvisorService.getAdvisorsById(id)
+            .then((response) => {
+              advisorStore.setAdvisor(response.data)
+            })
+            .catch(error => {
+              console.log(error)
+              if (error.response && error.response.status === 404) {
+                router.push({ name: '404-resource', params: { resource: 'advisor' } })
+              } else {
+                router.push({ name: 'network-error' })
+              }
+            })
       },
     },
     {

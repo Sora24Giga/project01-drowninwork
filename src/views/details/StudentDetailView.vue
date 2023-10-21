@@ -17,6 +17,7 @@ const student = storeToRefs(store).student
 const studentUpdated = ref<StudentDetail>({
   id: 0,
   studentId: '',
+  studentPw: '',
   firstname: '',
   surname: '',
   department: '',
