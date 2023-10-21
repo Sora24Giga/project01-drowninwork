@@ -87,7 +87,7 @@ function saveStudent() {
         <label for="AcademicPo"
                class="block overflow-hidden mb-8 rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
           <span class="text-xs font-medium text-se-white">
-            Academic Position
+            Student ID
           </span>
 
           <BaseInput v-model="student.studentId" type="text" placeholder="Insert student ID here"
