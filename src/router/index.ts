@@ -17,6 +17,7 @@ import AdvisorService from '@/services/AdvisorService'
 import StudentFormView from "@/views/details/StudentFormView.vue";
 import AdvisorFormView from "@/views/details/AdvisorFormView.vue";
 import LoginView from "@/views/LoginView.vue";
+import RegistrationView from "@/views/RegistrationView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -91,6 +92,11 @@ const router = createRouter({
       path: '/add-advisor',
       name: 'add-advisor',
       component : AdvisorFormView
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component : RegistrationView
     },
     {
       path: '/404/:resource',
