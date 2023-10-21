@@ -9,7 +9,7 @@ export default defineComponent({
 
 <template>
 <!--Router AdvisorFormView and StudentFromView should be added.-->
-  <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="box">
   <nav><!--this box css is just a temp.-->
   <router-link to="add-advisor" class="mt-1 w-full border-2 bg-transparent p-0 focus:border-transparent focus:outline-1 focus:ring-0 sm:text-sm text-se-white">Advisor registration</router-link>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,7 +21,7 @@ export default defineComponent({
 <style scoped>
 .box {
   padding-left: 35%;
-  padding-top: 15%;
+  padding-top: 35%;
   color: #f2f2f2;
 }
 </style>
