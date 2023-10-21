@@ -10,7 +10,7 @@
         <div class="lg:flex hidden w-[8%]">
           <div v-if="props.student?.images.length !== 0" class="pt-3 h-14">
             <img v-for="image in props.student?.images" :key="image" :src="image" alt="advisors image"
-              class="w-14 hover:shadow-lg rounded-[50%]"
+              class="w-14 h-14 hover:shadow-lg rounded-[50%]"
             >
           </div>
           <div v-else class="relative inline-flex items-center justify-center overflow-hidden rounded-full w-14 h-14 bg-se-gray-light">

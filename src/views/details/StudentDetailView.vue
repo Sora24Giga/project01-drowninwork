@@ -116,10 +116,9 @@ function testReview() {
           v-if="student"
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
-          <span class="text-xl font-semibold"
-            >{{ student.firstname.toLocaleUpperCase() }}
-            {{ student.surname.toLocaleUpperCase() }}</span
-          >
+          <span class="text-xl font-semibold">
+            {{ student.firstname.toUpperCase() }} {{ student.surname.toUpperCase() }}
+          </span>
           <div class="mx-auto mt-6 mb-8 overflow-hidden rounded-full w-fit">
             <div class="flex flex-row flex-wrap justify-center">
               <div v-if="student.images.length !== 0">
@@ -136,8 +135,7 @@ function testReview() {
                 class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden bg-se-gray-light"
               >
                 <span class="text-5xl font-semibold text-se-dark">
-                  {{ student.firstname.charAt(0).toLocaleUpperCase()
-                  }}{{ student.surname.charAt(0).toLocaleUpperCase() }}
+                  {{ student.firstname.charAt(0).toUpperCase() }}{{ student.surname.charAt(0).toUpperCase() }}
                 </span>
               </div>
             </div>
