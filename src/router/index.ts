@@ -18,6 +18,7 @@ import StudentFormView from "@/views/details/StudentFormView.vue";
 import AdvisorFormView from "@/views/details/AdvisorFormView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
+import UserRegister from "@/views/UserRegister.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -82,6 +83,11 @@ const router = createRouter({
             }
           })
       },
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component : UserRegister
     },
     {
       path: '/registration',

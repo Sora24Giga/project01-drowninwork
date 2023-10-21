@@ -14,7 +14,7 @@ const router = useRouter()
 const student = ref<StudentDetail>({
   id: 0,
   studentId: "",
-  studentPw:"",
+  studentPw: "",
   firstname: "",
   surname: "",
   department: "",
@@ -42,18 +42,18 @@ AdvisorService.getAdvisorlist()
 
 function saveStudent() {
   StudentService.saveStudent(student.value)
-  .then((response) => {
-    console.log("saved")
-    console.log(response.data)
-    router.push({
-      name: 'studentDetail',
-      params: { id: response.data.id }
-    })
-    store.updateMessage('You have successfully added a new student for ' + response.data.firstname)
-    setTimeout(() => {
-      store.restMessage()
-    }, 3000)
-  }).catch((e) => {
+      .then((response) => {
+        console.log("saved")
+        console.log(response.data)
+        router.push({
+          name: 'studentDetail',
+          params: { id: response.data.id }
+        })
+        store.updateMessage('You have successfully added a new student for ' + response.data.firstname)
+        setTimeout(() => {
+          store.restMessage()
+        }, 3000)
+      }).catch((e) => {
     console.log(e)
     router.push({ name: 'network-error' })
   })
@@ -84,7 +84,7 @@ function saveStudent() {
     <form @submit.prevent="saveStudent" >
       <div class="ml-16 mr-64">
 
-        <!-- Academic position -->
+        <!-- User ID -->
         <label for="AcademicPo"
                class="block overflow-hidden mb-8 rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
           <span class="text-xs font-medium text-se-white">
@@ -95,6 +95,17 @@ function saveStudent() {
                      class="mt-1 w-full border-none bg-transparent p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
         </label>
         <!--  -->
+
+        <!-- Password -->
+        <label for="AcademicPo"
+               class="block overflow-hidden mb-8 rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
+          <span class="text-xs font-medium text-se-white">
+            Student Password
+          </span>
+
+          <BaseInput v-model="student.studentPw" type="text" placeholder="Insert student password here"
+                     class="mt-1 w-full border-none bg-transparent p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
+        </label>
 
         <!-- Name -->
         <label for="AcademicPo"
@@ -132,7 +143,7 @@ function saveStudent() {
         </label>
 
         <div>
-          <label class="text-se-white">Choose Advisor</label>
+          <label class="text-se-white">Find Advisor</label>
           <BaseSelect v-model="student.advisor.id"
                       :options="advisors"
                       :key-extractor="(x) => x.id"
