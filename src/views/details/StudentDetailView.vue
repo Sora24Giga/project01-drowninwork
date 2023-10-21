@@ -29,7 +29,8 @@ function testReview() {
           v-if="student"
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
-          <div class="mx-auto mt-4 mb-8 overflow-hidden rounded-full w-fit">
+          <span class="text-xl font-semibold">{{ student.firstname.toLocaleUpperCase() }} {{ student.surname.toLocaleUpperCase() }}</span>
+          <div class="mx-auto mt-6 mb-8 overflow-hidden rounded-full w-fit">
             <div class="flex flex-row flex-wrap justify-center">
               <div v-if="student.images.length !== 0">
                 <img v-for="image in student.images" :key="image" :src="image" alt="advisors image"
@@ -43,15 +44,32 @@ function testReview() {
               </div>
             </div>
           </div>
-          <p class="mb-2 font-semibold">{{ student.firstname }} {{ student.surname }}</p>
-          <p>Student ID: {{ student.studentId }}</p>
-          <p>Department: {{ student.department }}</p>
+          <div class="w-[80%] mx-auto pt-4 border-t-2 border-se-light-gray text-left">
+            <div class="flex w-full justify-evenly">
+              <span class="w-1/2 font-semibold">Student ID:</span>
+              <span class="w-1/2">{{ student.studentId }}</span>
+            </div>
+            <div class="flex w-full justify-evenly">
+              <span class="w-1/2 font-semibold">First Name:</span>
+              <span class="w-1/2">{{ student.firstname }}</span>
+            </div>
+            <div class="flex w-full justify-evenly">
+              <span class="w-1/2 font-semibold">Last Name:</span>
+              <span class="w-1/2">{{ student.surname }}</span>
+            </div>
+            <div class="flex w-full justify-evenly">
+              <span class="w-1/2 font-semibold">Department:</span>
+              <span class="w-1/2">{{ student.department }}</span>
+            </div>
+          </div>
           <br />
         </div>
         <RouterLink
           :to="{ name: 'advisorDetail', params: { id: student?.advisor.id } }"
           class="h-[50px] w-full bg-[#f2f2f208] px-[20px] py-[10px] text-center font-medium text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] transition hover:scale-[1.01] hover:text-se-color-light"
-          >Advisor: {{ student?.advisor.firstname }} {{ student?.advisor.surname }}</RouterLink
+          >
+            <span class="w-1/2">Advisor: {{ student?.advisor.firstname }} {{ student?.advisor.surname }}</span>
+          </RouterLink
         >
         <p
           class="h-[50px] w-full bg-[#312f2f3a] px-[20px] py-[10px] text-center text-se-light-gray shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
