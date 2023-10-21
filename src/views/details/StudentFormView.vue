@@ -91,8 +91,13 @@ function saveStudent() {
           label="Advisor"
         />
         </div>
-        <ImageUpload v-model="student.images" />
-        <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
+        <br>
+        <div>
+          <label>Upload Profile Picture</label>
+          <ImageUpload v-model="student.images" class="px-4"/>
+          <br>
+          <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
+        </div>
       </div>
     </form>
 

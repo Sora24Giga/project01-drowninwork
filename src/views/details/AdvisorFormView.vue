@@ -57,9 +57,13 @@ const advisor = ref<AdvisorDetail>({
         <div class="lines">
           <BaseInput v-model="advisor.department" type="text" label="Department"/>
         </div>
-
-        <ImageUpload v-model="advisor.images" />
+        <br>
+        <div>
+          <label>Upload Profile Picture</label>
+        <ImageUpload v-model="advisor.images" class="px-4"/>
+          <br>
         <button type="submit" class="px-4 py-1 pt-1 font-bold text-green-700 bg-transparent border border-green-700 rounded hover:bg-green-800 hover:text-white">Submit</button>
+        </div>
       </div>
     </form>
 
