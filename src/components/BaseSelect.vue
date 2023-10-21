@@ -13,7 +13,7 @@
       :value="valueExtractor(option)"
       :key="keyExtractor(option)"
       :selected="valueExtractor(option) === modelValue">
-  >{{ textExtractor(option) }}</option>
+  {{ textExtractor(option) }}</option>
 </select>
 </template>
 

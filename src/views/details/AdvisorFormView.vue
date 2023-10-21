@@ -44,7 +44,7 @@ const advisor = ref<AdvisorDetail>({
   <div
     class="text-xs md:text-base mb-[2rem] ml-0 mt-[108px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[60px] lg:w-[80%] flex flex-col">
     <header>
-      <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+      <div class="max-w-screen-xl py-8 mx-auto lg:ml-16 sm:py-12">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">
@@ -61,7 +61,7 @@ const advisor = ref<AdvisorDetail>({
     </header>
     <!-- main content -->
     <form @submit.prevent="saveAdvisor">
-      <div class="ml-16 mr-64">
+      <div class="lg:ml-16 lg:mr-64 w-[80%] mx-auto">
 
         <!-- Academic position -->
         <label for="AcademicPo"

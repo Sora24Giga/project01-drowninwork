@@ -95,30 +95,31 @@ function updateInfo(){
           </div>
           <div class="mx-auto w-[80%] border-t-2 border-se-light-gray pt-4 text-left">
             <form @submit.prevent="updateInfo">
-              <div class="flex w-full justify-evenly">
-                <span class="w-1/2 font-semibold">First Name:</span>
-                <span v-if="updating === false" class="w-1/2">{{ advisor.firstname }}</span>
+              <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
+                <span class="font-semibold sm:w-1/2">First Name:</span>
+                <span v-if="updating === false" class="sm:w-1/2">{{ advisor.firstname }}</span>
                 <BaseInput v-else type="text" :placeholder="advisor.firstname" v-model="advisorUpdated.firstname"
-                  class="w-1/2 h-auto mb-1 rounded text-se-dark" />
+                  class="h-auto mb-1 rounded sm:w-1/2 text-se-dark" />
               </div>
-              <div class="flex w-full justify-evenly">
-                <span class="w-1/2 font-semibold">Last Name:</span>
-                <span v-if="updating === false" class="w-1/2">{{ advisor.surname }}</span>
+              <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
+                <span class="font-semibold sm:w-1/2">Last Name:</span>
+                <span v-if="updating === false" class="sm:w-1/2">{{ advisor.surname }}</span>
                 <BaseInput v-else type="text" :placeholder="advisor.surname" v-model="advisorUpdated.surname"
-                  class="w-1/2 h-auto mb-1 rounded text-se-dark" />
+                  class="h-auto mb-1 rounded sm:w-1/2 text-se-dark" />
               </div>
-              <div class="flex w-full justify-evenly">
-                <span class="w-1/2 font-semibold">Academic Position:</span>
-                <span v-if="updating === false" class="w-1/2">{{ advisor.academicPosition }}</span>
+              <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
+                <span class="font-semibold sm:w-1/2">Academic Position:</span>
+                <span v-if="updating === false" class="sm:w-1/2">{{ advisor.academicPosition }}</span>
                 <BaseInput v-else type="text" :placeholder="advisor.academicPosition" v-model="advisorUpdated.academicPosition"
-                  class="w-1/2 h-auto mb-1 rounded text-se-dark" />
+                  class="h-auto mb-1 rounded sm:w-1/2 text-se-dark" />
               </div>
-              <div class="flex w-full justify-evenly">
-                <span class="w-1/2 font-semibold">Department:</span>
-                <span v-if="updating === false" class="w-1/2">{{ advisor.department }}</span>
+              <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
+                <span class="font-semibold sm:w-1/2">Department:</span>
+                <span v-if="updating === false" class="sm:w-1/2">{{ advisor.department }}</span>
                 <BaseInput v-else type="text" :placeholder="advisor.department" v-model="advisorUpdated.department"
-                  class="w-1/2 h-auto mb-1 rounded text-se-dark" />
+                  class="h-auto mb-1 rounded sm:w-1/2 text-se-dark" />
               </div>
+              <span class="font-semibold" v-if="updating">Image:</span>
               <ImageUpload v-if="updating" v-model="advisorUpdated.images" class="mb-4" />
               <button v-if="updating"
                 class="transition hover:scale-[1.05] flex items-center justify-between gap-4 px-5 py-3 ml-auto border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
