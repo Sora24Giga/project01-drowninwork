@@ -63,26 +63,25 @@ function saveStudent() {
 
 
 <template>
-  <div>
+  <div class="text-xs md:text-base mb-[2rem] ml-0 mt-[108px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[60px] lg:w-[80%] flex flex-col">
     <h1>Create a registration</h1>
     <form @submit.prevent="saveStudent" >
-      <div class="box">
+      <div>
         <h3>Register Student Information</h3>
-        <div class="lines">
+        <div>
           <BaseInput v-model="student.studentId" type="text" label="Student ID"/>
         </div>
-        <div class="lines">
+        <div>
           <BaseInput v-model="student.firstname" type="text" label="First Name"/>
         </div>
-        <div class="lines">
+        <div>
           <BaseInput v-model="student.surname" type="text" label="Last Name"/>
         </div>
-        <!-- PLACEHOLDER will change to proper upload in the future -->
-        <div class="lines">
+        <div>
           <BaseInput v-model="student.department" type="text" label="Department"/>
         </div>
       
-        <div class="lines">
+        <div>
           <BaseSelect v-model="student.advisor.id"
           :options="advisors"
           :key-extractor="(x) => x.id"

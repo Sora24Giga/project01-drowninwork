@@ -40,21 +40,21 @@ const advisor = ref<AdvisorDetail>({
 
 
 <template>
-  <div>
+  <div class="text-xs md:text-base mb-[2rem] ml-0 mt-[108px] h-full w-full bg-se-dark lg:ml-[20%] lg:mt-[60px] lg:w-[80%] flex flex-col">
     <h1>Create a registration</h1>
     <form @submit.prevent="saveAdvisor" >
-      <div class="box">
+      <div>
         <h3>Register Advisor Information</h3>
-        <div class="lines">
+        <div>
           <BaseInput v-model="advisor.academicPosition" type="text" label="Academic Position"/>
         </div>
-        <div class="lines">
+        <div>
           <BaseInput v-model="advisor.firstname" type="text" label="First Name"/>
         </div>
-        <div class="lines">
+        <div>
           <BaseInput v-model="advisor.surname" type="text" label="Last Name"/>
         </div>
-        <div class="lines">
+        <div>
           <BaseInput v-model="advisor.department" type="text" label="Department"/>
         </div>
 
