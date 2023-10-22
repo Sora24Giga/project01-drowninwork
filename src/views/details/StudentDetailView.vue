@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { onBeforeRouteUpdate, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useStudentStore } from '@/stores/student'
 import { useMessageStore } from '@/stores/message'
-import type { StudentDetail, AdvisorDetail } from '@/type'
+import type { StudentDetail, AdvisorDetail, Comment, CommentHistory } from '@/type'
 import BaseInput from '@/components/BaseInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import ImageUpload from '@/components/ImageUpload.vue'
+import CommentBox from '@/components/CommentBox.vue'
 import StudentService from '@/services/StudentService'
 import AdvisorService from '@/services/AdvisorService'
+import CommentService from '@/services/CommentService'
+import type { AxiosResponse } from 'axios'
 
 const updating = ref(false)
 const router = useRouter()
@@ -36,8 +39,29 @@ const studentUpdated = ref<StudentDetail>({
   comment: []
 })
 let comments = ref(store.getComment(student.value.id))
+const commentHistory = ref<CommentHistory[]>([])
 const inputComment = ref('')
 const advisors = ref<AdvisorDetail[]>([])
+
+onBeforeRouteUpdate((to, from, next) => {
+  CommentService.getCommentHistoryByKeyword(student.value.advisor.id, student.value.id,1,1)
+    .then((response: AxiosResponse<CommentHistory[]>) => {
+      commentHistory.value = response.data
+      console.log(commentHistory)
+      next()
+    })
+    .catch(() => {
+      next({ name: 'network-error' })
+    })
+})
+// CommentService.getCommentHistoryByKeyword(student.value.advisor.id, student.value.id,1,1)
+//   .then((response: AxiosResponse<CommentHistory[]>) => {
+//     commentHistory.value = response.data
+//     console.log(commentHistory)
+//   })
+//   .catch(() => {
+//     router.push({ name: 'network-error' })
+//   })
 
 AdvisorService.getAdvisorlist()
   .then((response) => {
@@ -46,6 +70,7 @@ AdvisorService.getAdvisorlist()
   .catch(() => {
     router.push({ name: 'network-error' })
   })
+
 function changeUpdating() {
   if (updating.value) {
     updating.value = false
@@ -103,10 +128,10 @@ function testReview() {
 <template>
   <div class="student-box mt-[108px] flex justify-center lg:ml-[20%] lg:mt-[60px]">
     <div
-      class="mb-[20px] flex h-full w-full flex-col justify-center bg-se-dark p-[20px] lg:w-[80%] lg:flex-row"
+      class="mb-[20px] flex h-full w-full flex-col mx-auto bg-se-dark p-[20px] lg:w-[80%] lg:flex-row"
     >
       <!-- Info -->
-      <div class="mx-auto flex w-[90%] min-w-[216px] flex-col justify-center lg:w-[60%]">
+      <div class="mx-auto flex w-[90%] min-w-[216px] flex-col lg:w-[60%]">
         <p
           class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
@@ -119,7 +144,7 @@ function testReview() {
           <span class="text-xl font-semibold">
             {{ student.firstname.toUpperCase() }} {{ student.surname.toUpperCase() }}
           </span>
-          <div class="mx-auto mt-6 mb-8 overflow-hidden rounded-full w-fit">
+          <div class="mx-auto mt-6 mb-8 overflow-hidden w-fit">
             <div class="flex flex-row flex-wrap justify-center">
               <div v-if="student.images.length !== 0">
                 <img
@@ -127,14 +152,14 @@ function testReview() {
                   :key="image"
                   :src="image"
                   alt="advisors image"
-                  class="w-40 p-1 m-1 border-2 border-gray-200 border-solid hover:shadow-lg"
+                  class="rounded-[50%] w-40 p-1 m-1 border-2 border-gray-200 border-solid hover:shadow-lg"
                 />
               </div>
               <div
                 v-else
-                class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden bg-se-gray-light"
+                class="relative inline-flex items-center justify-center w-32 h-32 overflow-hidden rounded-full bg-se-gray-light"
               >
-                <span class="text-5xl font-semibold text-se-dark">
+                <span class="mx-auto text-5xl font-semibold text-se-dark">
                   {{ student.firstname.charAt(0).toUpperCase() }}{{ student.surname.charAt(0).toUpperCase() }}
                 </span>
               </div>
@@ -272,27 +297,8 @@ function testReview() {
         >
           ADVISOR's COMMENTS
         </p>
-        <textarea
-          id="commentTextArea"
-          v-model="inputComment"
-          placeholder="Add a comment here."
-          class="mt-0 h-[200px] w-full border-2 border-solid border-se-gray-light bg-[#f2f2f208] p-[20px] text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)] focus:animate-pulse focus:text-se-white"
-        ></textarea>
-        <button
-          @click="testReview"
-          class="mt-1 w-[70%] self-center bg-se-color text-se-gray-light transition hover:scale-[1.01] hover:bg-se-color-light hover:text-se-white"
-        >
-          Add
-        </button>
-        <div class="mt-1 w-full text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
-          <div
-            :key="comment"
-            v-for="comment in comments"
-            :comment="comment"
-            class="mb-2 bg-[#f2f2f208] p-[20px]"
-          >
-            <p>{{ comment }}</p>
-          </div>
+        <div class="w-full h-[422px] shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
+          <CommentBox :inputBox="false"/>
         </div>
       </div>
     </div>

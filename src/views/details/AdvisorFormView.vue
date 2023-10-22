@@ -66,7 +66,7 @@ const advisor = ref<AdvisorDetail>({
         <!-- Academic position -->
         <label for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
-          <span class="text-xs font-medium text-se-white">
+          <span class="text-xs font-medium text-se-gray-light">
             Academic Position
           </span>
 
@@ -78,7 +78,7 @@ const advisor = ref<AdvisorDetail>({
         <!-- Name -->
         <label for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
-          <span class="text-xs font-medium text-se-white">
+          <span class="text-xs font-medium text-se-gray-light">
             First name
           </span>
 
@@ -90,7 +90,7 @@ const advisor = ref<AdvisorDetail>({
         <!-- Last Name -->
         <label for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
-          <span class="text-xs font-medium text-se-white">
+          <span class="text-xs font-medium text-se-gray-light">
             Last name
           </span>
 
@@ -102,7 +102,7 @@ const advisor = ref<AdvisorDetail>({
         <!-- Department -->
         <label for="AcademicPo"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
-          <span class="text-xs font-medium text-se-white">
+          <span class="text-xs font-medium text-se-gray-light">
             Department
           </span>
 
@@ -145,7 +145,7 @@ const advisor = ref<AdvisorDetail>({
 .box {
   padding-left: 35%;
   padding-top: 15%;
-  color: #f2f2f2;
+  color: #f2f2f208;
 }
 
 .lines {

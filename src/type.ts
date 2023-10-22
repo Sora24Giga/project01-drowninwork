@@ -20,6 +20,21 @@ export interface AdvisorDetail {
     images: string[]
 }
 
+export interface CommentHistory{
+    id: number
+    history: Comment[]
+    advisorId: number
+    adviseeId: number
+}
+
+export interface Comment{
+    id: number
+    from: CommentHistory
+    message: string
+    timeSent: string
+    sentFromAdvisor: boolean
+}
+
 export interface UserDetail {
     id: number
     UserId: string

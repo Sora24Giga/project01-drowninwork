@@ -20,10 +20,16 @@ import LoginView from "@/views/LoginView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
 import UserRegister from "@/views/UserRegister.vue";
 import AdvisorDetailInvulnerableView from "@/views/details/AdvisorDetailInvulnerableView.vue";
+import CommentViewVue from '@/views/CommentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/testComment',
+      name: 'comment',
+      component: CommentViewVue
+    },
     {
       path: '/',
       name: 'studentList',

@@ -22,6 +22,6 @@ export default defineComponent({
 .box {
   padding-left: 35%;
   padding-top: 35%;
-  color: #f2f2f2;
+  color: #f2f2f208;
 }
 </style>
