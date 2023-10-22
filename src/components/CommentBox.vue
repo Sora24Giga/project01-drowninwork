@@ -71,15 +71,15 @@ function saveComment() {
           />
         </div>
         <div class="h-[20%] pt-2" v-if="inputBox">
-          <form @submit.prevent="saveComment">
+          <form class="h-full" @submit.prevent="saveComment">
             <textarea
               v-model="commentMsg.message"
               required
-              class="w-full h-full bg-black1800-300 rounded-xl"
+              class="w-full h-[60%] bg-black1800-300 rounded-xl"
               type="text"
               placeholder="type your message here..."
             />
-            <div class="flex justify-end">
+            <div class="flex h-[40%] justify-end">
               <button
                 class="flex items-center justify-between gap-4 px-3 py-1 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
                 type="submit"
