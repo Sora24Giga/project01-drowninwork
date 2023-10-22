@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import axios from 'axios'
 import type {AxiosInstance} from "axios";
+import type {AdvisorDetail} from "@/type";
 
 const apiClient: AxiosInstance = axios.create ({
     baseURL: import.meta.env.VITE_BACKEND_URL,
@@ -13,8 +14,14 @@ const apiClient: AxiosInstance = axios.create ({
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-        token: null as string | null
+        token: null as string | null,
+        user: null as AdvisorDetail |null
     }),
+    getters: {
+        currentUserName () : string {
+            return this.user?.firstname || ''
+        }
+    },
     actions: {
         login(email: string, password: string) {
             return apiClient
