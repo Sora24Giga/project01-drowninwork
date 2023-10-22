@@ -16,13 +16,13 @@ const authStore = useAuthStore()
 const validationSchema = yup.object({
   // email: yup.string().required('The email is required').email(6,'Input must be an email.'),
   // password: yup.string().required('The password is required').min(6,'The password must be at least 6 characters.')
-  email: yup.string().required('The email is required'),
+  userId: yup.string().required('The email is required'),
   password: yup.string().required('The password is required')
 })
 const { errors, handleSubmit } = useForm({
   validationSchema,
   initialValues: {
-    id: '',
+    userId: '',
     password: ''
   }
 })
@@ -33,7 +33,7 @@ const { value: password } = useField<string>('password')
 //   console.log(values)
 const onSubmit = handleSubmit((values) => {
   console.log("On track")
-  authStore.login(values.id, values.password)
+  authStore.login(values.userId, values.password)
     .then(() => {
       console.log("login success")
       router.push({ name: 'studentDetail' })
@@ -89,7 +89,7 @@ const onSubmit = handleSubmit((values) => {
             class="block px-3 py-2 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
             <span class="text-xs font-medium text-se-gray-light"> Username </span>
 
-            <input id="id" name="id" type="text" required="" placeholder="Insert User name here"
+            <input id="userId" name="userId" type="text" required=" " placeholder="Insert User name here"
               class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
           </label>
         </div>
@@ -107,9 +107,9 @@ const onSubmit = handleSubmit((values) => {
 
         <!-- Button -->
         <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-          <button
+          <button type="submit"
             class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
-            type="submit">
+            >
             <span class="font-medium transition-colors text-se-white"> Sign in </span>
 
             <span
