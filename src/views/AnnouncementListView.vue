@@ -69,6 +69,8 @@ import BaseInput from '@/components/BaseInput.vue'
                         Crazy? I was crazy once. They locked me in a room. A rubber room! A rubber room with rats,and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room! A rubber room with rats,and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room! A rubber room with rats,and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room! A rubber room with rats,and rats make me crazy. Crazy? I was crazy once. They locked me in a room. A rubber room! A rubber room with rats,and rats make me crazy.
                     </p>
 
+                    <p class="mt-1 text-sm text-se-gray-light brightness-90">LINK</p>
+
                     <div class="mt-4 sm:flex sm:items-center sm:gap-2">
                         <div class="flex items-center gap-1 text-se-white">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
