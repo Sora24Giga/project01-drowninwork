@@ -36,7 +36,10 @@ const commentMsg = ref<Comment>({
 function saveComment() {
   console.log(commentMsg.value)
   if(props.commentHistory !== null && props.commentHistory !== undefined){
+    const now = new Date()
+    const timeNow = now.getDate()+'/'+now.getMonth()+'/'+now.getFullYear()+' '+now.getHours()+':'+now.getMinutes()
     commentMsg.value.from = props.commentHistory
+    commentMsg.value.timeSent = timeNow
     CommentService.saveComment(commentMsg.value)
     .then((response) => {
       console.log("sent")
