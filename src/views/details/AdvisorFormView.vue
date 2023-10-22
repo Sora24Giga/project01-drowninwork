@@ -123,13 +123,11 @@ const advisor = ref<AdvisorDetail>({
 
         <!-- button -->
         <button
-          class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light bg-se-black1800"
+          class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
           type="submit">
-          <span class="font-medium transition-colors text-se-white">
-            Submit
-          </span>
+          <span class="font-medium transition-colors text-se-white"> Submit </span>
 
-          <span class="p-2 border border-indigo-600 rounded-full shrink-0 bg-se-black1800 group-active:border-indigo-500">
+          <span class="p-2 border border-indigo-600 rounded-full text-se-white group-active:border-indigo-500 shrink-0 bg-se-black1800 group-hover:bg-se-color">
             <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

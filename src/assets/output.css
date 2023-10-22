@@ -892,6 +892,14 @@ select {
   margin-top: 30px;
 }
 
+.mr-auto {
+  margin-right: auto;
+}
+
+.mr-0 {
+  margin-right: 0px;
+}
+
 .block {
   display: block;
 }
@@ -981,6 +989,18 @@ select {
   height: 100%;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-\[20\%\] {
+  height: 20%;
+}
+
+.h-\[80\%\] {
+  height: 80%;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1048,6 +1068,10 @@ select {
 
 .w-full {
   width: 100%;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .min-w-\[216px\] {
@@ -1711,6 +1735,11 @@ select {
 .active\:text-se-dark:active {
   --tw-text-opacity: 1;
   color: rgb(38 38 38 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:bg-se-color {
+  --tw-bg-opacity: 1;
+  background-color: rgb(103 67 146 / var(--tw-bg-opacity));
 }
 
 :is([dir="rtl"] .rtl\:rotate-180) {
