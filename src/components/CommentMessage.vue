@@ -39,7 +39,7 @@ function checkWhoseView(truePart: string, falsePart: string) {
       <span
         :class="checkWhoseView('mr-2 text-right', 'ml-1 text-left')"
         class="text-se-gray-light h-[16px] text-right text-xs"
-        >{{(props.advisorView? props.advisorName : props.adviseeName)?.toLocaleUpperCase()}} {{props.comment?.timeSent}}</span
+        >{{(props.comment?.sentFromAdvisor? props.advisorName : props.adviseeName)?.toLocaleUpperCase()}} {{props.comment?.timeSent}}</span
       >
       <div
         :class="checkWhoseView('mr-2 bg-se-color-light', 'ml-2 bg-se-black1800')"

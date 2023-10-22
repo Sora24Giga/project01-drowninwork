@@ -82,6 +82,18 @@ function updateInfo() {
     StudentService.saveStudent(studentUpdated.value)
       .then((response) => {
         console.log(response.data)
+        if(response.data.advisor !== null && response.data.advisor.id !== 0){
+        CommentService.saveCommentHistory({
+          id: 0,
+          history: [],
+          advisorId: response.data.advisor.id,
+          adviseeId: response.data.id
+        })
+        .catch((e) => {
+          console.log(e)
+          router.push({ name: 'network-error' })
+        })
+      }
         router.go(0)
         msgStore.updateMessage('You have successfully update ' + response.data.firstname)
         setTimeout(() => {

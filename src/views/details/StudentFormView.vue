@@ -8,6 +8,7 @@ import BaseInput from '@/components/BaseInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import AdvisorService from '@/services/AdvisorService'
 import ImageUpload from '@/components/ImageUpload.vue'
+import CommentService from '@/services/CommentService'
 
 const store = useMessageStore()
 const router = useRouter()
@@ -45,6 +46,18 @@ function saveStudent() {
     .then((response) => {
       console.log('saved')
       console.log(response.data)
+      if(response.data.advisor !== null && response.data.advisor.id !== 0){
+        CommentService.saveCommentHistory({
+          id: 0,
+          history: [],
+          advisorId: response.data.advisor.id,
+          adviseeId: response.data.id
+        })
+        .catch((e) => {
+          console.log(e)
+          router.push({ name: 'network-error' })
+        })
+      }
       router.push({
         name: 'studentDetail',
         params: { id: response.data.id }

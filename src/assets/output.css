@@ -755,11 +755,6 @@ select {
   margin-right: auto;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -897,10 +892,6 @@ select {
   margin-top: 30px;
 }
 
-.mt-auto {
-  margin-top: auto;
-}
-
 .block {
   display: block;
 }
@@ -990,74 +981,6 @@ select {
   height: 100%;
 }
 
-.h-\[90\%\] {
-  height: 90%;
-}
-
-.h-\[85\%\] {
-  height: 85%;
-}
-
-.h-\[86\%\] {
-  height: 86%;
-}
-
-.h-\[70\%\] {
-  height: 70%;
-}
-
-.h-\[15\%\] {
-  height: 15%;
-}
-
-.h-\[18\%\] {
-  height: 18%;
-}
-
-.h-\[82\%\] {
-  height: 82%;
-}
-
-.h-\[454px\] {
-  height: 454px;
-}
-
-.h-\[444px\] {
-  height: 444px;
-}
-
-.h-\[400px\] {
-  height: 400px;
-}
-
-.h-\[412px\] {
-  height: 412px;
-}
-
-.h-\[414px\] {
-  height: 414px;
-}
-
-.h-\[418px\] {
-  height: 418px;
-}
-
-.h-\[420px\] {
-  height: 420px;
-}
-
-.h-\[422px\] {
-  height: 422px;
-}
-
-.h-\[424px\] {
-  height: 424px;
-}
-
-.min-h-full {
-  min-height: 100%;
-}
-
 .w-1\/2 {
   width: 50%;
 }
@@ -1114,6 +1037,10 @@ select {
   width: 900px;
 }
 
+.w-\[95\%\] {
+  width: 95%;
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -1121,10 +1048,6 @@ select {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[95\%\] {
-  width: 95%;
 }
 
 .min-w-\[216px\] {
@@ -1380,16 +1303,12 @@ select {
   padding: 1rem;
 }
 
-.p-\[20px\] {
-  padding: 20px;
-}
-
-.p-\[15px\] {
-  padding: 15px;
-}
-
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-\[20px\] {
+  padding: 20px;
 }
 
 .px-2 {
@@ -1415,6 +1334,11 @@ select {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .px-\[20px\] {
@@ -1462,26 +1386,6 @@ select {
   padding-bottom: 15px;
 }
 
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -1490,16 +1394,16 @@ select {
   padding-top: 0px;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .pt-3 {
   padding-top: 0.75rem;
 }
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pt-2 {
-  padding-top: 0.5rem;
 }
 
 .text-left {
@@ -1591,6 +1495,10 @@ select {
 .text-se-white {
   --tw-text-opacity: 1;
   color: rgb(241 235 248 / var(--tw-text-opacity));
+}
+
+.text-transparent {
+  color: transparent;
 }
 
 .underline {
@@ -1966,12 +1874,12 @@ select {
     height: 34rem;
   }
 
-  .lg\:h-full {
-    height: 100%;
-  }
-
   .lg\:h-\[550px\] {
     height: 550px;
+  }
+
+  .lg\:h-full {
+    height: 100%;
   }
 
   .lg\:w-1\/5 {

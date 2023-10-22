@@ -39,7 +39,20 @@ const router = createRouter({
         const commentHistoryStore = useCommentHistoryStore()
         CommentService.getCommentHistoryById(id)
           .then((response) => {
+            console.log(response.data)
             commentHistoryStore.setCommentHistory(response.data)
+            StudentService.getStudentsById(response.data.adviseeId)
+              .then((resp) => {
+                commentHistoryStore.setStudent(resp.data)
+              })
+              .catch((err) => {
+                if (err.response && err.response.status === 404) {
+                  router.push({ name: '404-resource', params: { resource: 'comment history' } })
+                } else {
+                  router.push({ name: 'network-error' })
+                }
+              })
+
           })
           .catch(error => {
             console.log(error)
@@ -84,19 +97,21 @@ const router = createRouter({
         StudentService.getStudentsById(id)
           .then((response) => {
             studentStore.setStudent(response.data)
-            CommentService.getCommentHistoryByKeyword(response.data.advisor.id, response.data.id, 1, 1)
-              .then((commentResponse) => {
-                console.log(commentResponse.data[0])
-                studentStore.setCommentHistory(commentResponse.data[0])
-              })
-              .catch(error => {
-                console.log(error)
-                if (error.response && error.response.status === 404) {
-                  router.push({ name: '404-resource', params: { resource: 'student' } })
-                } else {
-                  router.push({ name: 'network-error' })
-                }
-              })
+            if (response.data.advisor !== null && response.data.advisor.id !== 0) {
+              CommentService.getCommentHistoryByKeyword(response.data.advisor.id, response.data.id, 1, 1)
+                .then((commentResponse) => {
+                  console.log(commentResponse.data[0])
+                  studentStore.setCommentHistory(commentResponse.data[0])
+                })
+                .catch(error => {
+                  console.log(error)
+                  if (error.response && error.response.status === 404) {
+                    router.push({ name: '404-resource', params: { resource: 'student' } })
+                  } else {
+                    router.push({ name: 'network-error' })
+                  }
+                })
+            }
           })
           .catch(error => {
             console.log(error)
@@ -165,7 +180,7 @@ const router = createRouter({
     {
       path: '/add-announcement',
       name: 'add-announcement',
-      component : AnnouncementFormView
+      component: AnnouncementFormView
     },
     {
       path: '/add-student',
