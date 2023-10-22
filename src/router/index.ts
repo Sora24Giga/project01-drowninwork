@@ -21,6 +21,7 @@ import RegistrationView from "@/views/RegistrationView.vue";
 import UserRegister from "@/views/UserRegister.vue";
 import AdvisorDetailInvulnerableView from "@/views/details/AdvisorDetailInvulnerableView.vue";
 import CommentViewVue from '@/views/CommentView.vue'
+import AnnouncementListView from '@/views/AnnouncementListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/testComment',
       name: 'comment',
       component: CommentViewVue
+    },
+    {
+      path: '/annoucement',
+      name: 'annoucement',
+      component: AnnouncementListView
     },
     {
       path: '/',

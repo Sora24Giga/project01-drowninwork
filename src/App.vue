@@ -4,54 +4,52 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <p
-    class="fixed left-0 right-0 top-0 z-10 mb-[1%] ml-0 mt-0 hidden h-[60px] w-full bg-[#1e1e1e53] p-[20px] text-right font-[500] text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.471)] lg:block"
-  >
+    class="fixed left-0 right-0 top-0 z-10 mb-[1%] ml-0 mt-0 hidden h-[60px] w-full bg-[#1e1e1e53] p-[20px] text-right font-[500] text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.471)] lg:block">
     ACCOUNT: ADMINISTRATOR
   </p>
   <div
-    class="fixed left-0 right-0 top-0 z-10 mb-[20px] h-fit w-full justify-between bg-se-color text-center lg:block lg:h-full lg:w-[20%] lg:px-0 lg:py-[20px]"
-  >
+    class="fixed left-0 right-0 top-0 z-10 mb-[20px] h-fit w-full justify-between bg-se-color text-center lg:block lg:h-full lg:w-[20%] lg:px-0 lg:py-[20px]">
     <p class="pt-4 pb-2 text-xl font-semibold text-light text-se-white lg:pt-0 lg:text-4xl">
       ADMIN
     </p>
     <nav
-      class="flex h-fit justify-evenly bg-transparent text-center text-sm md:text-base font-[500] text-se-gray-light lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg"
-    >
+      class="flex h-fit justify-evenly bg-transparent text-center text-sm md:text-base font-[500] text-se-gray-light lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg">
 
-      <RouterLink
-        :to="{ name: 'studentList' }"
+      <RouterLink :to="{ name: 'annoucement' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
+        <span>Announcement</span>
+        <span class="hidden lg:flex"></span>
+      </RouterLink>
+
+      <RouterLink :to="{ name: 'studentList' }"
+        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Student List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
-      <RouterLink
-        :to="{ name: 'advisors' }"
+      <RouterLink :to="{ name: 'advisors' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Advisor List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
-      <RouterLink
-          :to="{ name: 'add-student' }"
-          class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-          active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
+      <RouterLink :to="{ name: 'add-student' }"
+        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Student</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
-      <RouterLink
-          :to="{ name: 'add-advisor' }"
-          class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
-          active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
-      >
+      <RouterLink :to="{ name: 'add-advisor' }"
+        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Advisor</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+
+
 
       <nav class="flex">
         <u1 class="flex ml-auto navbar-nav">
