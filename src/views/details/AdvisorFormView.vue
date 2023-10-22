@@ -118,11 +118,12 @@ const advisor = ref<AdvisorDetail>({
           </h2>
           <ImageUpload v-model="advisor.images" />
           <br>
-    
+
         </div>
 
         <!-- button -->
-        <button class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light bg-se-black1800"
+        <button
+          class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light bg-se-black1800"
           type="submit">
           <span class="font-medium transition-colors text-se-white">
             Submit
