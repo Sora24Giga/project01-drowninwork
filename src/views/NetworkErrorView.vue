@@ -9,12 +9,8 @@ const router = useRouter()
     <div class="mx-4">
       <h3>
         It look like you're experiencing some network issues, please take a breath and
-        <a
-          href="#"
-          @click="router.go(-1)"
-          class="text-se-color-light hover:text-se-color hover:underline hover:underline-offset-8"
-          >click here</a
-        >
+        <a href="#" @click="router.go(-1)"
+          class="text-se-color-light hover:text-se-color hover:underline hover:underline-offset-8">click here</a>
         to try again.
       </h3>
       <p>Sorry, we can't get the data from the server.</p>

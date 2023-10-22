@@ -22,6 +22,7 @@ import UserRegister from "@/views/UserRegister.vue";
 import AdvisorDetailInvulnerableView from "@/views/details/AdvisorDetailInvulnerableView.vue";
 import CommentViewVue from '@/views/CommentView.vue'
 import AnnouncementListView from '@/views/AnnouncementListView.vue'
+import AnnouncementFormView from '@/views/details/AnnouncementFormView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -128,6 +129,11 @@ const router = createRouter({
       path: '/registration',
       name: 'registration',
       component : RegistrationView
+    },
+    {
+      path: '/add-announcement',
+      name: 'add-announcement',
+      component : AnnouncementFormView
     },
     {
       path: '/add-student',

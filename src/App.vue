@@ -35,6 +35,13 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
+      <RouterLink :to="{ name: 'add-announcement' }"
+        class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+        active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
+        <span>Add Announcement</span>
+        <span class="hidden lg:flex"></span>
+      </RouterLink>
+
       <RouterLink :to="{ name: 'add-student' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
