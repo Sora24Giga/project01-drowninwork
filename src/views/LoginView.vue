@@ -106,9 +106,16 @@ const onSubmit = handleSubmit((values) => {
         <!-- Button -->
         <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
           <button
+<<<<<<< HEAD
             class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
             type="submit">
             <span class="font-medium transition-colors text-se-white"> Submit </span>
+=======
+          class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
+          type="submit"
+        >
+          <span class="font-medium transition-colors text-se-white"> Log-in </span>
+>>>>>>> b60d1c71c45454c79b0b3ca1a972fb2a36f8a476
 
             <span
               class="p-2 border border-indigo-600 rounded-full group-active:border-indigo-500 shrink-0 bg-se-black1800">
