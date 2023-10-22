@@ -163,6 +163,7 @@ function saveStudent() {
 
         </div>
 
+        <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
         <!-- button -->
         <button class="group flex items-center justify-between gap-4 rounded-lg border border-current px-5 py-3 transition-colors hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light bg-se-black1800"
                 type="submit">
@@ -177,6 +178,11 @@ function saveStudent() {
             </svg>
           </span>
         </button>
+        <p class="mt-4 text-sm text-gray-500 text-se-white sm:mt-0">
+            Already have an account?
+            <router-link to="/login" class="text-gray-700 underline text-se-white">LogIn</router-link>.
+          </p>
+        </div>
       </div>
     </form>
 
