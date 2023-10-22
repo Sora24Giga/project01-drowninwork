@@ -16,25 +16,27 @@ const authStore = useAuthStore()
 const validationSchema = yup.object({
   // email: yup.string().required('The email is required').email(6,'Input must be an email.'),
   // password: yup.string().required('The password is required').min(6,'The password must be at least 6 characters.')
-  email: yup.string().required('The email is required'),
+  userId: yup.string().required('The email is required'),
   password: yup.string().required('The password is required')
 })
 const { errors, handleSubmit } = useForm({
   validationSchema,
   initialValues: {
-    email: '',
+    userId: '',
     password: ''
   }
 })
 
-const { value: email } = useField<string>('email')
+const { value: id } = useField<string>('id')
 const { value: password } = useField<string>('password')
 // const onSubmit = handleSubmit((values) => {
 //   console.log(values)
 const onSubmit = handleSubmit((values) => {
-  authStore.login(values.email, values.password)
+  console.log("On track")
+  authStore.login(values.userId, values.password)
     .then(() => {
-      router.push({ name: 'studentList' })
+      console.log("login success")
+      router.push({ name: 'studentDetail' })
     }).catch(() => {
       messageStore.updateMessage('could not login')
       setTimeout(() => {
@@ -80,35 +82,35 @@ const onSubmit = handleSubmit((values) => {
       <!-- <label
           class="block px-3 py-2 mt-10 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         > -->
-      <form action="#" class="lg:ml-16 grid grid-cols-6 gap-6">
+      <form action="#" class="lg:ml-16 grid grid-cols-6 gap-6" @submit.prevent="onSubmit">
         <!-- Username -->
         <div class="col-span-6">
-          <label for="AcademicPo"
+          <label for="email"
             class="block px-3 py-2 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
             <span class="text-xs font-medium text-se-gray-light"> Username </span>
 
-            <input type="text" placeholder="Insert User name here"
+            <input id="userId" name="userId" type="text" required=" " placeholder="Insert User name here"
               class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
           </label>
         </div>
 
         <!-- Password -->
         <div class="col-span-6">
-          <label for="AcademicPo"
+          <label for="password"
             class="block px-3 py-2 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
             <span class="text-xs font-medium text-se-gray-light"> Password </span>
 
-            <input type="text" placeholder="Insert Password here"
+            <input id="password" name="password" type="password" placeholder="Insert Password here"
               class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
           </label>
         </div>
 
         <!-- Button -->
         <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-          <button
+          <button type="submit"
             class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
-            type="submit">
-            <span class="font-medium transition-colors text-se-white"> Log In </span>
+            >
+            <span class="font-medium transition-colors text-se-white"> Sign in </span>
 
             <span
               class="p-2 border border-indigo-600 rounded-full group-active:border-indigo-500 shrink-0 bg-se-black1800">
