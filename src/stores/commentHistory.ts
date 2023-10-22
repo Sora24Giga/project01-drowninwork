@@ -21,7 +21,7 @@ export const useCommentStore = defineStore('event', {
         comment: null as Comment | null
     }),
     actions: {
-        setCommentHistory(comment: Comment) {
+        setComment(comment: Comment) {
             this.comment = comment
         }
     }
