@@ -38,30 +38,8 @@ const studentUpdated = ref<StudentDetail>({
   images: [],
   comment: []
 })
-let comments = ref(store.getComment(student.value.id))
-const commentHistory = ref<CommentHistory[]>([])
-const inputComment = ref('')
+const commentHistory = storeToRefs(store).commentHistory
 const advisors = ref<AdvisorDetail[]>([])
-
-onBeforeRouteUpdate((to, from, next) => {
-  CommentService.getCommentHistoryByKeyword(student.value.advisor.id, student.value.id,1,1)
-    .then((response: AxiosResponse<CommentHistory[]>) => {
-      commentHistory.value = response.data
-      console.log(commentHistory)
-      next()
-    })
-    .catch(() => {
-      next({ name: 'network-error' })
-    })
-})
-// CommentService.getCommentHistoryByKeyword(student.value.advisor.id, student.value.id,1,1)
-//   .then((response: AxiosResponse<CommentHistory[]>) => {
-//     commentHistory.value = response.data
-//     console.log(commentHistory)
-//   })
-//   .catch(() => {
-//     router.push({ name: 'network-error' })
-//   })
 
 AdvisorService.getAdvisorlist()
   .then((response) => {
@@ -116,13 +94,6 @@ function updateInfo() {
   }
 }
 
-function testReview() {
-  if (inputComment.value !== '') {
-    store.addComment(student.value?.id, inputComment.value)
-    comments.value = store.getComment(student.value.id)
-    console.log(store.studentList)
-  }
-}
 </script>
 
 <template>
@@ -291,14 +262,20 @@ function testReview() {
       </div>
 
       <!-- Comment -->
-      <div class="mx-auto w-[90%] lg:ml-4 lg:mt-[60px] lg:w-[60%]">
+      <div class="mx-auto w-[90%] lg:ml-4 lg:mt-[60px] lg:w-[60%]" v-if="student.advisor !== null && student.advisor.id !== 0">
         <p
           class="h-[50px] w-full bg-[#312f2f3a] px-[20px] py-[10px] font-medium text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
         >
           ADVISOR's COMMENTS
         </p>
         <div class="w-full h-[422px] shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
-          <CommentBox :inputBox="false"/>
+          <RouterLink :to="{ name: 'comment', params: { id: commentHistory?.id } }">
+            <CommentBox
+              :advisee-name="student.firstname+' '+student.surname"
+              :advisor-name="student.advisor.firstname+' '+student.advisor.surname"
+              :commentHistory="commentHistory" :inputBox="false"
+            />
+          </RouterLink>
         </div>
       </div>
     </div>

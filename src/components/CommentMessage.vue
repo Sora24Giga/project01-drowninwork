@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Comment } from '@/type'
-import type { PropType } from 'vue'
+import { ref, type PropType } from 'vue'
 const props = defineProps({
   comment: {
     type: Object as PropType<Comment>,
@@ -9,8 +9,11 @@ const props = defineProps({
   advisorView: {
     type: Boolean,
     require: true
-  }
+  },
+  advisorName: String,
+  adviseeName: String
 })
+
 function checkWhoseView(truePart: string, falsePart: string) {
   if (
     (props.advisorView && props.comment?.sentFromAdvisor) ||
@@ -27,16 +30,16 @@ function checkWhoseView(truePart: string, falsePart: string) {
 </script>
 <template>
   <div :class="checkWhoseView('justify-end', 'justify-start')" class="flex mb-4">
-    <img v-if="(props.advisorView && !props.comment?.sentFromAdvisor) || (!props.advisorView && props.comment?.sentFromAdvisor)"
+    <!-- <img v-if="(props.advisorView && !props.comment?.sentFromAdvisor) || (!props.advisorView && props.comment?.sentFromAdvisor)"
       src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
       class="mt-[16px] h-[49px] rounded-full object-cover"
       alt=""
-    />
+    /> -->
     <div class="flex flex-col">
       <span
         :class="checkWhoseView('mr-2 text-right', 'ml-1 text-left')"
         class="text-se-gray-light h-[16px] text-right text-xs"
-        >Someone 22/10/2566 14:48</span
+        >{{(props.advisorView? props.advisorName : props.adviseeName)?.toLocaleUpperCase()}} {{props.comment?.timeSent}}</span
       >
       <div
         :class="checkWhoseView('mr-2 bg-se-color-light', 'ml-2 bg-se-black1800')"
@@ -45,10 +48,10 @@ function checkWhoseView(truePart: string, falsePart: string) {
         {{ props.comment?.message }}
       </div>
     </div>
-    <img v-if="(props.advisorView && props.comment?.sentFromAdvisor) || (!props.advisorView && !props.comment?.sentFromAdvisor)"
+    <!-- <img v-if="(props.advisorView && props.comment?.sentFromAdvisor) || (!props.advisorView && !props.comment?.sentFromAdvisor)"
       src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
       class="mt-[16px] h-[49px] rounded-full object-cover"
       alt=""
-    />
+    /> -->
   </div>
 </template>

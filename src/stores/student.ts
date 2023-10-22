@@ -1,9 +1,10 @@
-import type { StudentDetail } from '@/type'
+import type { CommentHistory, StudentDetail } from '@/type'
 import { defineStore } from 'pinia'
 export const useStudentStore = defineStore('student', {
     state: () => ({
         student: {} as StudentDetail,
-        studentList: [] as StudentDetail[]
+        studentList: [] as StudentDetail[],
+        commentHistory: {} as CommentHistory
     }),
     getters: {
         getComment: (state) => {
@@ -16,6 +17,9 @@ export const useStudentStore = defineStore('student', {
         },
         setStudentList(studentList: StudentDetail[]) {
             this.studentList = studentList
+        },
+        setCommentHistory(commentHistory: CommentHistory){
+            this.commentHistory = commentHistory
         },
         addComment(id: number, newComment: string) {
             const finding = this.studentList.findIndex(o => {
