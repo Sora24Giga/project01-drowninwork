@@ -22,18 +22,18 @@ const validationSchema = yup.object({
 const {errors, handleSubmit} = useForm({
   validationSchema,
   initialValues: {
-    email: '',
+    username: '',
     password: ''
   }
 })
 
-const {value: email} = useField<string> ('email')
+const {value: username} = useField<string> ('username')
 const {value: password} = useField<string> ('password')
 // const onSubmit = handleSubmit((values) => {
 //   console.log(values)
 const onSubmit = handleSubmit((values) => {
   console.log("login Button Pressed")
-  authStore.login(values.email, values.password)
+  authStore.login(values.username, values.password)
       .then(()=> {
         router.push({ name: 'studentList'})
       }).catch(() => {
@@ -59,7 +59,7 @@ const onSubmit = handleSubmit((values) => {
           <!--            <input id="email" name="email" type="email" required="" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />-->
           <!--          </div>-->
           <!--        <InputText type="email" v-model="email" :error="errors['email']"></InputText>-->
-          <InputText type="email" v-model="email" :error="errors['email']"></InputText>
+          <InputText type="text" v-model="username" :error="errors['username']"></InputText>
         </div>
         <div>
           <div class="flex items-center justify-between">
