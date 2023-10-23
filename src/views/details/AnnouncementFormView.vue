@@ -1,10 +1,22 @@
 <script setup lang="ts">
-import type { AdvisorDetail } from '@/type'
-import AdvisorService from '@/services/AdvisorService'
-import { computed, ref, type Ref } from 'vue'
-import type { AxiosResponse } from 'axios'
-import { useRouter, onBeforeRouteUpdate } from 'vue-router'
+import vueFilePond from "vue-filepond";
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import BaseInput from '@/components/BaseInput.vue'
+import { ref } from "vue";
+const FilePond = vueFilePond(
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview
+);
+const uploadUrl = ref(import.meta.env.VITE_UPLOAD_FILE_URL)
+
+const myFiles = ref<String[]>([])
+function handleFilePondInit() {
+  console.log("FilePond has initialized");
+}
+
 // import FileUpload from 'primevue/fileupload'
 </script>
 
@@ -63,19 +75,18 @@ import BaseInput from '@/components/BaseInput.vue'
           for="Upload"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
         >
-          <span class="text-xs font-medium text-se-gray-light"> Upload </span>
+          <span class="text-xs font-medium text-se-gray-light"> File Upload </span>
 
-          <!-- <FileUpload name="demo[]" :multiple="true" :maxFileSize="1000000" :auto="true" url="http://localhost:8080/uploadFile">
-            <template #header="{chooseCallback, clearCallback, files}">
-                <button @click="chooseCallback()" class="bg-se-color-light">Choose</button>
-                <button @click="clearCallback()" class="bg-se-color-light">Clear</button>
-            </template>
-            <template #empty>
-                <p>Drag and drop files to here to upload.</p>
-            </template>
-        </FileUpload> -->
-        
-
+          <file-pond
+            class="mt-2"
+            name="test"
+            ref="pond"
+            label-idle="Click this to upload or drop files here..."
+            :allow-multiple="true"
+            :server="uploadUrl"
+            :files="myFiles"
+            v-on:init="handleFilePondInit"
+          />
         </label>
       </div>
 
