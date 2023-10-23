@@ -1,5 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import {useAuthStore} from "@/stores/auth";
+import {useRouter} from "vue-router";
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+function logout(){
+  authStore.logout()
+  router.push({name: 'login'})
+}
 </script>
 
 <template>
@@ -59,7 +69,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
       <nav class="flex">
-        <u1 class="flex ml-auto navbar-nav">
+        <u1 v-if="!authStore.currentUserName" class="flex ml-auto navbar-nav">
           &nbsp;&nbsp;&nbsp;&nbsp;
           <li class="px-2 nav-item">
             <router-link to="/login" class="nav-link">
@@ -72,6 +82,19 @@ import { RouterLink, RouterView } from 'vue-router'
             </router-link>
           </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
+        </u1>
+        <u1 v-if="authStore.currentUserName" class="flex ml-auto navbar-nav">
+          <li class="px-2 nav-item">
+            <router-link to="/profile" class="nav-link">
+              <font-awesome-icon icon="user" />
+              {{authStore.currentUserName}}
+            </router-link>
+          </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="px-2 nav-item">
+            <a class="nav-link hover:cursor-pointer" @click="logout">
+              <font-awesome-icon icon="sign-out-alt" /> LogOut
+            </a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
         </u1>
 
       </nav>
