@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-LABEL authors="pipeline"
+LABEL authors="gigasora"
 
 ENTRYPOINT ["top", "-b"]
 
