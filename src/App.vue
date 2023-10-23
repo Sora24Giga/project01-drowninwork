@@ -41,39 +41,50 @@ function logout(){
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'studentList' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Student List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
+
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'advisors' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Advisor List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-announcement' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Announcement</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-student' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Student</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-advisor' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Advisor</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
 
 
