@@ -45,5 +45,9 @@ export const useAuthStore = defineStore('auth', {
             localStorage.removeItem('access_token')
             localStorage.removeItem('user')
         },
+        reload(token: string, user: AdvisorDetail) {
+            this.token = token
+            this.user = user
+        }
     }
 })
