@@ -72,7 +72,7 @@ function updateKeyword(value: string) {
       // console.log('totalStudents',totalStudents.value)
     })
     .catch(() => {
-      router.push({ name: 'NetworkError' })
+      router.push({ name: 'network-error' })
     })
 }
 </script>

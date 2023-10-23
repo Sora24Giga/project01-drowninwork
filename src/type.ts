@@ -42,3 +42,12 @@ export interface UserDetail {
     UserName: string
     UserImage: string[]
 }
+
+export interface Announcement{
+    id: number
+    title: string
+    message: string
+    timeSent: string
+    advisor: AdvisorDetail
+    files: string[]
+}

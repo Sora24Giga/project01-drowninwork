@@ -5,7 +5,7 @@ import { computed, ref, type Ref } from 'vue'
 import type { AxiosResponse } from 'axios'
 import { useRouter, onBeforeRouteUpdate } from 'vue-router'
 import BaseInput from '@/components/BaseInput.vue'
-import FileUpload from 'primevue/fileupload'
+// import FileUpload from 'primevue/fileupload'
 </script>
 
 <template>
@@ -17,7 +17,7 @@ import FileUpload from 'primevue/fileupload'
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">Add Announcement 📣</h1>
-            <p class="text-se-gray-light mt-1.5 text-sm brightness-90">Import Announcement here</p>
+            <p class="mt-1.5 text-sm text-se-gray-light brightness-90">Import Announcement here</p>
           </div>
           <div class="flex flex-col gap-4 mt-4 sm:mt-0 sm:flex-row sm:items-center"></div>
         </div>
@@ -58,16 +58,26 @@ import FileUpload from 'primevue/fileupload'
         </label>
       </div>
 
-      <!-- <div class="lg:ml-16 lg:mr-64 w-[80%] mx-auto">
-                <label for="Upload"
-                    class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
-                    <span class="text-xs font-medium text-se-gray-light"> Upload </span>
+      <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
+        <label
+          for="Upload"
+          class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
+        >
+          <span class="text-xs font-medium text-se-gray-light"> Upload </span>
 
-                    <FileUpload name="demo[]" url="./upload.php" :multiple="true" accept="image/*" :maxFileSize="1000000"
-                        class="mr-4 text-se-white">
-                    </FileUpload>
-                </label>
-            </div> -->
+          <!-- <FileUpload name="demo[]" :multiple="true" :maxFileSize="1000000" :auto="true" url="http://localhost:8080/uploadFile">
+            <template #header="{chooseCallback, clearCallback, files}">
+                <button @click="chooseCallback()" class="bg-se-color-light">Choose</button>
+                <button @click="clearCallback()" class="bg-se-color-light">Clear</button>
+            </template>
+            <template #empty>
+                <p>Drag and drop files to here to upload.</p>
+            </template>
+        </FileUpload> -->
+        
+
+        </label>
+      </div>
 
       <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
         <button

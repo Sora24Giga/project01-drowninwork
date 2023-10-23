@@ -12,7 +12,13 @@ import { useStudentStore } from './stores/student'
 import StudentService from './services/StudentService'
 import '@/services/AxiosInterceptorSetup'
 
+import { faFilePdf, faFile, faFileExcel, faFileWord, faFilePowerpoint, faFileZipper } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(faFilePdf, faFile, faFileExcel, faFileWord, faFilePowerpoint, faFileZipper)
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 const app = createApp(App)
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(PrimeVue)
 app.use(createPinia())
 app.use(router)
