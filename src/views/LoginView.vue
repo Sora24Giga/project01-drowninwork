@@ -89,7 +89,7 @@ const onSubmit = handleSubmit((values) => {
             class="block px-3 py-2 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
             <span class="text-xs font-medium text-se-gray-light"> Username </span>
 
-            <input id="userId" name="userId" type="text" required=" " placeholder="Insert Username here"
+            <input id="userId" name="userId" type="text" placeholder="Insert Username here"
               class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
           </label>
         </div>
