@@ -1,5 +1,24 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import {useAuthStore} from "@/stores/auth";
+import {useRouter} from "vue-router";
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+const token = localStorage.getItem('token')
+const user = localStorage.getItem('user')
+
+if(token && user) {
+  authStore.reload(token,JSON.parse(user))
+}else{
+  authStore.logout()
+}
+
+function logout(){
+  authStore.logout()
+  router.push({name: 'login'})
+}
 </script>
 
 <template>
@@ -22,44 +41,55 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="hidden lg:flex"></span>
       </RouterLink>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'studentList' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Student List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
+
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'advisors' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Advisor List</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-announcement' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Announcement</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-student' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Student</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
+      <span v-if="authStore.isAdmin">
       <RouterLink :to="{ name: 'add-advisor' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Add Advisor</span>
         <span class="hidden lg:flex"></span>
       </RouterLink>
+        </span>
 
 
 
       <nav class="flex">
-        <u1 class="flex ml-auto navbar-nav">
+        <u1 v-if="!authStore.currentUserName" class="flex ml-auto navbar-nav">
           &nbsp;&nbsp;&nbsp;&nbsp;
           <li class="px-2 nav-item">
             <router-link to="/login" class="nav-link">
@@ -72,6 +102,19 @@ import { RouterLink, RouterView } from 'vue-router'
             </router-link>
           </li>&nbsp;&nbsp;&nbsp;&nbsp;
 
+        </u1>
+        <u1 v-if="authStore.currentUserName" class="flex ml-auto navbar-nav">
+          <li class="px-2 nav-item">
+            <router-link to="/profile" class="nav-link">
+              <font-awesome-icon icon="user" />
+              {{authStore.currentUserName}}
+            </router-link>
+          </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="px-2 nav-item">
+            <a class="nav-link hover:cursor-pointer" @click="logout">
+              <font-awesome-icon icon="sign-out-alt" /> LogOut
+            </a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
         </u1>
 
       </nav>
