@@ -29,7 +29,8 @@ const student = ref<StudentDetail>({
     department: '',
     images: [],
     advisee: []
-  }
+  },
+  roles: []
 })
 
 const advisors = ref<AdvisorDetail[]>([])

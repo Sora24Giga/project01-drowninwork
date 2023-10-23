@@ -36,7 +36,8 @@ const studentUpdated = ref<StudentDetail>({
     images: []
   },
   images: [],
-  comment: []
+  comment: [],
+  roles: []
 })
 const commentHistory = storeToRefs(store).commentHistory
 const advisors = ref<AdvisorDetail[]>([])

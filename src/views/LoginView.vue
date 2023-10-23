@@ -1,12 +1,12 @@
 <script setup lang="ts">
 //http.cors(withDefaults()); have to be added to SecurityConfig.java
-import {useRouter} from "vue-router";
+import { useRouter } from 'vue-router'
 import InputText from '@/components/InputText.vue'
 import * as yup from 'yup'
-import {ref} from 'vue'
-import {useField, useForm} from "vee-validate";
-import {useAuthStore} from "@/stores/auth";
-import { useMessageStore } from "@/stores/message";
+import { ref } from 'vue'
+import { useField, useForm } from 'vee-validate'
+import { useAuthStore } from '@/stores/auth'
+import { useMessageStore } from '@/stores/message'
 
 const router = useRouter()
 
@@ -16,10 +16,10 @@ const authStore = useAuthStore()
 const validationSchema = yup.object({
   // email: yup.string().required('The email is required').email(6,'Input must be an email.'),
   // password: yup.string().required('The password is required').min(6,'The password must be at least 6 characters.')
-  email: yup.string().required('The email is required'),
+  username: yup.string().required('The email is required'),
   password: yup.string().required('The password is required')
 })
-const {errors, handleSubmit} = useForm({
+const { errors, handleSubmit } = useForm({
   validationSchema,
   initialValues: {
     username: '',
@@ -27,75 +27,87 @@ const {errors, handleSubmit} = useForm({
   }
 })
 
-const {value: username} = useField<string> ('username')
-const {value: password} = useField<string> ('password')
+const { value: username } = useField<string>('username')
+const { value: password } = useField<string>('password')
 // const onSubmit = handleSubmit((values) => {
 //   console.log(values)
 const onSubmit = handleSubmit((values) => {
-  console.log("login Button Pressed")
-  authStore.login(values.username, values.password)
-      .then(()=> {
-        router.push({ name: 'studentList'})
-      }).catch(() => {
-    messageStore.updateMessage('could not login')
-    setTimeout(() => {
-      messageStore.restMessage()
-    }, 3000)
-  })
+  console.log('login Button Pressed')
+  authStore
+    .login(values.username, values.password)
+    .then(() => {
+      console.log("login done")
+      router.push({ name: 'studentList' })
+    })
+    .catch(() => {
+      messageStore.updateMessage('could not login')
+      setTimeout(() => {
+        messageStore.restMessage()
+      }, 3000)
+    })
 })
 </script>
 
 <template>
-  <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto h-10 w-auto"
-         src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+  <div class="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
+    <div
+      class="w-auto h-10 sm:mx-auto"
+      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+      alt="Your Company"
+    />
 
-    <h2 class="mt-10 text-se-white text-center text-2x1 font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+    <h2
+      class="mt-10 font-bold leading-9 tracking-tight text-center text-gray-900 text-2x1 text-se-white"
+    >
+      Sign in to your account
+    </h2>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-
-
       <form class="space-y-6" @submit.prevent="onSubmit">
-
         <div>
-          <label for="email" class="block text-sm font-medium leading-6 text-se-white">Email address</label>
+          <label for="email" class="block text-sm font-medium leading-6 text-se-white"
+            >Email address</label
+          >
           <InputText type="text" v-model="username" :error="errors['username']"></InputText>
         </div>
 
-
         <div>
           <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm font-medium leading-6 text-se-white">Password</label>
+            <label for="password" class="block text-sm font-medium leading-6 text-se-white"
+              >Password</label
+            >
             <div class="text-sm">
-              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 text-se-white">Forgot password?</a>
+              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 text-se-white"
+                >Forgot password?</a
+              >
             </div>
           </div>
           <InputText type="password" v-model="password" :error="errors['password']"></InputText>
         </div>
 
-
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm text-se-white font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <button
+            type="submit"
+            class="bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600 flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-se-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
             Sign in
           </button>
         </div>
-
-
       </form>
 
-      <p class="mt-10 text-center text-se-white text-sm text-gray-500">
+      <p class="mt-10 text-sm text-center text-gray-500 text-se-white">
         Not a Member?
-        {{' '}}
-        <router-link to="/register" class="font-semibold text-se-white leading-6 text-indigo-600 hover:text-indigo-500">Try to register here</router-link>
+        {{ ' ' }}
+        <router-link
+          to="/register"
+          class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 text-se-white"
+          >Try to register here</router-link
+        >
       </p>
-
     </div>
-
   </div>
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>
 
 <!--<script setup lang="ts">-->
 <!--//http.cors(withDefaults()); have to be added to SecurityConfig.java-->
@@ -160,11 +172,9 @@ const onSubmit = handleSubmit((values) => {
 <!--      </div>-->
 <!--    </header>-->
 
-
-
 <!--    <div class="max-w-xl lg:max-w-3xl">-->
-<!--      <div class="relative -mt-16 block lg:hidden">-->
-<!--        <a class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 dark:bg-gray-900 sm:h-20 sm:w-20"-->
+<!--      <div class="relative block -mt-16 lg:hidden">-->
+<!--        <a class="inline-flex items-center justify-center w-16 h-16 text-blue-600 bg-white rounded-full dark:bg-gray-900 sm:h-20 sm:w-20"-->
 <!--          href="/">-->
 
 <!--          <svg class="h-8 sm:h-10" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
@@ -177,11 +187,10 @@ const onSubmit = handleSubmit((values) => {
 
 <!--      </div>-->
 
-
 <!--      &lt;!&ndash; <label-->
 <!--          class="block px-3 py-2 mt-10 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"-->
 <!--        > &ndash;&gt;-->
-<!--      <form action="#" class="lg:ml-16 grid grid-cols-6 gap-6" @submit.prevent="onSubmit">-->
+<!--      <form action="#" class="grid grid-cols-6 gap-6 lg:ml-16" @submit.prevent="onSubmit">-->
 <!--        &lt;!&ndash; Username &ndash;&gt;-->
 <!--        <div class="col-span-6">-->
 <!--          <label for="email"-->

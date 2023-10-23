@@ -15,28 +15,31 @@ const apiClient: AxiosInstance = axios.create ({
 export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null as string | null,
-        user: null as StudentDetail |null
+        userStudent: null as StudentDetail | null,
+        userTeacher: null as StudentDetail | null
     }),
     getters: {
         currentUserName () : string {
-            return this.user?.firstname || ''
+            return this.userStudent?.firstname || this.userTeacher?.firstname || ''
         },
         isAdmin () : boolean {
-            return this.user?.roles.includes('ROLE_ADMIN') || false
+            return this.userStudent?.roles.includes('ROLE_ADMIN') || this.userTeacher?.roles.includes('ROLE_ADMIN') || false
         }
     },
     actions: {
-        login(email: string, password: string) {
+        login(username: string, password: string) {
             return apiClient
                 .post('/api/v1/auth/authenticate', {
-                    username: email,
+                    username: username,
                     password: password
                 })
                 .then((response)=> {
                     this.token = response.data.access_token
-                    this.user = response.data.user
+                    this.userStudent = response.data.userStudent
+                    this.userTeacher = response.data.userTeacher
                     localStorage.setItem('access_token', this.token as string)
-                    localStorage.setItem('user', JSON.stringify(this.user))
+                    localStorage.setItem('userStudent', JSON.stringify(this.userStudent))
+                    localStorage.setItem('userTeacher', JSON.stringify(this.userTeacher))
                     axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
                     return response
                 })
