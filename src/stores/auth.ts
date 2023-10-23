@@ -16,7 +16,7 @@ export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null as string | null,
         userStudent: null as StudentDetail | null,
-        userTeacher: null as StudentDetail | null
+        userTeacher: null as AdvisorDetail | null
     }),
     getters: {
         currentUserName () : string {
@@ -41,19 +41,23 @@ export const useAuthStore = defineStore('auth', {
                     localStorage.setItem('userStudent', JSON.stringify(this.userStudent))
                     localStorage.setItem('userTeacher', JSON.stringify(this.userTeacher))
                     axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`
+                    console.log(response)
                     return response
                 })
         },
         logout() {
             console.log('logout')
             this.token = null
-            this.user = null
+            this.userStudent = null
+            this.userTeacher = null
             localStorage.removeItem('access_token')
-            localStorage.removeItem('user')
+            localStorage.removeItem('userStudent')
+            localStorage.removeItem('userTeacher')
         },
-        reload(token: string, user: StudentDetail) {
+        reload(token: string, userStudent: StudentDetail, userTeacher: AdvisorDetail) {
             this.token = token
-            this.user = user
+            this.userStudent = userStudent
+            this.userTeacher = userTeacher
         }
     }
 })

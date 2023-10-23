@@ -19,6 +19,7 @@ export interface AdvisorDetail {
     department: string
     advisee: StudentDetail[]
     images: string[]
+    roles: string[]
 }
 
 export interface CommentHistory{
