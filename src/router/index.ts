@@ -65,8 +65,8 @@ const router = createRouter({
       },
     },
     {
-      path: '/annoucement',
-      name: 'annoucement',
+      path: '/announcement',
+      name: 'announcement',
       component: AnnouncementListView,
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },

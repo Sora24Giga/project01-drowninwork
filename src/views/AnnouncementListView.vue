@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { type Ref, ref, computed } from 'vue'
 import type { Announcement } from '@/type'
-import { onBeforeRouteUpdate, useRouter } from 'vue-router';
-import AnnService from '@/services/AnnService';
+import { onBeforeRouteUpdate, useRouter } from 'vue-router'
+import AnnService from '@/services/AnnService'
 import AnnCard from '@/components/AnnCard.vue'
-import type { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios'
 
 const router = useRouter()
 const anns: Ref<Array<Announcement>> = ref([])
@@ -23,15 +23,16 @@ const props = defineProps({
 AnnService.getAnnouncements(props.limit, props.page)
   .then((response: AxiosResponse<Announcement[]>) => {
     anns.value = response.data
-    totalAnns.value = response.headers['x-total-cound']
-  }).catch(() => {
+    totalAnns.value = response.headers['x-total-count']
+  })
+  .catch(() => {
     router.push({ name: 'network-error' })
   })
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
   // eslint-disable-next-line vue/no-setup-props-destructure
-  let queryFunction;
+  let queryFunction
   if (keyword.value === null || keyword.value === 0) {
     queryFunction = AnnService.getAnnouncements(props.limit, toPage)
   } else {
@@ -54,18 +55,20 @@ const hasNextPage = computed(() => {
 })
 
 function updateKeyword(value: string) {
-  let queryFunction;
+  let queryFunction
   if (keyword.value === 0) {
     queryFunction = AnnService.getAnnouncements(props.limit, props.page)
   } else {
     queryFunction = AnnService.getAnnouncementsByKeyword(keyword.value, props.limit, 1)
   }
-  queryFunction.then((response: AxiosResponse<Announcement[]>) => {
-    anns.value = response.data
-    totalAnns.value = response.headers['x-total-count']
-  }).catch(() => {
-    router.push({ name: 'network-error' })
-  })
+  queryFunction
+    .then((response: AxiosResponse<Announcement[]>) => {
+      anns.value = response.data
+      totalAnns.value = response.headers['x-total-count']
+    })
+    .catch(() => {
+      router.push({ name: 'network-error' })
+    })
 }
 </script>
 
@@ -78,7 +81,7 @@ function updateKeyword(value: string) {
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">Announcement 📣</h1>
-            <p class="text-se-gray-light mt-1.5 text-sm brightness-90">All Announcement</p>
+            <p class="mt-1.5 text-sm text-se-gray-light brightness-90">All Announcement</p>
           </div>
           <div class="flex flex-col gap-4 mt-4 sm:mt-0 sm:flex-row sm:items-center"></div>
         </div>
@@ -87,11 +90,29 @@ function updateKeyword(value: string) {
 
     <!-- Blog -->
     <div class="ml-16 mr-16">
-      <AnnCard
-        v-for="ann in anns"
-        :key="ann.id"
-        :ann="ann"
-      />
+      <div class="flex flex-row mb-10 ml-auto">
+        <RouterLink
+          :to="{ name: 'announcement', query: { limit: limit, page: page - 1 } }"
+          rel="prev"
+          id="page-prev"
+          :style="[page != 1 ? '' : 'pointer-events: none']"
+          :class="[page != 1 ? 'bg-transparent text-se-gray-light' : 'text-transparent']"
+          class="w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light"
+        >
+          &lt; Prev Page
+        </RouterLink>
+        <RouterLink
+          :to="{ name: 'announcement', query: { limit: limit, page: page + 1 } }"
+          rel="next"
+          id="page-next"
+          :style="[hasNextPage ? '' : 'pointer-events: none']"
+          :class="[hasNextPage ? 'bg-transparent text-se-gray-light' : 'text-transparent']"
+          class="ml-4 w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light"
+        >
+          Next Page &gt;
+        </RouterLink>
+      </div>
+      <AnnCard v-for="ann in anns" :key="ann.id" :ann="ann" />
     </div>
   </div>
 </template>

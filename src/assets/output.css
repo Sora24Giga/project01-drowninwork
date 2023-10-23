@@ -908,6 +908,10 @@ select {
   margin-top: 30px;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
 .block {
   display: block;
 }

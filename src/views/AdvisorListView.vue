@@ -104,13 +104,13 @@ function updateKeyword(value: string) {
         <div class="flex flex-row ml-auto">
           <RouterLink :to="{ name: 'advisors', query: { limit: limit, page: page - 1 } }" rel="prev" id="page-prev"
             :style="[page != 1 ? '' : 'pointer-events: none']"
-            :class="[page != 1 ? 'text-se-gray-light bg-transparent' : '']"
+            :class="[page != 1 ? 'text-se-gray-light bg-transparent' : 'text-transparent']"
             class="w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light">
             &lt; Prev Page
           </RouterLink>
           <RouterLink :to="{ name: 'advisors', query: { limit: limit, page: page + 1 } }" rel="next" id="page-next"
             :style="[hasNextPage ? '' : 'pointer-events: none']"
-            :class="[hasNextPage ? 'text-se-gray-light bg-transparent' : '']"
+            :class="[hasNextPage ? 'text-se-gray-light bg-transparent' : 'text-transparent']"
             class="ml-4 w-fit rounded border-2 p-2 text-center text-lg font-medium no-underline transition hover:scale-[1.05] hover:text-se-color-light">
             Next Page &gt;
           </RouterLink>

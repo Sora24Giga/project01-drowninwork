@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <nav
       class="flex h-fit justify-evenly bg-transparent text-center text-sm md:text-base font-[500] text-se-gray-light lg:mt-16 lg:inline-block lg:w-full lg:text-left lg:text-lg">
 
-      <RouterLink :to="{ name: 'annoucement' }"
+      <RouterLink :to="{ name: 'announcement' }"
         class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
         active-class="underline text-se-white lg:bg-se-color-light lg:no-underline">
         <span>Announcement</span>
