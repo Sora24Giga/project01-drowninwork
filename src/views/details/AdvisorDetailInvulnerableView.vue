@@ -15,13 +15,14 @@ const store = useAdvisorStore()
 const msgStore = useMessageStore()
 const advisor = storeToRefs(store).advisor
 const advisorUpdated = ref<AdvisorDetail>({
-  id: 0,
-  academicPosition: '',
-  firstname: '',
-  surname: '',
-  department: '',
-  advisee: [],
-  images: []
+id: 0,
+academicPosition: '',
+firstname: '',
+surname: '',
+department: '',
+advisee: [],
+images: [],
+roles: []
 })
 
 function changeUpdating() {

@@ -28,13 +28,14 @@ function saveAdvisor() {
 }
 
 const advisor = ref<AdvisorDetail>({
-  id: 0,
-  academicPosition: "",
-  firstname: "",
-  surname: "",
-  department: "",
-  advisee: [],
-  images: []
+id: 0,
+academicPosition: "",
+firstname: "",
+surname: "",
+department: "",
+advisee: [],
+images: [],
+roles: []
 })
 </script>
 

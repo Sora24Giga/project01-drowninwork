@@ -22,14 +22,15 @@ const student = ref<StudentDetail>({
   images: [],
   comment: [],
   advisor: {
-    id: 0,
-    academicPosition: '',
-    firstname: '',
-    surname: '',
-    department: '',
-    images: [],
-    advisee: []
-  },
+id: 0,
+academicPosition: '',
+firstname: '',
+surname: '',
+department: '',
+images: [],
+advisee: [],
+roles: []
+},
   roles: []
 })
 
