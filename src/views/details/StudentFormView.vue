@@ -15,22 +15,22 @@ const router = useRouter()
 const student = ref<StudentDetail>({
   id: 0,
   studentId: "",
-  studentPw: "",
   firstname: "",
   surname: "",
   department: "",
   images: [],
   comment: [],
   advisor: {
-id: 0,
-academicPosition: '',
-firstname: '',
-surname: '',
-department: '',
-images: [],
-advisee: [],
-roles: []
-},
+    academicPosition: '',
+    advisee: [],
+    images: [],
+    id: 0,
+    studentId: '',
+    firstname: '',
+    surname: '',
+    department: '',
+    roles: []
+  },
   roles: []
 })
 

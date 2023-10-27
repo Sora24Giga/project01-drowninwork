@@ -27,15 +27,16 @@ const ann = ref<Announcement>({
   message: '',
   timeSent: '',
   advisor: {
-id: 1,
-academicPosition: '',
-firstname: '',
-surname: '',
-department: '',
-advisee: [],
-images: [],
-roles: []
-},
+    academicPosition: '',
+    advisee: [],
+    images: [],
+    id: 0,
+    studentId: '',
+    firstname: '',
+    surname: '',
+    department: '',
+    roles: []
+  },
   files: []
 })
 

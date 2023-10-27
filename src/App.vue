@@ -6,14 +6,14 @@ import { useRouter } from 'vue-router'
 const authStore = useAuthStore()
 const router = useRouter()
 
-const token = localStorage.getItem('token')
+const token = localStorage.getItem('access_token')
 const user = localStorage.getItem('user')
 
-// if(token && user) {
-//   authStore.reload(token,JSON.parse(user))
-// }else{
-//   authStore.logout()
-// }
+if(token && user) {
+  authStore.reload(token,JSON.parse(user))
+}else{
+  authStore.logout()
+}
 
 function logout() {
   authStore.logout()
@@ -99,7 +99,7 @@ function logout() {
           <span class="hidden lg:flex"></span>
         </RouterLink>
       </span>
-      <span>
+      <span v-if="!authStore.currentUserName">
         <RouterLink
           :to="{ name: 'login' }"
           class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
@@ -108,6 +108,16 @@ function logout() {
           <span>Login</span>
           <span class="hidden lg:flex"></span>
         </RouterLink>
+      </span>
+      <span v-if="authStore.currentUserName">
+        <a
+          @click="logout"
+          class="flex justify-center w-full p-4 transition ease-in-out underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+          active-class="underline text-se-white lg:bg-se-color-light lg:no-underline"
+        >
+          <span>Logout</span>
+          <span class="hidden lg:flex"></span>
+        </a>
       </span>
       <span>
         <RouterLink
@@ -119,37 +129,6 @@ function logout() {
           <span class="hidden lg:flex"></span>
         </RouterLink>
       </span>
-
-      <!-- <nav class="flex">
-        <u1 v-if="!authStore.currentUserName" class="flex ml-auto navbar-nav">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="px-2 nav-item">
-            <router-link to="/login" class="nav-link">
-              <font-awesome-icon icon="sign-in-alt" /> Login
-            </router-link>
-          </li>
-          <li class="px-2 nav-item">
-            <router-link to="/register" class="nav-link">
-              <font-awesome-icon icon="user-plus" /> Sign.Up
-            </router-link>
-          </li>
-
-        </u1>
-        <u1 v-if="authStore.currentUserName" class="flex ml-auto navbar-nav">
-          <li class="px-2 nav-item">
-            <router-link to="/profile" class="nav-link">
-              <font-awesome-icon icon="user" />
-              {{authStore.currentUserName}}
-            </router-link>
-          </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="px-2 nav-item">
-            <a class="nav-link hover:cursor-pointer" @click="logout">
-              <font-awesome-icon icon="sign-out-alt" /> LogOut
-            </a>
-          </li>&nbsp;&nbsp;&nbsp;&nbsp;
-        </u1>
-
-      </nav> -->
     </nav>
   </div>
 

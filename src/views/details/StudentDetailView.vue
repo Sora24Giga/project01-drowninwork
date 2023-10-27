@@ -20,24 +20,24 @@ const store = useStudentStore()
 const msgStore = useMessageStore()
 const student = storeToRefs(store).student
 const studentUpdated = ref<StudentDetail>({
+  advisor: {
+    academicPosition: '',
+    advisee: [],
+    images: [],
+    id: 0,
+    studentId: '',
+    firstname: '',
+    surname: '',
+    department: '',
+    roles: []
+  },
+  images: [],
+  comment: [],
   id: 0,
   studentId: '',
-  studentPw: '',
   firstname: '',
   surname: '',
   department: '',
-  advisor: {
-id: 0,
-academicPosition: '',
-firstname: '',
-surname: '',
-department: '',
-advisee: [],
-images: [],
-roles: []
-},
-  images: [],
-  comment: [],
   roles: []
 })
 const commentHistory = storeToRefs(store).commentHistory
@@ -65,7 +65,6 @@ function updateInfo() {
     const newVal = studentUpdated.value
     const oldVal = student.value
     newVal.id = oldVal.id
-    newVal.studentPw = oldVal.studentPw
     if (newVal.studentId === '') {
       newVal.studentId = oldVal.studentId
     }

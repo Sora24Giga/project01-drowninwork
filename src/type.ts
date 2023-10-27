@@ -1,25 +1,22 @@
-export interface StudentDetail {
+export interface PersonDetail {
     id: number
     studentId: string
-    studentPw: string
     firstname: string
     surname: string
     department: string
-    advisor: AdvisorDetail
-    images: string[]
-    comment: string[]
     roles: string[]
 }
 
-export interface AdvisorDetail {
-    id: number
+export interface StudentDetail extends PersonDetail{
+    advisor: AdvisorDetail
+    images: string[]
+    comment: string[]
+}
+
+export interface AdvisorDetail extends PersonDetail {
     academicPosition: string
-    firstname: string
-    surname: string
-    department: string
     advisee: StudentDetail[]
     images: string[]
-    roles: string[]
 }
 
 export interface CommentHistory{
@@ -39,10 +36,9 @@ export interface Comment{
 
 export interface UserDetail {
     id: number
-    UserId: string
-    UserPw: string
-    UserName: string
-    UserImage: string[]
+    firstname: string
+    surname: string
+    roles: string[]
 }
 
 export interface Announcement{
