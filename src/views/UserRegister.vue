@@ -73,7 +73,7 @@ function saveStudent() {
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">
-              Create a registration
+              Register
             </h1>
             <p class="mt-1.5 text-sm text-se-white">
               Register Student Information 🗿

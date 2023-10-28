@@ -21,6 +21,9 @@ export const useAuthStore = defineStore('auth', {
         currentUserName () : string {
             return this.token !== null && this.user === null ? 'ADMIN' : this.user?.firstname || ''
         },
+        isLoggedIn () : boolean {
+            return localStorage.getItem('access_token') !== null
+        },
         isAdmin () : boolean {
             return this.user?.roles.includes('ROLE_ADMIN') || false
         }

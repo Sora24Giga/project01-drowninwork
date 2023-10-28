@@ -19,7 +19,6 @@ import AdvisorService from '@/services/AdvisorService'
 import StudentFormView from "@/views/details/StudentFormView.vue";
 import AdvisorFormView from "@/views/details/AdvisorFormView.vue";
 import LoginView from "@/views/LoginView.vue";
-import RegistrationView from "@/views/RegistrationView.vue";
 import UserRegister from "@/views/UserRegister.vue";
 import AdvisorDetailInvulnerableView from "@/views/details/AdvisorDetailInvulnerableView.vue";
 import CommentViewVue from '@/views/CommentView.vue'
@@ -34,6 +33,9 @@ const router = createRouter({
       name: 'comment',
       component: CommentViewVue,
       props: true,
+      meta:{
+        requiresAuth: true
+      },
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const commentHistoryStore = useCommentHistoryStore()
@@ -68,30 +70,45 @@ const router = createRouter({
       path: '/announcement',
       name: 'announcement',
       component: AnnouncementListView,
+      meta:{
+        requiresAuth: true
+      },
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/',
       name: 'studentList',
       component: StudentListView,
+      meta:{
+        requiresAuth: true
+      },
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/advisors',
       name: 'advisors',
       component: AdvisorsListView,
+      meta:{
+        requiresAuth: true
+      },
       props: (route) => ({ limit: parseInt(route.query?.limit as string || '5'), page: parseInt(route.query?.page as string || '1') })
     },
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
+      meta:{
+        requiresAuth: false
+      },
     },
     {
       path: '/students/:id',
       name: 'studentDetail',
       component: StudentDetailView,
       props: true,
+      meta:{
+        requiresAuth: true
+      },
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const studentStore = useStudentStore()
@@ -129,6 +146,9 @@ const router = createRouter({
       name: 'advisorDetail',
       component: AdvisorDetailView,
       props: true,
+      meta:{
+        requiresAuth: true
+      },
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const advisorStore = useAdvisorStore()
@@ -151,6 +171,9 @@ const router = createRouter({
       name: 'finalAdvisor',
       component: AdvisorDetailInvulnerableView,
       props: true,
+      meta:{
+        requiresAuth: true
+      },
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
         const advisorStore = useAdvisorStore()
@@ -171,49 +194,80 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: UserRegister
-    },
-    {
-      path: '/registration',
-      name: 'registration',
-      component: RegistrationView
+      component: UserRegister,
+      meta:{
+        requiresAuth: false
+      },
     },
     {
       path: '/add-announcement',
       name: 'add-announcement',
-      component: AnnouncementFormView
+      component: AnnouncementFormView,
+      meta:{
+        requiresAuth: true
+      },
     },
     {
       path: '/add-student',
       name: 'add-student',
+      meta:{
+        requiresAuth: true
+      },
       component: StudentFormView
     },
     {
       path: '/add-advisor',
       name: 'add-advisor',
-      component: AdvisorFormView
+      component: AdvisorFormView,
+      meta:{
+        requiresAuth: true
+      },
     },
     {
       path: '/404/:resource',
       name: '404-resource',
       component: NotFoundView,
-      props: true
+      props: true,
+      meta:{
+        requiresAuth: false
+      },
     },
     {
       path: '/:catchAll(.*)',
       name: 'not-found',
-      component: NotFoundView
+      component: NotFoundView,
+      meta:{
+        requiresAuth: false
+      },
     },
     {
       path: '/network-error',
       name: 'network-error',
-      component: NetworkErrorView
+      component: NetworkErrorView,
+      meta:{
+        requiresAuth: false
+      },
     }
   ]
 })
 
-router.beforeEach(() => {
+const isLoggedIn = () => {
+  return localStorage.getItem('access_token') && localStorage.getItem('user')
+}
+
+router.beforeEach(async (to, from, next) => {
   NProgress.start()
+  console.log(isLoggedIn())
+  if(to.matched.some(record => record.meta.requiresAuth)){
+    if(!isLoggedIn()){
+      next({name: 'login'})
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+
 })
 router.afterEach(() => {
   NProgress.done()
