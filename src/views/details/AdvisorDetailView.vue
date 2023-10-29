@@ -23,8 +23,17 @@ const advisorUpdated = ref<AdvisorDetail>({
   firstname: '',
   surname: '',
   department: '',
-  roles: []
+  roles: [],
+  username: '',
+  password: ''
 })
+
+const componentKey = ref(0)
+const forceRerender = () => {
+  console.log('forceRerender')
+  componentKey.value += 1
+  console.log(componentKey.value)
+}
 
 function changeUpdating() {
   if (updating.value) {
@@ -40,6 +49,8 @@ function updateInfo(){
     const oldVal = advisor.value
     newVal.id = oldVal.id
     newVal.advisee = oldVal.advisee
+    newVal.username = oldVal.username
+    newVal.password = oldVal.password
     if(newVal.academicPosition===''){
       newVal.academicPosition = oldVal.academicPosition
     }
@@ -78,7 +89,7 @@ function updateInfo(){
           class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           ADVISOR INFO
         </p>
-        <div v-if="advisor"
+        <div v-if="advisor" :key="componentKey"
           class="mb-[18px] mt-0 w-full bg-[#f2f2f208] p-[20px] text-center text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           <span class="text-xl font-semibold">{{ advisor.firstname.toLocaleUpperCase() }}
             {{ advisor.surname.toLocaleUpperCase() }}</span>

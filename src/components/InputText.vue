@@ -20,7 +20,7 @@ const uuid = UniqueID().getID()
 const placeholderErrorClass = computed(() => {
   return !isError.value
     ? 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 ring-none sm:text-sm sm:leading-6'
-    : 'block w-full rounded-md border-0 py=1.5 text-red-700 shadow-sm ring-1 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+    : 'block w-full rounded-md border-0 py=1.5 text-[#b91c1c] shadow-sm ring-1 ring-inset ring-[#fca5a5] placeholder:text-[#f87171] focus:ring-inset focus:ring-[#b91c1c] sm:text-sm sm:leading-6'
 })
 const isError = computed(() => {
   return props.error ? true : false
@@ -28,7 +28,6 @@ const isError = computed(() => {
 
 const emit = defineEmits(['update:modelValue'])
 function updateValue(event: Event) {
-  console.log('value update')
   emit('update:modelValue', (event.target as HTMLInputElement)?.value)
 }
 </script>

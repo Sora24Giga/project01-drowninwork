@@ -13,7 +13,9 @@ import StudentService from '@/services/StudentService'
 import AdvisorService from '@/services/AdvisorService'
 import CommentService from '@/services/CommentService'
 import type { AxiosResponse } from 'axios'
+import { useAuthStore } from '@/stores/auth'
 
+const authStore = useAuthStore()
 const updating = ref(false)
 const router = useRouter()
 const store = useStudentStore()
@@ -29,7 +31,9 @@ const studentUpdated = ref<StudentDetail>({
     firstname: '',
     surname: '',
     department: '',
-    roles: []
+    roles: [],
+    username: '',
+    password: ''
   },
   images: [],
   comment: [],
@@ -38,7 +42,8 @@ const studentUpdated = ref<StudentDetail>({
   firstname: '',
   surname: '',
   department: '',
-  roles: []
+  roles: [],
+  password: ''
 })
 const commentHistory = storeToRefs(store).commentHistory
 const advisors = ref<AdvisorDetail[]>([])
@@ -152,14 +157,7 @@ function updateInfo() {
             <form @submit.prevent="updateInfo">
               <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
                 <span class="font-semibold sm:w-1/2">Student ID:</span>
-                <span v-if="updating === false" class="sm:w-1/2">{{ student.studentId }}</span>
-                <BaseInput
-                  v-else
-                  type="text"
-                  :placeholder="student.studentId"
-                  v-model="studentUpdated.studentId"
-                  class="h-auto rounded text-se-dark sm:w-1/2"
-                />
+                <span class="sm:w-1/2">{{ student.studentId }}</span>
               </div>
               <div class="flex flex-col w-full mb-1 justify-evenly sm:flex-row">
                 <span class="font-semibold sm:w-1/2">First Name:</span>
@@ -288,13 +286,14 @@ function updateInfo() {
             <p class="text-xs font-normal text-se-gray-light">click here for full view</p>
           </div>
         </RouterLink>
+        
         <div class="h-[460px] w-full shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">
           <!-- <RouterLink :to="{ name: 'comment', params: { id: commentHistory?.id } }"> -->
           <CommentBox
             :advisee-name="student.firstname + ' ' + student.surname"
             :advisor-name="student.advisor.firstname + ' ' + student.advisor.surname"
             :commentHistory="commentHistory"
-            :inputBox="true"
+            :inputBox="!authStore.isAdmin"
           />
           <!-- </RouterLink> -->
         </div>

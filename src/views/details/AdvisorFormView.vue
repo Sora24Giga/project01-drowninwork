@@ -36,7 +36,9 @@ const advisor = ref<AdvisorDetail>({
   firstname: '',
   surname: '',
   department: '',
-  roles: []
+  roles: [],
+  username: '',
+  password: ''
 })
 </script>
 
@@ -64,6 +66,28 @@ const advisor = ref<AdvisorDetail>({
     <!-- main content -->
     <form @submit.prevent="saveAdvisor">
       <div class="lg:ml-16 lg:mr-64 w-[80%] mx-auto">
+
+        <!-- Username -->
+        <label for="Username"
+          class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
+          <span class="text-xs font-medium text-se-gray-light">
+            Username
+          </span>
+
+          <BaseInput v-model="advisor.username" type="text" placeholder="Insert username here"
+            class="w-full p-0 mt-1 bg-transparent border-none focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
+        </label>
+
+        <!-- Password -->
+        <label for="Password"
+          class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 bg-se-black1800">
+          <span class="text-xs font-medium text-se-gray-light">
+            Password
+          </span>
+
+          <BaseInput v-model="advisor.password" type="text" placeholder="Insert password here"
+            class="w-full p-0 mt-1 bg-transparent border-none focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-se-white" />
+        </label>
 
         <!-- Academic position -->
         <label for="AcademicPo"

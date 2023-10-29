@@ -3,11 +3,12 @@ import CommentBox from '@/components/CommentBox.vue'
 import { storeToRefs } from 'pinia'
 import { useCommentHistoryStore } from '@/stores/commentHistory'
 import { useStudentStore } from '@/stores/student'
-
+import { useAuthStore } from '@/stores/auth'
 const commentStore = useCommentHistoryStore()
 const commentHistory = storeToRefs(commentStore).commentHistory
 const store = useStudentStore()
 const student = storeToRefs(commentStore).student
+const authStore = useAuthStore()
 console.log(student.value.firstname)
 </script>
 <template>
@@ -23,7 +24,7 @@ console.log(student.value.firstname)
           :adviseeName="student.firstname + ' ' + student.surname"
           :advisorName="student.advisor.firstname + ' ' + student.advisor.surname"
           :commentHistory="commentHistory"
-          :inputBox="true"
+          :inputBox="!authStore.isAdmin"
         />
       </div>
     </div>

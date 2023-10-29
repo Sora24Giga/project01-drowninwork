@@ -35,7 +35,9 @@ const ann = ref<Announcement>({
     firstname: '',
     surname: '',
     department: '',
-    roles: []
+    roles: [],
+    username: '',
+    password: ''
   },
   files: []
 })

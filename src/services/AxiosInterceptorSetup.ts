@@ -6,6 +6,7 @@ apiClient.interceptors.request.use(
         console.log('token', token)
         if (token) {
             request.headers['Authorization'] = 'Bearer ' + token
+            console.log(request)
         }
         return request
     },

@@ -29,9 +29,12 @@ const student = ref<StudentDetail>({
     firstname: '',
     surname: '',
     department: '',
-    roles: []
+    roles: [],
+    username: '',
+    password: ''
   },
-  roles: []
+  roles: [],
+  password: ''
 })
 
 const advisors = ref<AdvisorDetail[]>([])
@@ -94,12 +97,22 @@ function saveStudent() {
     </header>
     <form @submit.prevent="saveStudent">
       <div class="lg:ml-16 lg:mr-64 w-[80%] mx-auto">
-        <!-- Academic position -->
-        <label for="AcademicPo"
+        <!-- StudentId -->
+        <label for="StudentId"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
           <span class="text-xs font-medium text-se-gray-light"> Student ID </span>
 
           <BaseInput v-model="student.studentId" type="text" placeholder="Insert student ID here"
+            class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
+        </label>
+        <!--  -->
+
+        <!-- Password -->
+        <label for="password"
+          class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">
+          <span class="text-xs font-medium text-se-gray-light"> Password </span>
+
+          <BaseInput v-model="student.password" type="text" placeholder="Insert student ID here"
             class="w-full p-0 mt-1 bg-transparent border-none text-se-white focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" />
         </label>
         <!--  -->
