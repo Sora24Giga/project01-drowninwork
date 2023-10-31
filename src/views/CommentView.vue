@@ -3,15 +3,12 @@ import CommentBox from '@/components/CommentBox.vue'
 import { storeToRefs } from 'pinia'
 import { useStudentStore } from '@/stores/student'
 import { useAuthStore } from '@/stores/auth'
-import { ref } from 'vue'
-import StudentService from '@/services/StudentService'
-import { useRouter } from 'vue-router'
-import { type StudentDetail } from '@/type'
-const router = useRouter()
+
 const store = useStudentStore()
 const commentHistory = storeToRefs(store).commentHistory
 const student = storeToRefs(store).student
 const authStore = useAuthStore()
+console.log(student.value)
 console.log(commentHistory.value)
 // StudentService.getStudentsById(commentHistory.value.adviseeId)
 //   .then((rep) => {

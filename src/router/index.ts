@@ -36,27 +36,15 @@ const router = createRouter({
       meta:{
         requiresAuth: true
       },
-      beforeEnter: (to) => {
+      beforeEnter: async (to) => {
         const id: number = parseInt(to.params.id as string)
         const studentStore = useStudentStore()
-        CommentService.getCommentHistoryById(id)
+        await CommentService.getCommentHistoryById(id)
         .then((commentResponse) => {
           // console.log(commentResponse.data[0])
           studentStore.setCommentHistory(commentResponse.data)
           // console.log(studentStore.commentHistory)
-          StudentService.getStudentsById(studentStore.commentHistory.adviseeId)
-          .then((rep) => {
-            studentStore.setStudent(rep.data)
-            // console.log(rep.data)
-          })
-          .catch(error => {
-            console.log(error)
-            if (error.response && error.response.status === 404) {
-              router.push({ name: '404-resource', params: { resource: 'student' } })
-            } else {
-              router.push({ name: 'network-error' })
-            }
-          })
+          
         })
         .catch(error => {
           console.log(error)
@@ -66,6 +54,19 @@ const router = createRouter({
             router.push({ name: 'network-error' })
           }
         })
+        await StudentService.getStudentsById(studentStore.commentHistory.adviseeId)
+          .then((rep) => {
+            studentStore.setStudent(rep.data)
+            console.log(rep.data)
+          })
+          .catch(error => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              router.push({ name: '404-resource', params: { resource: 'student' } })
+            } else {
+              router.push({ name: 'network-error' })
+            }
+          })
       },
     },
     {
@@ -116,12 +117,12 @@ const router = createRouter({
         const studentStore = useStudentStore()
         StudentService.getStudentsById(id)
           .then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
             studentStore.setStudent(response.data)
             if (response.data.advisor !== null && response.data.advisor.id !== 0) {
               CommentService.getCommentHistoryByKeyword(response.data.advisor.id, response.data.id, 1, 1)
                 .then((commentResponse) => {
-                  console.log(commentResponse.data[0])
+                  // console.log(commentResponse.data[0])
                   studentStore.setCommentHistory(commentResponse.data[0])
                 })
                 .catch(error => {

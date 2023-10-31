@@ -3,6 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
+import type { CommentHistory } from './type'
+import CommentService from './services/CommentService'
+import StudentService from './services/StudentService'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -29,6 +32,36 @@ const forceRerender = () => {
   console.log('forceRerender')
   componentKey.value += 1
   console.log(componentKey.value)
+}
+
+const commentView = ref<CommentHistory>()
+if (authStore.isLoggedIn && authStore.isStudent && authStore.user !== null) {
+  StudentService.getStudentsById(authStore.user?.id)
+    .then((response) => {
+      console.log(response.data)
+      if (response.data.advisor !== null && response.data.advisor.id !== 0) {
+        CommentService.getCommentHistoryByKeyword(response.data.advisor.id, response.data.id, 1, 1)
+          .then((commentResponse) => {
+            commentView.value = commentResponse.data[0]
+          })
+          .catch((error) => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              router.push({ name: '404-resource', params: { resource: 'student' } })
+            } else {
+              router.push({ name: 'network-error' })
+            }
+          })
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+      if (error.response && error.response.status === 404) {
+        router.push({ name: '404-resource', params: { resource: 'student' } })
+      } else {
+        router.push({ name: 'network-error' })
+      }
+    })
 }
 </script>
 
@@ -206,6 +239,17 @@ const forceRerender = () => {
             active-class="underline text-se-white lg:bg-se-black1800 lg:no-underline"
           >
             <span>Add Advisor</span>
+            <span class="hidden lg:flex"></span>
+          </RouterLink>
+        </span>
+
+        <span v-if="authStore.isLoggedIn && authStore.isStudent">
+          <RouterLink
+            :to="{ name: 'comment', params: { id: commentView?.id } }"
+            class="flex justify-center w-full p-4 mb-2 transition ease-in-out rounded-lg underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"
+            active-class="underline text-se-white lg:bg-se-black1800 lg:no-underline"
+          >
+            <span>Comments</span>
             <span class="hidden lg:flex"></span>
           </RouterLink>
         </span>
