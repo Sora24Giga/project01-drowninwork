@@ -34,7 +34,12 @@ const forceRerender = () => {
   console.log(componentKey.value)
 }
 
-const commentView = ref<CommentHistory>()
+const commentView = ref<CommentHistory>({
+id: 0,
+history: [],
+advisorId: 0,
+adviseeId: 0
+})
 if (authStore.isLoggedIn && authStore.isStudent && authStore.user !== null) {
   StudentService.getStudentsById(authStore.user?.id)
     .then((response) => {
@@ -243,7 +248,7 @@ if (authStore.isLoggedIn && authStore.isStudent && authStore.user !== null) {
           </RouterLink>
         </span>
 
-        <span v-if="authStore.isLoggedIn && authStore.isStudent">
+        <span v-if="authStore.isLoggedIn && authStore.isStudent && commentView.id !== 0">
           <RouterLink
             :to="{ name: 'comment', params: { id: commentView?.id } }"
             class="flex justify-center w-full p-4 mb-2 transition ease-in-out rounded-lg underline-offset-8 hover:text-se-white hover:underline hover:decoration-current active:text-se-dark lg:justify-between lg:py-4 lg:hover:bg-se-color-light"

@@ -65,6 +65,7 @@ function changeUpdating() {
   console.log(updating.value)
   console.log(studentUpdated.value)
 }
+const emit = defineEmits(['forceRerender'])
 function updateInfo() {
   if (student.value !== null) {
     StudentService.getStudentsById(student.value.id)
@@ -104,6 +105,7 @@ function updateInfo() {
                 router.push({ name: 'network-error' })
               })
             }
+            emit('forceRerender')
             router.go(0)
             // console.log(response.data)
             msgStore.updateMessage('You have successfully update ' + response.data.firstname)

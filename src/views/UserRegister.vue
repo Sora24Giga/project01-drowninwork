@@ -60,7 +60,11 @@ const onSubmit = handleSubmit((values) => {
     .then(() => {
       console.log('register done')
       emit('forceRerender')
-      router.push({ name: 'studentList' })
+      if(authStore.isStudent){
+        router.push({ name: 'announcement'})
+      } else {
+        router.push({ name: 'studentList' })
+      }
     })
     .catch(() => {
       messageStore.updateMessage('could not register')
