@@ -83,7 +83,7 @@ const forceRerender = () => {
             {{ authStore.user?.firstname.toLocaleUpperCase() }}
             {{ authStore.user?.surname.toLocaleUpperCase() }}
           </span>
-          <span class="text-sm font-medium leading-none text-se-gray-light">{{
+          <span class="text-xs font-medium leading-none text-se-gray-light">{{
             authStore.isStudent ? 'STUDENT' : 'ADVISOR'
           }}</span>
         </p>

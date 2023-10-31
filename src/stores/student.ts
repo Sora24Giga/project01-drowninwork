@@ -29,6 +29,6 @@ export const useStudentStore = defineStore('student', {
                 this.studentList[finding].comment.push(newComment)
             }
 
-        },
+        }
     }
 })

@@ -10,7 +10,7 @@ export default {
         return apiClient.get<StudentDetail[]>('/students')
     },
     getStudentsById(id: number): Promise<AxiosResponse<StudentDetail>> {
-        return apiClient.get<StudentDetail>('/students/' + id.toString())
+        return apiClient.get<StudentDetail>('/students/' + id)
     },
     saveStudent(student: StudentDetail): Promise<AxiosResponse<StudentDetail>> {
         return apiClient.post<StudentDetail>('students', student)

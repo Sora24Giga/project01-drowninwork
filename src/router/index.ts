@@ -38,32 +38,34 @@ const router = createRouter({
       },
       beforeEnter: (to) => {
         const id: number = parseInt(to.params.id as string)
-        const commentHistoryStore = useCommentHistoryStore()
+        const studentStore = useStudentStore()
         CommentService.getCommentHistoryById(id)
-          .then((response) => {
-            console.log(response.data)
-            commentHistoryStore.setCommentHistory(response.data)
-            StudentService.getStudentsById(response.data.adviseeId)
-              .then((resp) => {
-                commentHistoryStore.setStudent(resp.data)
-              })
-              .catch((err) => {
-                if (err.response && err.response.status === 404) {
-                  router.push({ name: '404-resource', params: { resource: 'comment history' } })
-                } else {
-                  router.push({ name: 'network-error' })
-                }
-              })
-
+        .then((commentResponse) => {
+          // console.log(commentResponse.data[0])
+          studentStore.setCommentHistory(commentResponse.data)
+          // console.log(studentStore.commentHistory)
+          StudentService.getStudentsById(studentStore.commentHistory.adviseeId)
+          .then((rep) => {
+            studentStore.setStudent(rep.data)
+            // console.log(rep.data)
           })
           .catch(error => {
             console.log(error)
             if (error.response && error.response.status === 404) {
-              router.push({ name: '404-resource', params: { resource: 'comment history' } })
+              router.push({ name: '404-resource', params: { resource: 'student' } })
             } else {
               router.push({ name: 'network-error' })
             }
           })
+        })
+        .catch(error => {
+          console.log(error)
+          if (error.response && error.response.status === 404) {
+            router.push({ name: '404-resource', params: { resource: 'student' } })
+          } else {
+            router.push({ name: 'network-error' })
+          }
+        })
       },
     },
     {
