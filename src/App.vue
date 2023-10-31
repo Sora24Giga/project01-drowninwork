@@ -6,6 +6,7 @@ import { ref } from 'vue'
 import type { CommentHistory } from './type'
 import CommentService from './services/CommentService'
 import StudentService from './services/StudentService'
+import { notify } from '@kyvg/vue3-notification'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -21,6 +22,10 @@ if (token && user) {
 
 function logout() {
   // if(confirm("Are you sure you want to logout?")){
+  notify({
+    title: 'Authorization',
+    text: 'You have been logged out!'
+  })
   authStore.logout()
   forceRerender()
   router.push({ name: 'login' })
@@ -35,10 +40,10 @@ const forceRerender = () => {
 }
 
 const commentView = ref<CommentHistory>({
-id: 0,
-history: [],
-advisorId: 0,
-adviseeId: 0
+  id: 0,
+  history: [],
+  advisorId: 0,
+  adviseeId: 0
 })
 if (authStore.isLoggedIn && authStore.isStudent && authStore.user !== null) {
   StudentService.getStudentsById(authStore.user?.id)
@@ -71,6 +76,7 @@ if (authStore.isLoggedIn && authStore.isStudent && authStore.user !== null) {
 </script>
 
 <template>
+  <notifications />
   <p
     v-if="authStore.isLoggedIn"
     :key="componentKey"

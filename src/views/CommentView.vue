@@ -28,9 +28,10 @@ console.log(commentHistory.value)
   <div class="mt-[108px] lg:ml-[17%] lg:mt-[60px]">
     <div class="mx-auto w-[95%] pt-4">
       <p
-        class="h-[60px] w-full self-center bg-se-black1800 px-8 py-4 text-left text-xl font-bold text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
+        class="w-full self-center bg-se-black1800 px-8 py-4 text-left text-xl font-bold text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]"
       >
         <RouterLink
+        class="transition hover:scale-[1.01] flex flex-col hover:text-se-color-light"
           :to="{
             name: authStore.isTeacher || authStore.isAdmin ? 'studentDetail' : 'advisorDetail',
             params: {
@@ -45,6 +46,7 @@ console.log(commentHistory.value)
           <span v-else>
             {{ student?.firstname.toUpperCase() }} {{ student?.surname.toUpperCase() }}
           </span>
+          <span class="text-xs font-normal text-se-gray-light">Click here for full details</span>
         </RouterLink>
       </p>
 

@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { useField, useForm } from 'vee-validate'
 import { useAuthStore } from '@/stores/auth'
 import { useMessageStore } from '@/stores/message'
+import { notify } from '@kyvg/vue3-notification'
 
 const router = useRouter()
 
@@ -34,10 +35,14 @@ const onSubmit = handleSubmit((values) => {
   authStore
     .login(values.username, values.password)
     .then(() => {
+      notify({
+        title: 'Authorization',
+        text: 'You have been logged in!',
+      })
       console.log('login done')
       emit('forceRerender')
-      if(authStore.isStudent){
-        router.push({ name: 'announcement'})
+      if (authStore.isStudent) {
+        router.push({ name: 'announcement' })
       } else {
         router.push({ name: 'studentList' })
       }
@@ -53,7 +58,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] justify-center flex h-full w-full flex-row bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]"
+    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-row justify-center bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]"
   >
     <div class="w-full lg:w-4/5">
       <header>
@@ -136,7 +141,9 @@ const onSubmit = handleSubmit((values) => {
 
             <p class="mt-4 text-sm text-se-white sm:mt-0">
               Don't have an account yet?
-              <router-link to="/register" class="underline text-se-white hover:text-se-color-light">Sign Up</router-link>.
+              <router-link to="/register" class="underline text-se-white hover:text-se-color-light"
+                >Sign Up</router-link
+              >.
             </p>
           </div>
         </form>

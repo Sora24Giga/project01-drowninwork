@@ -9,6 +9,7 @@ import BaseInput from '@/components/BaseInput.vue'
 import ImageUpload from '@/components/ImageUpload.vue'
 import AdvisorService from '@/services/AdvisorService'
 import { useAuthStore } from '@/stores/auth'
+import {notify} from '@kyvg/vue3-notification'
 
 const updating = ref(false)
 const authStore = useAuthStore()
@@ -72,6 +73,11 @@ function updateInfo() {
       .then((response) => {
         console.log(response.data)
         router.go(0)
+        notify({
+          title: 'Registration',
+          text: 'Advisor has been updated!',
+          type: 'success'
+        })
         msgStore.updateMessage('You have successfully update ' + response.data.firstname)
         setTimeout(() => {
           msgStore.restMessage()
@@ -201,7 +207,8 @@ function updateInfo() {
             </form>
           </div>
           <br />
-          <button v-if="!authStore.isStudent"
+          <button
+            v-if="!authStore.isStudent"
             :onClick="changeUpdating"
             class="ml-auto flex flex-row p-2 font-semibold text-se-gray-light transition hover:scale-[1.05] hover:text-se-color-light"
           >

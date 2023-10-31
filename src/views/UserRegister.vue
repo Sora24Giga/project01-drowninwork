@@ -12,14 +12,14 @@ import InputText from '@/components/InputText.vue'
 import * as yup from 'yup'
 import { useField, useForm } from 'vee-validate'
 import { useAuthStore } from '@/stores/auth'
-
+import { notify } from '@kyvg/vue3-notification'
 const authStore = useAuthStore()
 const messageStore = useMessageStore()
 const router = useRouter()
 
 const validationSchema = yup.object({
   studentId: yup.string().required('The username is required'),
-  password: yup.string().required('The password is required'),
+  password: yup.string().required('The password is required').min(6, 'Password must be at least 6 characters long'),
   firstname: yup.string().required('The firstname is required'),
   surname: yup.string().required('The surname is required'),
   department: yup.string().required('The department is required')
@@ -58,6 +58,10 @@ const onSubmit = handleSubmit((values) => {
       values.images
     )
     .then(() => {
+      notify({
+        title: 'Authorization',
+        text: 'You have been registered!',
+      })
       console.log('register done')
       emit('forceRerender')
       if(authStore.isStudent){

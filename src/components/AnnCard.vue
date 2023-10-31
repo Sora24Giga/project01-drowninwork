@@ -1,5 +1,5 @@
 <template>
-  <article class="p-4 mb-8 bg-white rounded-xl bg-se-gray ring ring-se-color sm:p-6 lg:p-8">
+  <article class="w-full p-4 mb-8 bg-white rounded-xl bg-se-gray ring ring-se-color sm:p-6 lg:p-8">
     <div class="flex items-start w-full sm:gap-8">
       <div class="w-full">
         <h3 class="text-lg font-medium text-se-white sm:text-xl">

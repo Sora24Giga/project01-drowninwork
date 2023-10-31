@@ -14,6 +14,7 @@ import AdvisorService from '@/services/AdvisorService'
 import CommentService from '@/services/CommentService'
 import type { AxiosResponse } from 'axios'
 import { useAuthStore } from '@/stores/auth'
+import { notify } from '@kyvg/vue3-notification'
 
 const authStore = useAuthStore()
 const updating = ref(false)
@@ -107,6 +108,11 @@ function updateInfo() {
             }
             emit('forceRerender')
             router.go(0)
+            notify({
+              title: 'Registration',
+              text: 'Student has been updated!',
+              type: 'success'
+            })
             // console.log(response.data)
             msgStore.updateMessage('You have successfully update ' + response.data.firstname)
             setTimeout(() => {

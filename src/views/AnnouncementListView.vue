@@ -159,7 +159,7 @@ console.log(keyword.value)
     </header>
 
     <!-- Blog -->
-    <div class="mx-auto max-w-[90%]">
+    <div class="mx-auto w-[90%]">
       <div class="flex flex-row mb-10 ml-auto" v-if="page != 1 || hasNextPage">
         <RouterLink
           :to="{ name: 'announcement', query: { limit: limit, page: page - 1 } }"
