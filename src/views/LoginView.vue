@@ -36,7 +36,11 @@ const onSubmit = handleSubmit((values) => {
     .then(() => {
       console.log('login done')
       emit('forceRerender')
-      router.push({ name: 'studentList' })
+      if(authStore.isStudent){
+        router.push({ name: 'announcement'})
+      } else {
+        router.push({ name: 'studentList' })
+      }
     })
     .catch(() => {
       messageStore.updateMessage('could not login')
@@ -49,7 +53,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] justify-center flex h-full w-full flex-row bg-se-dark text-xs md:text-base lg:ml-[20%] lg:mt-[60px] lg:w-[80%]"
+    class="mb-[2rem] ml-0 mt-[108px] justify-center flex h-full w-full flex-row bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]"
   >
     <div class="w-full lg:w-4/5">
       <header>
@@ -132,7 +136,7 @@ const onSubmit = handleSubmit((values) => {
 
             <p class="mt-4 text-sm text-se-white sm:mt-0">
               Don't have an account yet?
-              <router-link to="/register" class="underline text-se-white">Sign Up</router-link>.
+              <router-link to="/register" class="underline text-se-white hover:text-se-color-light">Sign Up</router-link>.
             </p>
           </div>
         </form>

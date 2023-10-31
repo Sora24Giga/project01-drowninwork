@@ -20,7 +20,7 @@ export const useAuthStore = defineStore('auth', {
     }),
     getters: {
         currentUserName () : string {
-            return this.user?.roles.includes('ROLE_ADMIN') ? 'ADMIN' : this.user?.firstname || ''
+            return this.user?.roles.includes('ROLE_ADMIN') ? 'ADMIN' : this.user?.firstname+' '+this.user?.surname  || ''
         },
         isLoggedIn () : boolean {
             return this.token !== null && this.user !== null

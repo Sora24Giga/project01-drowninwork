@@ -83,9 +83,9 @@ function saveStudent() {
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-col bg-se-dark text-xs md:text-base lg:ml-[20%] lg:mt-[60px] lg:w-[80%]">
+    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-col bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]">
     <header>
-      <div class="max-w-screen-xl py-8 mx-auto lg:ml-16 sm:py-12">
+      <div class="w-[80%] py-8 mx-auto sm:py-12">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">Create a registration</h1>
@@ -96,7 +96,7 @@ function saveStudent() {
       </div>
     </header>
     <form @submit.prevent="saveStudent">
-      <div class="lg:ml-16 lg:mr-64 w-[80%] mx-auto">
+      <div class="w-[80%] mx-auto">
         <!-- StudentId -->
         <label for="StudentId"
           class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1">

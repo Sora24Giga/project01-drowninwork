@@ -13,9 +13,11 @@ export default {
         return apiClient.get<Announcement>('/anns/' + id.toString())
     },
     saveAnnouncement(advisor: Announcement): Promise<AxiosResponse<Announcement>> {
+        console.log('service save')
+        console.log(advisor)
         return apiClient.post<Announcement>('/anns', advisor)
     },
     getAnnouncementsByKeyword(keyword: number, perPage: number, page: number): Promise<AxiosResponse<Announcement[]>> {
-        return apiClient.get<Announcement[]>('/anns?title=' + keyword + '&_limit=' + perPage + '&_page=' + page)
+        return apiClient.get<Announcement[]>('/anns?advisorId=' + keyword + '&_limit=' + perPage + '&_page=' + page)
     }
 }

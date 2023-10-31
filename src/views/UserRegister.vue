@@ -128,7 +128,7 @@ const onSubmit = handleSubmit((values) => {
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-row justify-center bg-se-dark text-xs md:text-base lg:ml-[20%] lg:mt-[60px] lg:w-[80%]"
+    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-row justify-center bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]"
   >
     <div class="w-full lg:w-4/5">
       <header>
@@ -286,8 +286,8 @@ const onSubmit = handleSubmit((values) => {
               </button>
               <p class="mt-4 text-sm text-gray-500 text-se-white sm:mt-0">
                 Already have an account?
-                <router-link to="/login" class="text-gray-700 underline text-se-white"
-                  >LogIn</router-link
+                <router-link to="/login" class="text-gray-700 underline text-se-white hover:text-se-color-light"
+                  >Login</router-link
                 >.
               </p>
             </div>

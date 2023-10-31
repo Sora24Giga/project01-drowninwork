@@ -114,6 +114,7 @@ const router = createRouter({
         const studentStore = useStudentStore()
         StudentService.getStudentsById(id)
           .then((response) => {
+            console.log(response.data)
             studentStore.setStudent(response.data)
             if (response.data.advisor !== null && response.data.advisor.id !== 0) {
               CommentService.getCommentHistoryByKeyword(response.data.advisor.id, response.data.id, 1, 1)
