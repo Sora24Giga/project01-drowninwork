@@ -5,6 +5,8 @@ import { onBeforeRouteUpdate, useRouter } from 'vue-router'
 import AnnService from '@/services/AnnService'
 import AnnCard from '@/components/AnnCard.vue'
 import type { AxiosResponse } from 'axios'
+import { useAuthStore } from '@/stores/auth'
+import StudentService from '@/services/StudentService'
 
 const router = useRouter()
 const anns: Ref<Array<Announcement>> = ref([])
@@ -20,33 +22,99 @@ const props = defineProps({
     required: true
   }
 })
-AnnService.getAnnouncements(props.limit, props.page)
-  .then((response: AxiosResponse<Announcement[]>) => {
-    anns.value = response.data
-    totalAnns.value = response.headers['x-total-count']
-  })
-  .catch(() => {
-    router.push({ name: 'network-error' })
-  })
+const authStore = useAuthStore()
+
+if (authStore.user !== null) {
+  if (authStore.isStudent) {
+    StudentService.getStudentsById(authStore.user?.id)
+      .then((response) => {
+        keyword.value = response.data.advisor.id
+        let queryFunction
+        if (keyword.value === null || keyword.value === 0) {
+          queryFunction = AnnService.getAnnouncements(props.limit, props.page)
+        } else {
+          queryFunction = AnnService.getAnnouncementsByKeyword(
+            keyword.value,
+            props.limit,
+            props.page
+          )
+        }
+        queryFunction
+          .then((response: AxiosResponse<Announcement[]>) => {
+            anns.value = response.data
+            totalAnns.value = response.headers['x-total-count']
+          })
+          .catch(() => {
+            router.push({ name: 'network-error' })
+          })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  } else if (authStore.isTeacher) {
+    keyword.value = authStore.user.id
+    let queryFunction
+    if (keyword.value === null || keyword.value === 0) {
+      queryFunction = AnnService.getAnnouncements(props.limit, props.page)
+    } else {
+      queryFunction = AnnService.getAnnouncementsByKeyword(keyword.value, props.limit, props.page)
+    }
+    queryFunction
+      .then((response: AxiosResponse<Announcement[]>) => {
+        anns.value = response.data
+        totalAnns.value = response.headers['x-total-count']
+      })
+      .catch(() => {
+        router.push({ name: 'network-error' })
+      })
+  }
+}
 
 onBeforeRouteUpdate((to, from, next) => {
   const toPage = Number(to.query.page)
   // eslint-disable-next-line vue/no-setup-props-destructure
   let queryFunction
-  if (keyword.value === null || keyword.value === 0) {
-    queryFunction = AnnService.getAnnouncements(props.limit, toPage)
-  } else {
-    queryFunction = AnnService.getAnnouncementsByKeyword(keyword.value, props.limit, toPage)
+  if (authStore.user !== null) {
+    if (authStore.isStudent) {
+      StudentService.getStudentsById(authStore.user?.id)
+        .then((response) => {
+          keyword.value = response.data.advisor.id
+          if (keyword.value === null || keyword.value === 0) {
+            queryFunction = AnnService.getAnnouncements(props.limit, toPage)
+          } else {
+            queryFunction = AnnService.getAnnouncementsByKeyword(keyword.value, props.limit, toPage)
+          }
+          queryFunction
+            .then((response: AxiosResponse<Announcement[]>) => {
+              anns.value = response.data
+              totalAnns.value = response.headers['x-total-count']
+              next()
+            })
+            .catch(() => {
+              next({ name: 'network-error' })
+            })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    } else if (authStore.isTeacher) {
+      keyword.value = authStore.user.id
+      if (keyword.value === null || keyword.value === 0) {
+        queryFunction = AnnService.getAnnouncements(props.limit, toPage)
+      } else {
+        queryFunction = AnnService.getAnnouncementsByKeyword(keyword.value, props.limit, toPage)
+      }
+      queryFunction
+        .then((response: AxiosResponse<Announcement[]>) => {
+          anns.value = response.data
+          totalAnns.value = response.headers['x-total-count']
+          next()
+        })
+        .catch(() => {
+          next({ name: 'network-error' })
+        })
+    }
   }
-  queryFunction
-    .then((response: AxiosResponse<Announcement[]>) => {
-      anns.value = response.data
-      totalAnns.value = response.headers['x-total-count']
-      next()
-    })
-    .catch(() => {
-      next({ name: 'network-error' })
-    })
 })
 
 const hasNextPage = computed(() => {
@@ -70,11 +138,13 @@ function updateKeyword(value: string) {
       router.push({ name: 'network-error' })
     })
 }
+console.log('keyword ')
+console.log(keyword.value)
 </script>
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-col bg-se-dark text-xs md:text-base lg:ml-[20%] lg:mt-[60px] lg:w-[80%]"
+    class="mb-[2rem] ml-0 mt-[108px] flex h-full flex-col bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px]"
   >
     <header>
       <div class="max-w-screen-xl py-8 mx-auto sm:py-12 lg:ml-16">
@@ -89,8 +159,8 @@ function updateKeyword(value: string) {
     </header>
 
     <!-- Blog -->
-    <div class="ml-16 mr-16">
-      <div class="flex flex-row mb-10 ml-auto">
+    <div class="mx-auto w-[90%]">
+      <div class="flex flex-row mb-10 ml-auto" v-if="page != 1 || hasNextPage">
         <RouterLink
           :to="{ name: 'announcement', query: { limit: limit, page: page - 1 } }"
           rel="prev"

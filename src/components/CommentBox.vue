@@ -14,10 +14,16 @@ const props = defineProps({
     require: true
   },
   advisorName: {
-    type: String
+    type: String,
+    require: true
   },
   adviseeName: {
-    type: String
+    type: String,
+    require: true
+  },
+  advisorView:{
+    type: Boolean,
+    require: true
   }
 })
 
@@ -42,6 +48,7 @@ function saveComment() {
     const timeNow = now.getDate()+'/'+now.getMonth()+'/'+now.getFullYear()+' '+now.getHours()+':'+min
     commentMsg.value.from = props.commentHistory
     commentMsg.value.timeSent = timeNow
+    commentMsg.value.sentFromAdvisor = props.advisorView
     CommentService.saveComment(commentMsg.value)
     .then((response) => {
       console.log("sent")
@@ -67,7 +74,7 @@ function saveComment() {
             v-for="comment in props.commentHistory?.history"
             :key="comment.id"
             :comment="comment"
-            :advisor-view="false"
+            :advisor-view="advisorView"
             :advisorName="advisorName"
             :adviseeName="adviseeName"
           />

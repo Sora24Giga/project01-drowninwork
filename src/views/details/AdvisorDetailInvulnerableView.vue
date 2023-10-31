@@ -15,13 +15,14 @@ const store = useAdvisorStore()
 const msgStore = useMessageStore()
 const advisor = storeToRefs(store).advisor
 const advisorUpdated = ref<AdvisorDetail>({
-  id: 0,
-  academicPosition: '',
-  firstname: '',
-  surname: '',
-  department: '',
-  advisee: [],
-  images: []
+id: 0,
+academicPosition: '',
+firstname: '',
+surname: '',
+department: '',
+advisee: [],
+images: [],
+roles: []
 })
 
 function changeUpdating() {
@@ -70,7 +71,7 @@ function updateInfo(){
 
 <template>
   <div class="mt-[138px] flex justify-center lg:mt-[80px]">
-    <div class="mb-[20px] w-full flex h-full justify-center bg-se-dark lg:ml-[20%]">
+    <div class="mb-[20px] w-full flex h-full justify-center bg-se-dark lg:ml-[17%]">
       <div class="flex w-[90%] lg:w-[60%] min-w-[216px] max-w-[500px] flex-col justify-center">
         <p
             class="h-[60px] w-full self-center bg-[#312f2f3a] py-[15px] text-center font-medium text-se-gray-light shadow-[0_3px_12px_0_rgba(0,0,0,0.2)]">

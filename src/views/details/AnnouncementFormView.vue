@@ -7,10 +7,12 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 
 import BaseInput from '@/components/BaseInput.vue'
 import { ref } from 'vue'
-import { type Announcement } from '@/type'
+import { type AdvisorDetail, type Announcement } from '@/type'
 import AnnService from '@/services/AnnService'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
+import { useAuthStore } from '@/stores/auth'
+import AdvisorService from '@/services/AdvisorService'
 
 const store = useMessageStore()
 const router = useRouter()
@@ -27,16 +29,33 @@ const ann = ref<Announcement>({
   message: '',
   timeSent: '',
   advisor: {
-    id: 1,
     academicPosition: '',
+    advisee: [],
+    images: [],
+    id: 0,
+    studentId: '',
     firstname: '',
     surname: '',
     department: '',
-    advisee: [],
-    images: []
+    roles: [],
+    username: '',
+    password: ''
   },
   files: []
 })
+
+function getAdvisor() {
+  const authStore = useAuthStore()
+  if (authStore.user !== null) {
+    AdvisorService.getAdvisorsById(authStore.user?.id)
+      .then((response) => {
+        ann.value.advisor = response.data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+}
 
 function saveAnn() {
   const now = new Date()
@@ -57,24 +76,35 @@ function saveAnn() {
     console.log(files[i].serverId.slice(9, -2))
     ann.value.files.push(files[i].serverId.slice(9, -2))
   }
-  console.log(ann.value.files)
   ann.value.timeSent = timeNow
-  AnnService.saveAnnouncement(ann.value)
-    .then((response) => {
-      console.log('saved')
-      console.log(response.data)
-      router.push({
-        name: 'announcement'
+  const authStore = useAuthStore()
+  if (authStore.user !== null) {
+    AdvisorService.getAdvisorsById(authStore.user?.id)
+      .then((response) => {
+        ann.value.advisor = response.data
+        console.log('test ann')
+        console.log(ann.value)
+        AnnService.saveAnnouncement(ann.value)
+          .then((response) => {
+            console.log('saved')
+            console.log(response.data)
+            router.push({
+              name: 'announcement'
+            })
+            store.updateMessage('You have successfully added a new announcement')
+            setTimeout(() => {
+              store.restMessage()
+            }, 3000)
+          })
+          .catch((e) => {
+            console.log(e)
+            router.push({ name: 'network-error' })
+          })
       })
-      store.updateMessage('You have successfully added a new announcement')
-      setTimeout(() => {
-        store.restMessage()
-      }, 3000)
-    })
-    .catch((e) => {
-      console.log(e)
-      router.push({ name: 'network-error' })
-    })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 }
 
 function filesChange() {
@@ -91,10 +121,10 @@ function filesChange() {
 
 <template>
   <div
-    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-col bg-se-dark text-xs md:text-base lg:ml-[20%] lg:mt-[60px] lg:w-[80%]"
+    class="mb-[2rem] ml-0 mt-[108px] flex h-full w-full flex-col bg-se-dark text-xs md:text-base lg:ml-[17%] lg:mt-[60px] lg:w-[80%]"
   >
     <header>
-      <div class="max-w-screen-xl py-8 mx-auto sm:py-12 lg:ml-16">
+      <div class="w-[80%] py-8 mx-auto sm:py-12">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-se-white sm:text-3xl">Add Announcement 📣</h1>
@@ -107,7 +137,7 @@ function filesChange() {
 
     <div>
       <form @submit.prevent="saveAnn">
-        <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
+        <div class="mx-auto w-[80%] lg:mx-auto">
           <!-- Header -->
           <label
             for="Title"
@@ -125,7 +155,7 @@ function filesChange() {
           </label>
         </div>
 
-        <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
+        <div class="mx-auto w-[80%] lg:mx-auto">
           <!-- INFO -->
           <label
             for="Info"
@@ -144,7 +174,7 @@ function filesChange() {
           </label>
         </div>
 
-        <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
+        <div class="mx-auto w-[80%] lg:mx-auto">
           <label
             for="Upload"
             class="block px-3 py-2 mb-8 overflow-hidden border border-gray-200 rounded-md shadow-sm focus-within:border-blue-600 focus-within:ring-blue-600 bg-se-black1800 focus-within:ring-1"
@@ -169,7 +199,7 @@ function filesChange() {
           </label>
         </div>
 
-        <div class="mx-auto w-[80%] lg:ml-16 lg:mr-64">
+        <div class="mx-auto w-[80%] lg:mx-auto">
           <button
             class="flex items-center justify-between gap-4 px-5 py-3 transition-colors border border-current rounded-lg group bg-se-black1800 hover:bg-se-color focus:outline-none focus:ring active:bg-se-color-light"
             type="submit"

@@ -5,6 +5,6 @@ Test commit with GitHub Desktop
 Krittayoch Jongchisittikul 642115002
 Poopa Somthawil 642115037
 Changseong Lee 642115501
-.
-.
-Work link = "https://projekt-1de24.firebaseapp.com/?limit=7&page=1"
+
+Frontend = "https://github.com/Sora24Giga/project01-drowninwork"
+Backend = "https://github.com/SE331-2023-project1/project-02-backendproject-01"
